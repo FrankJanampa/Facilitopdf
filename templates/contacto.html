@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Contacto | FacilitoPDF</title>
+
+<style>
+/* RESET */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family: "Segoe UI", sans-serif;
+    color: white;
+    min-height:100vh;
+
+    /* 🔥 TU FONDO ORIGINAL */
+    background:
+        radial-gradient(circle at 10% 85%, rgba(0,0,0,0.95), transparent 70%),
+        radial-gradient(circle at 90% 10%, rgba(255,255,255,0.05), transparent 40%),
+        linear-gradient(to bottom, #1a1a1a 0%, #0a0a0a 100%);
+
+    padding:60px 40px;
+}
+
+/* 🔥 NAVBAR (NUEVO) */
+.navbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:60px;
+}
+
+.nav-logo{
+    font-size:20px;
+    font-weight:600;
+}
+
+.nav-links a{
+    margin-left:20px;
+    text-decoration:none;
+    color: rgba(255,255,255,0.7);
+    font-size:14px;
+}
+
+.navbar a{
+    position: relative;
+}
+
+.navbar a::after{
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+
+    width: 0%;
+    height: 1px;
+    background: white;
+
+    transition: 0.3s ease;
+}
+
+.navbar a:hover::after{
+    width: 100%;
+}
+
+.nav-links a:hover{
+    color:white;
+}
+
+.navbar a{
+    position: relative;
+}
+
+.navbar a::after{
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+
+    width: 0%;
+    height: 1px;
+    background: white;
+
+    transition: 0.3s ease;
+}
+
+.navbar a:hover::after{
+    width: 100%;
+}
+
+/* CONTENEDOR */
+.container{
+    max-width:1100px;
+    margin:auto;
+}
+
+/* HEADER */
+.header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:80px;
+}
+
+.logo{
+    font-size:20px;
+    font-weight:600;
+}
+
+.brand{
+    font-size:12px;
+    opacity:0.6;
+}
+
+/* HERO */
+.hero{
+    max-width:600px;
+    margin-bottom:80px;
+}
+
+.hero p{
+    font-size:20px;
+    line-height:1.6;
+    margin-bottom:20px;
+}
+
+/* EMAIL */
+.email{
+    font-size:22px;
+    font-weight:600;
+    border-bottom:1px solid rgba(255,255,255,0.5);
+    display:inline-block;
+    padding-bottom:5px;
+}
+
+/* GRID */
+.grid{
+    display:grid;
+    grid-template-columns: repeat(4,1fr);
+    gap:40px;
+}
+
+/* BLOQUES */
+.block h4{
+    font-size:13px;
+    margin-bottom:15px;
+    opacity:0.7;
+}
+
+.block p,
+.block a{
+    font-size:14px;
+    line-height:1.6;
+    color:white;
+    text-decoration:none;
+    opacity:0.8;
+}
+
+.block a:hover{
+    opacity:1;
+}
+
+/* FOOTER */
+.footer{
+    margin-top:80px;
+    font-size:12px;
+    text-align:center;
+    opacity:0.6;
+}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+    .grid{
+        grid-template-columns: repeat(2,1fr);
+    }
+}
+
+@media(max-width:600px){
+    body{
+        padding:40px 20px;
+    }
+
+    .grid{
+        grid-template-columns:1fr;
+    }
+
+    .hero p{
+        font-size:18px;
+    }
+}
+</style>
+
+</head>
+
+<body>
+
+<!-- 🔥 NAVBAR (AQUÍ SE AGREGA, NO TOCAR MÁS) -->
+
+<div class="navbar">
+    <div class="nav-logo">FacilitoPDF</div>
+    <div class="nav-links">
+        <a href="/">Inicio</a>
+        <a href="/contacto">Contacto</a>
+        <a href="/about">Nosotros</a>
+    </div>
+</div>
+
+<div class="container">
+
+
+<!-- HERO -->
+<div class="hero">
+    <p>
+        Si desea contratarnos, colaborar, trabajar con nosotros
+        o si necesita una herramienta específica que le ayude a agilizar y
+        potenciar su trabajo, nos interesa conocer su opinión, escríbanos.
+    </p>
+
+    <div class="email">
+        contacto@facilitopdf.com
+    </div>
+</div>
+
+<!-- GRID -->
+<div class="grid">
+
+    <div class="block">
+        <h4>Oficina</h4>
+        <p>Perú<br>Lima<br>Trabajo remoto</p>
+    </div>
+
+    <div class="block">
+        <h4>Contacto</h4>
+        <p>contacto@facilitopdf.com</p>
+        <p>Respuesta en 24h</p>
+    </div>
+
+    <div class="block">
+        <h4>Servicios</h4>
+        <p>Desarrollo web</p>
+        <p>Automatización</p>
+        <p>Herramientas PDF</p>
+    </div>
+
+    <div class="block">
+        <h4>Redes</h4>
+        <a href="#">LinkedIn</a><br>
+        <a href="#">Twitter</a><br>
+        <a href="#">GitHub</a>
+    </div>
+
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+    Última actualización: 2026
+    <span style="margin: 0 30px;">·</span>
+    Facilito Labs   by fjanampa
+</div>
+
+</div>
+
+</body>
+</html>

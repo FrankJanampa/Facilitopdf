@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FacilitoPDF</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<nav class="navbar">
+    <div class="logo">FacilitoPDF</div>
+
+    <div class="menu">
+        <a href="#">Inicio</a>
+        <a href="{{ url_for('contacto') }}">Contacto</a>
+        <a href="/about">Nosotros</a>
+    </div>
+</nav>
+
+<div class="hero">
+
+    <!-- 🔥 CONTENEDOR PRINCIPAL -->
+    <div class="hero-main">
+
+        <!-- IZQUIERDA -->
+        <div class="content">
+            <h1>FacilitoPDF</h1>
+            <p>FacilitoPDF es una plataforma que te permite trabajar con archivos PDF de forma rápida, simple y sin complicaciones.Tus archivos se procesan de forma automática y no se almacenan permanentemente.</p>
+
+            <div class="dynamic-text">
+                <span id="changing-text">Sin instalación</span>
+            </div>
+        </div>
+
+        <!-- DERECHA -->
+        <div class="cards">
+
+            <div class="card" onclick="openTool('split')">
+                <img src="{{ url_for('static', filename='icons/dividir.png') }}">
+                <span>Dividir</span>
+            </div>
+
+            <div class="card" onclick="openTool('extract')">
+                <img src="{{ url_for('static', filename='icons/extraer.png') }}">
+                <span>Extraer</span>
+            </div>
+
+            <div class="card" onclick="openTool('order')">
+                <img src="{{ url_for('static', filename='icons/ordenar.png') }}">
+                <span>Ordenar</span>
+            </div>
+
+            <div class="card" onclick="openTool('sign')">
+                <img src="{{ url_for('static', filename='icons/firmar.png') }}">
+                <span>Firmar</span>
+            </div>
+
+            <div class="card" onclick="openTool('merge')">
+                <img src="{{ url_for('static', filename='icons/unir.png') }}">
+                <span>Unir</span>
+            </div>
+
+            <div class="card" onclick="openTool('compress')">
+                <img src="{{ url_for('static', filename='icons/comprimir.png') }}">
+                <span>Comprimir</span>
+            </div>
+
+        </div> <!-- CIERRE CARDS -->
+
+    </div> <!-- 🔥 CIERRE HERO-MAIN -->
+
+    <!-- 🔥 FOOTER -->
+    <footer class="footer">
+        <a href="/terms">Términos de uso</a>
+        <span style="margin-left: 30px;"></span>
+        <a href="/about">© 2026 Facilito Labs · by fjanampa</a>
+        <span style="margin-left: 30px;"></span>
+        <a href="/privacy">Política de privacidad</a>
+    </footer>
+
+</div> <!-- CIERRE HERO -->
+
+
+<!-- 🔥 MODAL (FUERA DEL HERO, MUY IMPORTANTE) -->
+<div id="tool-overlay" class="tool-overlay">
+    <div id="tool-panel" class="tool-panel"></div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+<script src="{{ url_for('static', filename='tools/extract.js') }}"></script>
+<script src="{{ url_for('static', filename='tools/order.js') }}"></script>
+<script src="{{ url_for('static', filename='tools/sign.js') }}"></script>
+<script src="{{ url_for('static', filename='tools/split.js') }}"></script>
+<script src="{{ url_for('static', filename='tools/merge.js') }}"></script>
+<script src="{{ url_for('static', filename='tools/compress.js') }}"></script>
+<script src="{{ url_for('static', filename='tools/pdfword.js') }}"></script>
+<script>
+
+function openTool(tool){
+
+    const overlay = document.getElementById("tool-overlay");
+    const panel = document.getElementById("tool-panel");
+
+    overlay.classList.add("active");
+
+    // 🔥 limpiar SIEMPRE
+    panel.innerHTML = "";
+
+    // 🔥 SPLIT
+    if(tool === "split"){
+        renderSplit(panel);
+    }
+
+    // 🔥 EXTRACT
+    if(tool === "extract"){
+        renderExtract(panel);
+    }
+
+    // 🔥 ORDER
+    if(tool === "order"){
+        renderOrder(panel);
+    }
+
+    if(tool === "sign"){
+    renderSign(panel);
+    }
+
+    // 🔥 MERGE
+    if(tool === "merge"){
+        renderMerge(panel);
+    }
+
+    // 🔥 COMPRRESS
+    if(tool === "compress"){
+        renderCompress(panel);
+
+    }
+
+    // 🔥 MPDFWORD
+    if(tool === "pdfword"){
+        renderPdfword(panel);
+
+    }
+
+}
+
+//////////////////////////////////////////////////
+// 🔥 SPLIT
+//////////////////////////////////////////////////
+
+function submitSplit(){
+
+    const input = document.getElementById("split-files");
+
+    if(!input.files.length){
+        alert("Selecciona al menos un PDF");
+        return;
+    }
+
+    const formData = new FormData();
+
+    for(let file of input.files){
+        formData.append("pdfs", file);
+    }
+
+    fetch("/split", {
+        method: "POST",
+        body: formData
+    })
+    .then(res => res.blob())
+    .then(blob => {
+        const url = window.URL.createObjectURL(blob);
+
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = "pdfs_divididos.zip";
+        a.click();
+    });
+
+}
+
+//////////////////////////////////////////////////
+// 🔥 EXTRACT
+//////////////////////////////////////////////////
+
+function submitExtract(){
+
+    const file = document.getElementById("extract-file").files[0];
+    const pages = document.getElementById("pages").value;
+
+    if(!file){
+        alert("Selecciona un PDF");
+        return;
+    }
+
+    const formData = new FormData();
+    formData.append("pdf", file);
+    formData.append("pages", pages);
+
+    fetch("/extract/process", {
+        method: "POST",
+        body: formData
+    })
+    .then(res => res.blob())
+    .then(blob => {
+        const url = window.URL.createObjectURL(blob);
+
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = "extraido.pdf";
+        a.click();
+    });
+
+}
+
+//////////////////////////////////////////////////
+// 🔥 ORDER
+//////////////////////////////////////////////////
+
+function submitOrder(){
+
+    const file = document.getElementById("order-file").files[0];
+    const order = document.getElementById("order-input").value;
+
+    if(!file){
+        alert("Selecciona un PDF");
+        return;
+    }
+
+    const formData = new FormData();
+    formData.append("pdf", file);
+    formData.append("order", order);
+
+    fetch("/order", {
+        method: "POST",
+        body: formData
+    })
+    .then(res => res.blob())
+    .then(blob => {
+        const url = window.URL.createObjectURL(blob);
+
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = "ordenado.pdf";
+        a.click();
+    });
+
+}
+
+//////////////////////////////////////////////////
+// 🔥 SIGN
+//////////////////////////////////////////////////
+
+function submitSign(){
+
+    const pdf = document.getElementById("sign-pdf").files[0];
+    const img = document.getElementById("sign-img").files[0];
+
+    if(!pdf || !img){
+        alert("Sube PDF y firma");
+        return;
+    }
+
+    const formData = new FormData();
+    formData.append("pdf", pdf);
+    formData.append("signature_image", img);
+    formData.append("signatures", '[{"page":1,"x":100,"y":100,"width":150}]');
+
+    fetch("/sign/process", {
+        method: "POST",
+        body: formData
+    })
+    .then(res => res.blob())
+    .then(blob => {
+        const url = window.URL.createObjectURL(blob);
+
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = "firmado.pdf";
+        a.click();
+    });
+
+}
+
+//////////////////////////////////////////////////
+// 🔥 MERGE
+//////////////////////////////////////////////////
+
+function submitMerge(){
+
+    const status = document.getElementById("merge-status");
+    const button = document.getElementById("merge-btn");
+
+    if(mergeFiles.length === 0){
+        alert("Selecciona al menos un PDF");
+        return;
+    }
+
+    const formData = new FormData();
+
+    for(let file of mergeFiles){
+        formData.append("pdfs", file);
+    }
+
+    button.disabled = true;
+    button.innerText = "Procesando...";
+    status.textContent = "Procesando...";
+
+    fetch("/merge-pdf", {
+        method: "POST",
+        body: formData
+    })
+    .then(res => res.blob())
+    .then(blob => {
+
+        status.textContent = "Descargando...";
+
+        const url = URL.createObjectURL(blob);
+
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = "pdf_unido.pdf";
+        a.click();
+
+        button.disabled = false;
+        button.innerText = "Descargar";
+
+        setTimeout(()=>{
+            status.textContent = "";
+        }, 2000);
+    })
+    .catch(()=>{
+        status.textContent = "Error al unir";
+        button.disabled = false;
+        button.innerText = "Descargar";
+    });
+}
+
+//////////////////////////////////////////////////
+// 🔥 COMPRESS
+//////////////////////////////////////////////////
+
+function submitCompress(){
+
+    const status = document.getElementById("compress-status");
+    const button = document.getElementById("compress-btn");
+
+    if(compressFiles.length === 0){
+        alert("Selecciona al menos un PDF");
+        return;
+    }
+
+    const formData = new FormData();
+
+    let totalSize = 0;
+    for(let file of compressFiles){
+        formData.append("files", file);
+        totalSize += file.size; // 🔥 tamaño original
+    }
+
+    button.disabled = true;
+    button.innerText = "Procesando...";
+    status.textContent = "Procesando...";
+
+    // 🔥 progreso visual (no afecta lógica)
+    let progress = 0;
+
+    const interval = setInterval(() => {
+        progress += Math.random() * 6;
+
+        if(progress < 95){
+            status.textContent = "Comprimiendo... " + Math.floor(progress) + "%";
+        }
+    }, 500);
+
+    fetch("/compress", {
+        method: "POST",
+        body: formData
+    })
+    .then(res => res.blob())
+    .then(blob => {
+
+        clearInterval(interval);
+
+        // 🔥 calcular tamaños
+        const originalMB = (totalSize / (1024 * 1024)).toFixed(1);
+        const finalMB = (blob.size / (1024 * 1024)).toFixed(1);
+
+        const reduction = Math.round(
+            (1 - (blob.size / totalSize)) * 100
+        );
+
+        status.textContent = `Listo: ${originalMB}MB → ${finalMB}MB (-${reduction}%)`;
+
+        const url = URL.createObjectURL(blob);
+
+        // 🔥 mantener nombre original
+        const originalName = compressFiles[0].name.replace(".pdf", "");
+        const filename = compressFiles.length === 1
+            ? `${originalName}_facilitopdf.compress.pdf`
+            : "facilitopdf_compressed.zip";
+
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = filename;
+        a.click();
+
+        button.disabled = false;
+        button.innerText = "Comprimir";
+
+        setTimeout(()=>{
+            status.textContent = "";
+        }, 3000);
+    })
+    .catch(()=>{
+        clearInterval(interval);
+
+        status.textContent = "Error al comprimir";
+        button.disabled = false;
+        button.innerText = "Comprimir";
+    });
+}
+//////////////////////////////////////////////////
+// 🔥 PDFWORD
+//////////////////////////////////////////////////
+
+function submitPdfWord(){
+
+    const status = document.getElementById("pdfword-status");
+    const button = document.getElementById("pdfword-btn");
+
+    if(pdfWordFiles.length === 0){
+        alert("Selecciona al menos un PDF");
+        return;
+    }
+
+    const formData = new FormData();
+
+    for(let file of pdfWordFiles){
+        formData.append("files", file);
+    }
+
+    button.disabled = true;
+    button.innerText = "Procesando...";
+    status.textContent = "Convirtiendo...";
+
+    fetch("/pdf-to-word", {
+        method: "POST",
+        body: formData
+    })
+    .then(res => res.blob())
+    .then(blob => {
+
+        status.textContent = "Descargando...";
+
+        const url = URL.createObjectURL(blob);
+
+        const originalName = pdfWordFiles[0].name.replace(".pdf", "");
+
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = `${originalName}_facilitopdf.docx`;
+        a.click();
+
+        button.disabled = false;
+        button.innerText = "Convertir";
+
+        setTimeout(()=>{
+            status.textContent = "";
+        }, 2000);
+    })
+    .catch(()=>{
+        status.textContent = "Error en conversión";
+        button.disabled = false;
+        button.innerText = "Convertir";
+    });
+}
+
+function openAbout(){
+
+    const overlay = document.getElementById("tool-overlay");
+    const panel = document.getElementById("tool-panel");
+
+    overlay.classList.add("active");
+
+    panel.innerHTML = `
+        <h3>Sobre FacilitoPDF</h3>
+
+        <p style="margin-top:10px; line-height:1.5;">
+        FacilitoPDF es una herramienta diseñada para simplificar el trabajo con archivos PDF.
+        Nuestro objetivo es ofrecer una experiencia rápida, intuitiva y accesible para todos.
+        </p>
+
+        <br>
+        <button onclick="closePanel()">Cerrar</button>
+    `;
+}
+
+function closePanel(){
+    document.getElementById("tool-overlay").classList.remove("active");
+}
+
+//////////////////////////////////////////////////
+// 🔥 CIERRE MODAL
+//////////////////////////////////////////////////
+
+document.getElementById("tool-overlay").addEventListener("click", function(e){
+    if(e.target === this){
+        this.classList.remove("active");
+    }
+});
+
+document.addEventListener("keydown", function(e){
+    if(e.key === "Escape"){
+        document.getElementById("tool-overlay").classList.remove("active");
+    }
+});
+
+//////////////////////////////////////////////////
+// 🔥 CLICK DROP ZONE
+//////////////////////////////////////////////////
+
+document.addEventListener("click", function(e){
+    if(e.target.classList.contains("drop-zone")){
+        const input = e.target.querySelector("input");
+        if(input) input.click();
+    }
+});
+
+const texts = [
+    "Con facilitoPDF todo es facilito",
+    "Sin instalación",
+    "Rápido y seguro",
+    "Hazlo rápido… antes que te lo vuelvan a pedir",
+    "Tu informe de rendición te lo agradecerá",
+    "Firma tu informe, no tienes excusa",
+    "En 3 clics ya tienes el PDF...",
+    "No mandes el correo sin adjuntarlo",
+    "de nuevo... XD",
+    "Comparte el link de FacilitoPDF",
+    "Ayúdanos a ayudar",
+];
+
+let index = 0;
+const el = document.getElementById("changing-text");
+
+setInterval(() => {
+    if(!el) return;
+
+    el.style.opacity = 0;
+
+    setTimeout(() => {
+        index = (index + 1) % texts.length;
+        el.textContent = texts[index];
+        el.style.opacity = 1;
+    }, 300);
+
+}, 2500);
+
+</script>
+</body>
+</html>

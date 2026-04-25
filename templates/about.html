@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Nosotros | Facilito Labs</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family: "Segoe UI", sans-serif;
+    color: white;
+    min-height:100vh;
+
+    background:
+        radial-gradient(circle at 10% 85%, rgba(0,0,0,0.95), transparent 70%),
+        radial-gradient(circle at 90% 10%, rgba(255,255,255,0.05), transparent 40%),
+        linear-gradient(to bottom, #1a1a1a 0%, #0a0a0a 100%);
+
+    padding:60px 40px;
+}
+
+/* NAVBAR */
+.navbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:60px;
+}
+
+.nav-logo{
+    font-size:20px;
+    font-weight:600;
+}
+
+.nav-links a{
+    margin-left:20px;
+    text-decoration:none;
+    color: rgba(255,255,255,0.7);
+    font-size:14px;
+}
+
+.navbar a{
+    position: relative;
+}
+
+.navbar a::after{
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+
+    width: 0%;
+    height: 1px;
+    background: white;
+
+    transition: 0.3s ease;
+}
+
+.navbar a:hover::after{
+    width: 100%;
+}
+
+.nav-links a:hover{
+    color:white;
+}
+
+/* CONTENEDOR */
+.container{
+    max-width:1100px;
+    margin:auto;
+}
+
+/* HERO */
+.hero{
+    max-width:700px;
+    margin-bottom:60px;
+}
+
+.hero h1{
+    font-size:34px;
+    margin-bottom:15px;
+}
+
+.hero p{
+    font-size:18px;
+    line-height:1.6;
+    opacity:0.9;
+}
+
+/* GRID */
+.grid{
+    display:grid;
+    grid-template-columns: repeat(2,1fr);
+    gap:40px;
+}
+
+/* BLOQUES */
+.block{
+    background: rgba(255,255,255,0.03);
+    padding:25px;
+    border-radius:12px;
+}
+
+.block h2{
+    font-size:16px;
+    margin-bottom:10px;
+    opacity:0.8;
+}
+
+.block p{
+    font-size:14px;
+    line-height:1.7;
+    opacity:0.9;
+}
+
+/* FOOTER */
+.footer{
+    margin-top:80px;
+    font-size:12px;
+    text-align:center;
+    opacity:0.6;
+}
+
+/* RESPONSIVE */
+@media(max-width:800px){
+    .grid{
+        grid-template-columns:1fr;
+    }
+}
+</style>
+
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<div class="navbar">
+    <div class="nav-logo">FacilitoPDF</div>
+    <div class="nav-links">
+        <a href="{{ url_for('index') }}">Inicio</a>
+        <a href="{{ url_for('contacto') }}">Contacto</a>
+        <a href="{{ url_for('about') }}">Nosotros</a>
+    </div>
+</div>
+
+<div class="container">
+
+<!-- HERO -->
+<div class="hero">
+    <h1>Nosotros</h1>
+    <p>
+        Creamos herramientas que simplifican lo complejo. En Facilito Labs diseñamos
+        soluciones digitales pensadas para ahorrar tiempo, reducir fricción y hacer
+        que la tecnología trabaje a favor de las personas.
+    </p>
+</div>
+
+<!-- GRID -->
+<div class="grid">
+
+    <div class="block">
+        <h2>Qué hacemos</h2>
+        <p>
+            Desarrollamos aplicaciones web, automatizaciones y herramientas prácticas
+            que resuelven problemas reales. Nos enfocamos en construir productos simples,
+            rápidos y accesibles.
+        </p>
+    </div>
+
+    <div class="block">
+        <h2>Nuestro enfoque</h2>
+        <p>
+            Creemos que la mejor tecnología es la que no se siente complicada. Diseñamos
+            experiencias claras, directas y funcionales, donde cada elemento tiene un propósito.
+        </p>
+    </div>
+
+    <div class="block">
+        <h2>Por qué lo hacemos</h2>
+        <p>
+            Sabemos que muchas personas pierden tiempo en procesos innecesarios, repetitivas o herramientas
+            complejas. Ese tiempo importa. Nuestro objetivo es transformarlo en productividad,
+            aprendizaje y oportunidades reales.
+        </p>
+    </div>
+
+    <div class="block">
+        <h2>Hacia dónde vamos</h2>
+        <p>
+            Buscamos construir soluciones digitales que acompañen a las personas en su trabajo,
+            en su aprendizaje y en su crecimiento. Tecnología simple, con impacto real.
+        </p>
+    </div>
+
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+    Última actualización: 2026
+    <span style="margin: 0 30px;">·</span>
+    Facilito Labs  by fjanampa
+</div>
+
+
+</div>
+
+</body>
+</html>
