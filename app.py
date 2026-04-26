@@ -454,3 +454,18 @@ def contacto():
 @app.route("/")
 def index():
     return render_template("index.html")
+@app.route("/blog")
+def blog():
+    return render_template("blog.html")
+
+@app.route("/blog/guia")
+def blog_guia():
+    return render_template("blog_guia.html")
+
+@app.route("/blog/seguridad")
+def blog_seguridad():
+    return render_template("blog_seguridad.html")
+
+@app.route("/blog/productividad")
+def blog_productividad():
+    return render_template("blog_productividad.html")
