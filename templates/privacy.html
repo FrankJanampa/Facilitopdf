@@ -126,9 +126,33 @@ body{
     width: 100%;
 }
 
+.navbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:60px;
+}
+
+.nav-logo{
+    font-size:20px;
+    font-weight:600;
+}
+
+.nav-links a{
+    margin-left:20px;
+    text-decoration:none;
+    color: rgba(255,255,255,0.7);  /* 🔥 quita azul */
+    font-size:14px;
+}
+
+.nav-links a:hover{
+    color:white;
+}
+/* FOOTER */
 .footer{
     margin-top:80px;
     font-size:12px;
+    text-align:center;
     opacity:0.6;
 }
 
@@ -143,13 +167,16 @@ body{
 
 <body>
 
-<div class="container">
-
-    <!-- HEADER -->
-    <div class="header">
-        <div class="logo">FacilitoPDF</div>
-        <div class="brand">Facilito Labs · by fjanampa</div>
+<div class="navbar">
+    <div class="nav-logo">FacilitoPDF</div>
+    <div class="nav-links">
+        <a href="{{ url_for('index') }}">Inicio</a>
+        <a href="{{ url_for('contacto') }}">Contacto</a>
+        <a href="{{ url_for('about') }}">Nosotros</a>
     </div>
+</div>
+
+<div class="container">
 
     <!-- HERO -->
     <div class="hero">
@@ -183,8 +210,19 @@ body{
         <div class="block">
             <h2>Cookies y analítica</h2>
             <p>
-                Utilizamos cookies para mejorar la experiencia del usuario, medir uso del sitio
-                y optimizar el rendimiento.
+                Utilizamos cookies y tecnologías similares para mejorar la experiencia del usuario,
+                analizar el uso del sitio y optimizar su funcionamiento.
+            </p>
+            <p>
+                Estas cookies pueden recopilar información anónima sobre la navegación, como páginas visitadas,
+                tiempo de uso y tipo de dispositivo.
+            </p>
+            <p>
+                También podemos utilizar cookies de terceros, como Google AdSense, para mostrar anuncios relevantes
+                basados en tus intereses.
+            </p>
+            <p>
+                Puedes gestionar o desactivar el uso de cookies desde la configuración de tu navegador.
             </p>
         </div>
 
@@ -232,10 +270,12 @@ body{
 
     </div>
 
-    <!-- FOOTER -->
-    <div class="footer">
-        Última actualización: 2026
-    </div>
+<!-- FOOTER -->
+<div class="footer">
+    Última actualización: 2026
+    <span style="margin: 0 30px;">·</span>
+    Facilito Labs  by fjanampa
+</div>
 
 </div>
 

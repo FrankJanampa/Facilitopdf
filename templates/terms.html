@@ -175,9 +175,9 @@ body{
 <div class="navbar">
     <div class="nav-logo">FacilitoPDF</div>
     <div class="nav-links">
-        <a href="/">Inicio</a>
-        <a href="/privacy">Privacidad</a>
-        <a href="/contact">Contacto</a>
+        <a href="{{ url_for('index') }}">Inicio</a>
+        <a href="{{ url_for('contacto') }}">Contacto</a>
+        <a href="{{ url_for('about') }}">Nosotros</a>
     </div>
 </div>
 
