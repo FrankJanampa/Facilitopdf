@@ -469,3 +469,8 @@ def blog_seguridad():
 @app.route("/blog/productividad")
 def blog_productividad():
     return render_template("blog_productividad.html")
+from flask import send_from_directory
+
+@app.route('/ads.txt')
+def ads():
+    return send_from_directory('static', 'ads.txt')
