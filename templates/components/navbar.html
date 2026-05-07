@@ -1,0 +1,108 @@
+<!-- 🔥 NAVBAR -->
+
+<nav class="navbar">
+
+    <div class="logo">
+        FacilitoPDF
+    </div>
+
+    <div class="menu">
+
+        <a href="/">Inicio</a>
+
+        <a href="/plantillas">Plantillas</a>
+
+        <a href="/recursos">Recursos</a>
+
+        <a href="/contacto">Contacto</a>
+
+        <a href="/about">Nosotros</a>
+
+    </div>
+
+</nav>
+
+<style>
+
+/* =========================
+   🔥 NAVBAR GLOBAL
+========================= */
+
+.navbar {
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 20px 40px;
+
+    background: transparent;
+
+    box-sizing: border-box;
+}
+
+/* LOGO */
+
+.logo {
+
+    font-size: 20px;
+    font-weight: 600;
+
+    color: white;
+}
+
+/* MENU */
+
+.menu {
+
+    display: flex;
+    gap: 25px;
+}
+
+/* LINKS */
+
+.menu a {
+
+    position: relative;
+
+    text-decoration: none;
+
+    color: rgba(255,255,255,0.85);
+
+    font-size: 14px;
+
+    transition: color 0.3s ease;
+}
+
+/* 🔥 LÍNEA */
+
+.menu a::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    bottom: -4px;
+
+    width: 0%;
+    height: 2px;
+
+    background: white;
+
+    transition: width 0.3s ease;
+}
+
+/* 🔥 HOVER */
+
+.menu a:hover {
+
+    color: white;
+}
+
+.menu a:hover::after {
+
+    width: 100%;
+}
+
+</style>

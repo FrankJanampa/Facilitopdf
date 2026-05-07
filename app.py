@@ -10,6 +10,12 @@ import uuid
 
 app = Flask(__name__)
 
+from routes.tools import tools_bp
+from routes.blog import blog_bp
+
+app.register_blueprint(tools_bp)
+app.register_blueprint(blog_bp)
+
 app.config["MAX_CONTENT_LENGTH"] = 100 * 1024 * 1024
 
 @app.route("/")
@@ -471,6 +477,3 @@ def blog_productividad():
     return render_template("blog_productividad.html")
 from flask import send_from_directory
 
-@app.route('/ads.txt')
-def ads():
-    return send_from_directory('static', 'ads.txt')

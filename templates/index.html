@@ -26,10 +26,11 @@
     <div class="logo">FacilitoPDF</div>
 
     <div class="menu">
-        <a href="#">Inicio</a>
+        <a href="/">Inicio</a>
+        <a href="/plantillas">Plantillas</a>
+        <a href="/recursos">Recursos</a>
         <a href="{{ url_for('contacto') }}">Contacto</a>
         <a href="/about">Nosotros</a>
-        <a href="{{ url_for('blog') }}">Blog</a>
     </div>
 </nav>
 
@@ -85,16 +86,76 @@
 
     </div> <!-- 🔥 CIERRE HERO-MAIN -->
 
+</div> <!-- CIERRE HERO -->
+
+    <!-- 🔥 BLOQUE 2: ARTÍCULOS -->
+    <section class="bloque-articulos">
+
+      <h2>Explorar recursos relacionados</h2>
+      <p class="intro-articulos">
+        Muchas veces perdemos horas y horas con problemas digitales simples.
+        Descubre, a través de estos breves artículos, trucos útiles para evitar errores y el estrés frente a un PDF.
+        Cada lectura también ayuda a que sigamos creciendo y creando herramientas gratuitas para más personas.
+        <strong>¡Danos un click!</strong>
+      </p>
+      <div class="articulos-grid">
+
+        <a href="/blog/el-error" class="articulo-card">
+          <img src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=crop&w=1200&q=80" alt="documentos y trabajo digital">
+          <h3>El error con PDFs que hace perder oportunidades y trabajos (casi nadie lo nota)</h3>
+          <p>Descubre el detalle invisible que puede arruinar tu CV o documentos importantes.</p>
+          <span>Ver artículo →</span>
+        </a>
+
+        <a href="/blog/trucos-secretos" class="articulo-card">
+          <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6" alt="tecnología y documentos digitales">
+          <h3>10 trucos secretos para trabajar con PDFs</h3>
+          <p>Descubre herramientas y atajos que te harán ahorrar horas de trabajo con documentos PDF.</p>
+          <span>Ver artículo →</span>
+        </a>
+
+        <a href="/articulos/7-cosas-pdf" class="articulo-card">
+          <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c" alt="programación y tecnología escritorio">
+          <h3>7 cosas que debes saber antes de subir tus PDF</h3>
+          <p>Aprende cómo optimizar, proteger y mejorar la experiencia al compartir documentos PDF en la web.</p>
+          <span>Ver artículo →</span>
+        </a>
+
+        <a href="/blog/usa-mal-celular" class="articulo-card">
+          <img src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df" alt="uso de pdf en celular">
+          <h3>La mayoría usa mal los PDFs en el celular</h3>
+          <p>Errores comunes al escanear y enviar documentos desde el móvil.</p>
+          <span>Ver artículo →</span>
+        </a>
+
+        <a href="/blog/crei-haber-enviado" class="articulo-card">
+          <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1200&q=80" alt="problemas al enviar documentos pdf">
+          <h3>Creí que mi PDF se había enviado… pero nunca llegó</h3>
+          <p>El error invisible que puede hacerte perder oportunidades sin que te des cuenta.</p>
+          <span>Ver artículo →</span>
+        </a>
+
+        <a href="/blog/perdi-una-hora-intentando" class="articulo-card">
+          <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f" alt="estrés con documentos pdf">
+          <h3>Perdí una hora intentando enviar un PDF… hasta que descubrí esto</h3>
+          <p>El error común que hace perder tiempo al enviar documentos y cómo evitarlo.</p>
+          <span>Ver artículo →</span>
+        </a>
+
+      </div>
+
+    </section>
+
+    {% include "components/trucos.html" %}
+
     <!-- 🔥 FOOTER -->
     <footer class="footer">
         <a href="/terms">Términos de uso</a>
         <span style="margin-left: 30px;"></span>
-        <a href="/about">© 2026 Facilito Labs · by fjanampa</a>
+        <a href="/about">© 2026 Nexia Labs · FJP</a>
         <span style="margin-left: 30px;"></span>
         <a href="/privacy">Política de privacidad</a>
     </footer>
-
-</div> <!-- CIERRE HERO -->
 
 
 <!-- 🔥 MODAL (FUERA DEL HERO, MUY IMPORTANTE) -->

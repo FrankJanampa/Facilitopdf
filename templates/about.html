@@ -1,216 +1,326 @@
 <!DOCTYPE html>
-
 <html lang="es">
 <head>
+
 <meta charset="UTF-8">
-<title>Nosotros | Facilito Labs</title>
+
+<title>Nosotros | FacilitoPDF</title>
+
+<meta name="description" content="Conoce más sobre FacilitoPDF, nuestra visión y cómo desarrollamos herramientas enfocadas en productividad, automatización y documentos digitales.">
+
+<link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 
 <style>
+
+/* =========================
+   🔥 RESET
+========================= */
+
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
 }
 
+/* =========================
+   🔥 BODY
+========================= */
+
 body{
-    font-family: "Segoe UI", sans-serif;
-    color: white;
-    min-height:100vh;
+
+    font-family:system-ui,-apple-system,sans-serif;
 
     background:
-        radial-gradient(circle at 10% 85%, rgba(0,0,0,0.95), transparent 70%),
-        radial-gradient(circle at 90% 10%, rgba(255,255,255,0.05), transparent 40%),
-        linear-gradient(to bottom, #1a1a1a 0%, #0a0a0a 100%);
+    radial-gradient(circle at top left, rgba(255,255,255,0.04), transparent 30%),
+    linear-gradient(to bottom, #111, #050505);
 
-    padding:60px 40px;
-}
-
-/* NAVBAR */
-.navbar{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    margin-bottom:60px;
-}
-
-.nav-logo{
-    font-size:20px;
-    font-weight:600;
-}
-
-.nav-links a{
-    margin-left:20px;
-    text-decoration:none;
-    color: rgba(255,255,255,0.7);
-    font-size:14px;
-}
-
-.navbar a{
-    position: relative;
-}
-
-.navbar a::after{
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: -4px;
-
-    width: 0%;
-    height: 1px;
-    background: white;
-
-    transition: 0.3s ease;
-}
-
-.navbar a:hover::after{
-    width: 100%;
-}
-
-.nav-links a:hover{
     color:white;
+
+    min-height:100vh;
 }
 
-/* CONTENEDOR */
-.container{
-    max-width:1100px;
+/* =========================
+   🔥 CONTENEDOR
+========================= */
+
+.content{
+
+    max-width:1250px;
+
     margin:auto;
+
+    padding:40px 20px 100px;
 }
 
-/* HERO */
-.hero{
-    max-width:700px;
-    margin-bottom:60px;
+/* =========================
+   🔥 CARD PRINCIPAL
+========================= */
+
+.about-card{
+
+    margin-top:40px;
+
+    background:rgba(255,255,255,0.04);
+
+    border-radius:30px;
+
+    padding:45px;
+
+    border:1px solid rgba(255,255,255,0.06);
+
+    box-shadow:0 10px 40px rgba(0,0,0,0.25);
 }
 
-.hero h1{
-    font-size:34px;
-    margin-bottom:15px;
+/* =========================
+   🔥 HEADER
+========================= */
+
+.about-header{
+
+    margin-bottom:35px;
 }
 
-.hero p{
+.about-header h1{
+
+    font-size:54px;
+
+    margin-bottom:22px;
+}
+
+.about-header p{
+
+    max-width:920px;
+
+    line-height:1.95;
+
     font-size:18px;
-    line-height:1.6;
-    opacity:0.9;
+
+    color:rgba(255,255,255,0.78);
+
+    margin-bottom:18px;
 }
 
-/* GRID */
-.grid{
+/* =========================
+   🔥 GRID
+========================= */
+
+.about-grid{
+
     display:grid;
-    grid-template-columns: repeat(2,1fr);
-    gap:40px;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:22px;
+
+    margin-top:40px;
 }
 
-/* BLOQUES */
-.block{
-    background: rgba(255,255,255,0.03);
-    padding:25px;
-    border-radius:12px;
+/* CARD */
+
+.about-box{
+
+    background:rgba(255,255,255,0.03);
+
+    border:1px solid rgba(255,255,255,0.05);
+
+    border-radius:22px;
+
+    padding:28px;
+
+    transition:0.3s ease;
 }
 
-.block h2{
+.about-box:hover{
+
+    transform:translateY(-4px);
+
+    background:rgba(255,255,255,0.06);
+}
+
+.about-box h3{
+
+    font-size:22px;
+
+    margin-bottom:14px;
+}
+
+.about-box p{
+
+    line-height:1.85;
+
+    color:rgba(255,255,255,0.74);
+
+    font-size:15px;
+}
+
+/* =========================
+   🔥 BLOQUE FINAL
+========================= */
+
+.final-section{
+
+    margin-top:70px;
+
+    background:rgba(255,255,255,0.03);
+
+    border:1px solid rgba(255,255,255,0.06);
+
+    border-radius:28px;
+
+    padding:40px;
+}
+
+.final-section h2{
+
+    font-size:34px;
+
+    margin-bottom:18px;
+}
+
+.final-section p{
+
+    max-width:900px;
+
+    line-height:1.9;
+
+    color:rgba(255,255,255,0.75);
+
     font-size:16px;
-    margin-bottom:10px;
-    opacity:0.8;
 }
 
-.block p{
-    font-size:14px;
-    line-height:1.7;
-    opacity:0.9;
-}
+/* =========================
+   🔥 RESPONSIVE
+========================= */
 
-/* FOOTER */
-.footer{
-    margin-top:80px;
-    font-size:12px;
-    text-align:center;
-    opacity:0.6;
-}
+@media(max-width:950px){
 
-/* RESPONSIVE */
-@media(max-width:800px){
-    .grid{
+    .about-grid{
+
         grid-template-columns:1fr;
     }
 }
+
+@media(max-width:768px){
+
+    .about-header h1{
+
+        font-size:42px;
+    }
+
+    .about-header p{
+
+        font-size:17px;
+    }
+
+    .final-section h2{
+
+        font-size:28px;
+    }
+}
+
 </style>
 
 </head>
 
 <body>
 
-<!-- NAVBAR -->
+<!-- 🔥 NAVBAR -->
+{% include "components/navbar.html" %}
 
-<div class="navbar">
-    <div class="nav-logo">FacilitoPDF</div>
-    <div class="nav-links">
-        <a href="{{ url_for('index') }}">Inicio</a>
-        <a href="{{ url_for('contacto') }}">Contacto</a>
-        <a href="{{ url_for('about') }}">Nosotros</a>
-        <a href="{{ url_for('blog') }}">Blog</a>
-    </div>
-</div>
+<main class="content">
 
-<div class="container">
+    <!-- CARD PRINCIPAL -->
 
-<!-- HERO -->
-<div class="hero">
-    <h1>Nosotros</h1>
-    <p>
-        Creamos herramientas que simplifican lo complejo. En Facilito Labs diseñamos
-        soluciones digitales pensadas para ahorrar tiempo, reducir fricción y hacer
-        que la tecnología trabaje a favor de las personas.
-    </p>
-</div>
+    <section class="about-card">
 
-<!-- GRID -->
-<div class="grid">
+        <!-- HEADER -->
 
-    <div class="block">
-        <h2>Qué hacemos</h2>
+        <div class="about-header">
+
+            <h1>
+                Nosotros
+            </h1>
+
+            <p>
+                FacilitoPDF nació de algo muy simple: demasiadas personas pierden horas resolviendo problemas digitales que deberían tomar minutos. PDFs pesados que no se envían, documentos desordenados, formatos difíciles de editar, archivos imposibles de encontrar y procesos repetitivos que consumen tiempo todos los días.
+            </p>
+
+            <p>
+                Por eso creamos una plataforma enfocada en simplificar el trabajo documental de forma rápida, práctica y accesible. No buscamos llenar la web de herramientas complicadas, sino construir soluciones útiles que realmente ayuden a personas, estudiantes, oficinas, organizaciones y proyectos a trabajar mejor.
+            </p>
+
+            <p>
+                Hoy FacilitoPDF reúne herramientas para editar y organizar PDFs, formatos profesionales listos para usar, recursos de productividad y nuevas soluciones de automatización documental pensadas para reducir trabajo repetitivo y ahorrar tiempo real.
+            </p>
+
+            <p>
+                Creemos que la tecnología debe sentirse simple, útil y humana. A veces un pequeño cambio en la forma de trabajar puede reducir horas de estrés y hacer todo mucho más fácil.
+            </p>
+
+        </div>
+
+        <!-- GRID -->
+
+        <div class="about-grid">
+
+            <div class="about-box">
+
+                <h3>
+                    PDFs y documentos
+                </h3>
+
+                <p>
+                    Herramientas enfocadas en comprimir, organizar, unir y trabajar mejor con documentos digitales desde cualquier dispositivo.
+                </p>
+
+            </div>
+
+            <div class="about-box">
+
+                <h3>
+                    Productividad digital
+                </h3>
+
+                <p>
+                    Recursos y soluciones pensadas para ahorrar tiempo y reducir tareas repetitivas relacionadas con archivos y gestión documental.
+                </p>
+
+            </div>
+
+            <div class="about-box">
+
+                <h3>
+                    Automatización inteligente
+                </h3>
+
+                <p>
+                    Nuevas herramientas enfocadas en expedientes inteligentes, extracción documental y automatización de procesos digitales.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- BLOQUE FINAL -->
+
+    <section class="final-section">
+
+        <h2>
+            Nexia Labs
+        </h2>
+
         <p>
-            Desarrollamos aplicaciones web, automatizaciones y herramientas prácticas
-            que resuelven problemas reales. Nos enfocamos en construir productos simples,
-            rápidos y accesibles.
+            FacilitoPDF forma parte de Nexia Labs, un espacio orientado al desarrollo de herramientas digitales, automatización y soluciones tecnológicas con impacto práctico y accesible.
         </p>
-    </div>
 
-    <div class="block">
-        <h2>Nuestro enfoque</h2>
-        <p>
-            Creemos que la mejor tecnología es la que no se siente complicada. Diseñamos
-            experiencias claras, directas y funcionales, donde cada elemento tiene un propósito.
-        </p>
-    </div>
+    </section>
 
-    <div class="block">
-        <h2>Por qué lo hacemos</h2>
-        <p>
-            Sabemos que muchas personas pierden tiempo en procesos innecesarios, repetitivas o herramientas
-            complejas. Ese tiempo importa. Nuestro objetivo es transformarlo en productividad,
-            aprendizaje y oportunidades reales.
-        </p>
-    </div>
+</main>
 
-    <div class="block">
-        <h2>Hacia dónde vamos</h2>
-        <p>
-            Buscamos construir soluciones digitales que acompañen a las personas en su trabajo,
-            en su aprendizaje y en su crecimiento. Tecnología simple, con impacto real.
-        </p>
-    </div>
-
-</div>
-
-<!-- FOOTER -->
-<div class="footer">
-    Última actualización: 2026
-    <span style="margin: 0 30px;">·</span>
-    Facilito Labs  by fjanampa
-</div>
-
-
-</div>
+<!-- 🔥 FOOTER -->
+{% include "components/footer.html" %}
 
 </body>
 </html>

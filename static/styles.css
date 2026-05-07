@@ -7,53 +7,50 @@
 
 body {
     font-family: "Segoe UI", sans-serif;
-    height: 100vh;
-    overflow: hidden;
+    min-height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
     color: white;
+
+    background:
+        linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
+        radial-gradient(circle at 10% 85%, rgba(0,0,0,0.55), transparent 60%),
+        linear-gradient(to bottom, #f5f5f5 0%, #bdbdbd 100%);
 }
 
 /* HERO */
 .hero {
-    height: 100vh;
-
-    background:
-        radial-gradient(circle at 10% 85%, rgba(0,0,0,0.55), transparent 60%),
-        linear-gradient(to bottom, #f5f5f5 0%, #bdbdbd 100%);
-
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 60px;
-    padding-top: 80px; /* 🔥 espacio para navbar */
+    flex-direction: column;   /* 🔥 CLAVE */
+    padding: 10px;
+    padding-top: 80px;
     position: relative;
 }
 
-.hero::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-
-    background-image: url("https://www.transparenttextures.com/patterns/noise.png");
-    opacity: 0.25;
-
-    pointer-events: none;
+.hero-main {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
 }
 
-/* overlay */
-.hero::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: rgba(0,0,0,0.45);
+.hero {
+    position: relative;
+    z-index: 1;
+}
+
+.hero,
+.bloque-articulos {
+    background: transparent;
 }
 
 /* IZQUIERDA */
 .content {
     position: relative;
     max-width: 520px;
-
-    margin-left: 60px;   /* 🔥 mueve a la derecha de forma segura */
-
+    margin-left: 100px;   /* 🔥 mueve a la derecha de forma segura */
+    margin-top: 80px;
     animation: fadeLeft 1s ease;
 }
 
@@ -482,7 +479,14 @@ canvas {
 
     z-index: 1000;
 
-    background: transparent; /* 🔥 no barra */
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.65),
+        rgba(0, 0, 0, 0.32),
+        transparent
+    );
+
+    backdrop-filter: blur(6px);
 }
 
 .logo {
@@ -537,14 +541,6 @@ canvas {
     flex-direction: column;
 }
 
-/* 🔥 CONTENIDO PRINCIPAL */
-.hero-main {
-    flex: 1;
-
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
 
 /* 🔥 MEJORA DE ESPACIADO */
 .content {
@@ -694,4 +690,346 @@ canvas {
 #changing-text{
     display: inline-block;
     transition: opacity 0.5s ease;
+}
+
+/* 🔥 BLOQUE ARTÍCULOS */
+.bloque-articulos {
+    margin-top: -20px;
+    padding: 40px 10%;
+    text-align: center;
+    background: transparent;
+    border-top: 1px solid rgba(255,255,255,0.05);
+}
+
+.bloque-articulos h2 {
+    font-size: 26px;
+    margin-bottom: 35px;
+    color: #ffffff;
+}
+
+/* GRID */
+.articulos-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+/* CARD */
+.articulo-card {
+    text-decoration: none;
+    color: white;
+
+    background: rgba(255,255,255,0.03);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255,255,255,0.1);
+
+    border-radius: 12px;
+    overflow: hidden;
+
+    transition: all 0.25s ease;
+}
+
+.articulo-card:hover {
+    transform: translateY(-6px);
+    background: rgba(255,255,255,0.06);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.5);
+}
+
+/* IMG */
+.articulo-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    display: block;
+}
+
+/* TEXT */
+.articulo-card h3 {
+    font-size: 17px;
+    margin: 15px;
+    color: white;
+}
+
+.articulo-card p {
+    font-size: 14px;
+    margin: 0 15px 15px;
+    color: #cccccc;
+}
+
+/* LINK FINAL */
+.articulo-card span {
+    display: block;
+    margin: 0 15px 15px;
+    font-weight: bold;
+    color: white;
+}
+
+/* HOVER LINK */
+.articulo-card:hover span {
+    text-decoration: underline;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+    .articulos-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (min-width: 901px) {
+
+    .bloque-articulos {
+        margin-top: -180px;
+    }
+
+}
+
+.intro-articulos {
+    max-width: 700px;
+    margin: 15px auto 40px;
+    font-size: 16px;
+    line-height: 1.6;
+    color: rgba(255,255,255,0.8);
+}
+
+/* =========================
+   🔥 BLOQUE TRUCOS (AISLADO)
+   ========================= */
+
+.bloque-trucos {
+    margin-top: 10px;
+    padding: 40px 10%;
+    text-align: center;
+}
+
+.bloque-trucos h2 {
+    text-align: center;
+}
+
+/* INTRO (unificado) */
+.bloque-trucos .intro-trucos {
+    max-width: 700px;
+    margin: 10px auto 40px;
+    text-align: center;
+    color: rgba(255,255,255,0.8);
+}
+
+/* SLIDER */
+.bloque-trucos .trucos-slider {
+    overflow-x: auto;
+    scroll-behavior: smooth;
+
+    /* mejora visual */
+    scrollbar-width: none;
+}
+
+.bloque-trucos .trucos-slider::-webkit-scrollbar {
+    display: none;
+}
+
+/* TRACK */
+.bloque-trucos .trucos-track {
+    display: flex;
+    gap: 20px;
+}
+
+/* CARD (🔴 AQUÍ ESTÁ EL CAMBIO CLAVE) */
+.bloque-trucos .truco-card {
+    min-width: 240px;
+    max-width: 240px;
+
+    background: rgba(255,255,255,0.05);
+    padding: 25px 20px;
+    border-radius: 14px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;   /* centra vertical */
+    align-items: center;       /* centra horizontal */
+    text-align: center;        /* centra texto */
+
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* HOVER */
+.bloque-trucos .truco-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+
+/* TAG */
+.bloque-trucos .truco-card .tag {
+    font-size: 12px;
+    opacity: 0.6;
+    margin-bottom: 8px;
+}
+
+/* TITULO */
+.bloque-trucos .truco-card h3 {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+/* TEXTO (ligeramente mejorado para lectura) */
+.bloque-trucos .truco-card p {
+    font-size: 14px;
+    color: #ffffff;
+    line-height: 1.6;
+}
+
+/* HEADER CARD (ajustado ancho completo) */
+.truco-header {
+    width: 100%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:15px;
+}
+
+.logo-mini {
+    font-size:12px;
+    font-weight:600;
+    color: #ffffff;
+    opacity: 1;
+}
+
+.icono {
+    font-size:18px;
+}
+
+/* FOOTER CARD (alineado correctamente) */
+.truco-footer {
+    width: 100%;
+    margin-top:20px;
+    font-size:11px;
+    color: #ffffff;
+    opacity: 0.9;
+    text-align:right;
+}
+
+/* =========================
+   🔥 BLOQUE PLANTILLAS
+   ========================= */
+
+.bloque-plantillas {
+    padding: 60px 10%;
+    text-align: center;
+}
+
+.bloque-plantillas .intro-plantillas {
+    max-width: 700px;
+    margin: 10px auto 40px;
+    color: rgba(255,255,255,0.8);
+}
+
+/* GRID */
+.plantillas-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+/* CARD */
+.plantilla-card {
+    text-decoration: none;
+    color: white;
+    transition: 0.3s;
+}
+
+.plantilla-card img {
+    width: 100%;
+    border-radius: 12px;
+    margin-bottom: 10px;
+}
+
+.plantilla-card:hover {
+    transform: translateY(-5px);
+}
+
+/* DETALLE */
+.plantilla-detalle {
+    padding: 60px 10%;
+    text-align: center;
+}
+
+.layout-detalle {
+    display: flex;
+    gap: 40px;
+    margin-top: 40px;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.preview img {
+    max-width: 600px;
+    width: 100%;
+    border-radius: 12px;
+}
+
+.acciones {
+    max-width: 300px;
+    text-align: left;
+}
+
+.btn-descarga {
+    display: block;
+    padding: 14px;
+    border-radius: 30px;
+    background: white;
+    color: black;
+    text-align: center;
+    margin-bottom: 20px;
+    text-decoration: none;
+}
+
+.mensaje {
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+/* =========================
+   🔥 PREVIEW PLANTILLAS
+   ========================= */
+
+.bloque-plantillas .plantilla-card img {
+    width: auto;
+    height: 220px; /* 👈 controla tamaño vertical */
+    max-width: 100%;
+    object-fit: contain; /* 👈 mantiene proporción */
+    border-radius: 12px;
+}
+/* =========================
+   🔥 NAVBAR GLOBAL FIX
+   ========================= */
+
+.navbar a {
+    color: #ffffff !important;
+    text-decoration: none;
+}
+
+.navbar a::after {
+    background: #ffffff !important;
+}
+
+/* =========================
+   🔥 LEGAL PLANTILLAS
+   ========================= */
+
+.legal-plantillas{
+
+    max-width:900px;
+
+    margin:60px auto 20px;
+
+    text-align:center;
+
+    font-size:14px;
+
+    line-height:1.8;
+
+    opacity:0.65;
+
+    padding:0 20px;
 }

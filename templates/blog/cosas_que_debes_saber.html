@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+
+<title>7 cosas que debes saber antes de subir tus PDF | FacilitoPDF</title>
+
+<meta name="description" content="Guía práctica para optimizar, proteger y gestionar PDFs correctamente.">
+
+<link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+
+<style>
+
+/* 🔥 FONDO */
+body{
+    background:white !important;
+}
+
+/* NAVBAR */
+.navbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 40px;
+    background:white;
+}
+
+.nav-logo{
+    font-size:20px;
+    font-weight:600;
+    color:#111;
+}
+
+.nav-links a{
+    margin-left:25px;
+    text-decoration:none;
+    color:#111 !important;
+    font-size:14px;
+    position:relative;
+}
+
+.nav-links a::after{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:-4px;
+    width:0%;
+    height:1px;
+    background:#111 !important;
+    transition:0.3s;
+}
+
+.nav-links a:hover::after{
+    width:100%;
+}
+
+/* CONTENEDOR */
+.articulo{
+    max-width:1200px;
+    margin:auto;
+    padding:100px 10px 60px;
+    color: #111;
+}
+
+/* IMAGEN */
+.articulo img{
+    width:100%;
+    height:420px;
+    object-fit:cover;
+    border-radius:10px;
+    margin-bottom:30px;
+}
+
+/* TITULOS */
+.articulo h1{
+    font-size:42px;
+    margin-bottom:20px;
+    color:#111;
+    color: #111;
+}
+
+.articulo h2{
+    margin-top:40px;
+    font-size:26px;
+    color:#111;
+    color: #111;
+}
+
+.articulo h3{
+    margin-top:20px;
+    font-size:20px;
+    color:#222;
+    color: #111;
+}
+
+/* TEXTO */
+.articulo p{
+    line-height:1.8;
+    color:#444;
+    margin:15px 0;
+    color: #111;
+}
+
+/* LISTAS */
+.articulo ul{
+    padding-left:20px;
+    color: #111;
+}
+
+/* LINKS */
+.articulo a{
+    color:#111;
+    text-decoration:underline;
+}
+
+/* EJEMPLOS */
+.ejemplo{
+    text-align:center;
+    font-style:italic;
+    font-size:18px;
+    margin:25px 0;
+    color:#333;
+}
+
+/* FOOTER */
+.footer{
+    margin-top:80px;
+    text-align:center;
+    color:#111;
+    font-size:13px;
+}
+
+/* LINKS FOOTER */
+.footer a{
+    color:#111;
+    text-decoration:none;
+    margin:0 10px;
+    position:relative;
+}
+
+/* 🔥 EFECTO LÍNEA (NO CAMBIA COLOR) */
+.footer a::after{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:-3px;
+    width:0%;
+    height:1px;
+    background:#111;
+    transition:0.3s;
+}
+
+.footer a:hover::after{
+    width:100%;
+}
+
+/* 🔥 EVITA QUE SE VUELVA BLANCO */
+.footer a:hover{
+    color:#111 !important;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<div class="navbar">
+    <div class="nav-logo">FacilitoPDF</div>
+    <div class="nav-links">
+        <a href="/">Inicio</a>
+        <a href="/plantillas">Plantillas</a>
+        <a href="/contacto">Contacto</a>
+        <a href="/about">Nosotros</a>
+        <a href="/blog">Blog</a>
+    </div>
+</div>
+
+<!-- ARTÍCULO -->
+<div class="articulo">
+
+<img src="https://images.unsplash.com/photo-1586281380117-5a60ae2050cc?auto=format&fit=crop&w=1600&q=80">
+
+<h1>7 cosas que debes saber antes de subir tus PDF a la web</h1>
+
+<p>Subir un PDF a internet parece una tarea simple, pero en realidad implica decisiones técnicas que afectan directamente la velocidad de carga, la seguridad de la información y la experiencia del usuario.</p>
+
+<p>Un documento mal preparado puede generar tiempos de espera largos, errores de visualización o incluso exponer datos sensibles.</p>
+
+<p>Hoy los usuarios esperan archivos rápidos, ligeros y accesibles desde cualquier dispositivo. Por eso, antes de subir cualquier documento, es clave optimizarlo correctamente.</p>
+
+<h2>1️⃣ Optimiza el tamaño del archivo</h2>
+
+<p>Un PDF demasiado pesado puede arruinar la experiencia del usuario.</p>
+
+<p>Un archivo de 25 MB puede tardar varios segundos en abrirse en móvil, mientras que uno de 2 MB se carga casi al instante.</p>
+
+<p><strong>Por qué importa:</strong></p>
+
+<ul>
+<li>Mejora la velocidad de carga y reduce el consumo de datos.</li>
+<li>Facilita el envío por correo o la descarga en zonas con conexión limitada.</li>
+<li>Aumenta la probabilidad de que el usuario lea el documento completo.</li>
+</ul>
+
+<p><strong>Cómo hacerlo:</strong></p>
+
+<ul>
+<li>Comprime las imágenes antes de insertarlas.</li>
+<li>Elimina páginas o elementos innecesarios.</li>
+<li>Limpia metadatos y capas ocultas.</li>
+<li>Usa herramientas online para “Comprimir PDF” sin perder calidad.</li>
+</ul>
+
+<p class="ejemplo">💡 Frase práctica: “Un PDF liviano es un PDF que se abre sin frustraciones.”</p>
+
+<h2>2️⃣ Garantiza compatibilidad en todos los dispositivos</h2>
+
+<p>Un PDF debe verse igual en computadora, tablet y celular.</p>
+
+<p>Si el formato cambia, el lector pierde confianza y abandona el documento.</p>
+
+<p><strong>Por qué importa:</strong></p>
+
+<ul>
+<li>La coherencia visual transmite profesionalismo.</li>
+<li>Evita errores de fuentes o saltos de página.</li>
+<li>Mejora la accesibilidad para usuarios con distintos sistemas operativos.</li>
+</ul>
+
+<p><strong>Cómo hacerlo:</strong></p>
+
+<ul>
+<li>Incrusta las fuentes en el archivo antes de exportar.</li>
+<li>Revisa el documento en varios dispositivos y navegadores.</li>
+<li>Evita márgenes excesivos o tamaños de página no estándar.</li>
+</ul>
+
+<p class="ejemplo">💡 Frase práctica: “Tu PDF debe adaptarse al lector, no al dispositivo.”</p>
+
+<h2>3️⃣ Seguridad y confidencialidad</h2>
+
+<h3>🔒 Protección con contraseña</h3>
+
+<p>Si tu PDF contiene información sensible (contratos, datos personales, informes financieros), protégelo con contraseña o permisos limitados.</p>
+
+<p><strong>Por qué importa:</strong></p>
+
+<ul>
+<li>Evita accesos no autorizados.</li>
+<li>Controla acciones como copiar, imprimir o editar.</li>
+<li>Cumple con buenas prácticas de privacidad.</li>
+</ul>
+
+<p><strong>Cómo hacerlo:</strong></p>
+
+<ul>
+<li>Usa contraseñas seguras y evita compartirlas por correo sin cifrado.</li>
+<li>Configura permisos de solo lectura o impresión limitada.</li>
+</ul>
+
+<h3>✂️ Redacción de datos sensibles</h3>
+
+<p>Cubrir texto con un rectángulo negro no elimina la información.</p>
+
+<p>El texto puede recuperarse fácilmente si no se borra correctamente.</p>
+
+<p><strong>Cómo hacerlo:</strong></p>
+
+<ul>
+<li>Usa herramientas de “redacción” o “eliminación permanente”.</li>
+<li>Verifica que el texto no sea seleccionable ni visible en el código del PDF.</li>
+</ul>
+
+<p class="ejemplo">💡 Frase práctica: “Ocultar no es borrar; protege antes de compartir.”</p>
+
+<h2>4️⃣ Usa nombres de archivo claros y profesionales</h2>
+
+<p>El nombre del archivo influye en la organización y el posicionamiento en buscadores.</p>
+
+<p><strong>Ejemplo:</strong></p>
+
+<p>❌ documento_final_v2.pdf<br>
+✔ contrato-alquiler-lima-2026.pdf</p>
+
+<p><strong>Por qué importa:</strong></p>
+
+<ul>
+<li>Facilita la búsqueda y clasificación.</li>
+<li>Mejora el SEO si el PDF se publica en la web.</li>
+<li>Transmite orden y profesionalismo.</li>
+</ul>
+
+<p class="ejemplo">💡 Frase práctica: “Un buen nombre de archivo es tu primera carta de presentación.”</p>
+
+<h2>5️⃣ Mejora la experiencia de lectura</h2>
+
+<p>Un PDF técnico puede ser correcto, pero si no es agradable de leer, el usuario lo abandona.</p>
+
+<p><strong>Por qué importa:</strong></p>
+
+<ul>
+<li>La legibilidad mantiene la atención.</li>
+<li>Un diseño claro facilita la comprensión.</li>
+<li>Mejora la percepción de calidad del contenido.</li>
+</ul>
+
+<p><strong>Cómo hacerlo:</strong></p>
+
+<ul>
+<li>Usa títulos y subtítulos jerárquicos.</li>
+<li>Divide el texto en párrafos cortos.</li>
+<li>Emplea tipografía legible (mínimo 11–12 pt).</li>
+<li>Añade espacios en blanco y elementos visuales (íconos, cuadros, ejemplos).</li>
+</ul>
+
+<p class="ejemplo">💡 Frase práctica: “Un PDF legible convierte información en aprendizaje.”</p>
+
+<h2>6️⃣ Gestiona tus PDFs sin instalar software pesado</h2>
+
+<p>Hoy puedes editar, firmar o dividir PDFs directamente desde el navegador.</p>
+
+<p><strong>Por qué importa:</strong></p>
+
+<ul>
+<li>Ahorra tiempo y espacio en tu computadora.</li>
+<li>Permite trabajar desde cualquier dispositivo.</li>
+<li>Evita problemas de compatibilidad entre versiones.</li>
+</ul>
+
+<p><strong>Ejemplos prácticos:</strong></p>
+
+<ul>
+<li>Dividir PDF: comparte solo las páginas necesarias.</li>
+<li>Ordenar páginas: mejora la secuencia del contenido.</li>
+<li>Firmar digitalmente: evita imprimir y escanear.</li>
+</ul>
+
+<p class="ejemplo">💡 Frase práctica: “Tu navegador puede ser tu mejor editor de PDF.”</p>
+
+<h2>7️⃣ Optimiza tu PDF para SEO</h2>
+
+<p>Los PDFs también pueden aparecer en Google si están bien estructurados.</p>
+
+<p><strong>Por qué importa:</strong></p>
+
+<ul>
+<li>Aumenta la visibilidad de tus documentos.</li>
+<li>Facilita que otros encuentren tus recursos educativos o institucionales.</li>
+<li>Mejora la reputación digital de tu sitio.</li>
+</ul>
+
+<p><strong>Cómo hacerlo:</strong></p>
+
+<ul>
+<li>Usa texto real (no imágenes escaneadas).</li>
+<li>Incluye títulos y subtítulos dentro del documento.</li>
+<li>Añade metadatos y palabras clave relevantes.</li>
+<li>Nombra el archivo con términos descriptivos.</li>
+</ul>
+
+<p class="ejemplo">💡 Frase práctica: “Un PDF optimizado no solo se lee, también se encuentra.”</p>
+
+<h2>🏁 Conclusión</h2>
+
+<p>Subir un PDF correctamente mejora la experiencia del usuario, la eficiencia y la seguridad de tu contenido.</p>
+
+<p>Un documento optimizado carga más rápido, se ve mejor y genera confianza.</p>
+
+<p>Aplicar estas prácticas te permite ofrecer una experiencia profesional sin complicaciones y fortalecer tu presencia digital.</p>
+
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+    <a href="/terms">Términos</a> ·
+    <a href="/privacy">Privacidad</a> ·
+    © 2026 Nexia Labs · FJP
+</div>
+
+</body>
+</html>

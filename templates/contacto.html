@@ -1,270 +1,484 @@
 <!DOCTYPE html>
-
 <html lang="es">
 <head>
+
 <meta charset="UTF-8">
+
 <title>Contacto | FacilitoPDF</title>
 
+<meta name="description" content="Contáctanos para compartir ideas, sugerencias, colaboraciones y soluciones relacionadas con productividad, automatización y documentos digitales.">
+
+<link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+
 <style>
-/* RESET */
+
+/* =========================
+   🔥 RESET
+========================= */
+
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
 }
 
+/* =========================
+   🔥 BODY
+========================= */
+
 body{
-    font-family: "Segoe UI", sans-serif;
-    color: white;
-    min-height:100vh;
 
-    /* 🔥 TU FONDO ORIGINAL */
+    font-family:system-ui,-apple-system,sans-serif;
+
     background:
-        radial-gradient(circle at 10% 85%, rgba(0,0,0,0.95), transparent 70%),
-        radial-gradient(circle at 90% 10%, rgba(255,255,255,0.05), transparent 40%),
-        linear-gradient(to bottom, #1a1a1a 0%, #0a0a0a 100%);
+    radial-gradient(circle at top left, rgba(255,255,255,0.04), transparent 30%),
+    linear-gradient(to bottom, #111, #050505);
 
-    padding:60px 40px;
-}
-
-/* 🔥 NAVBAR (NUEVO) */
-.navbar{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    margin-bottom:60px;
-}
-
-.nav-logo{
-    font-size:20px;
-    font-weight:600;
-}
-
-.nav-links a{
-    margin-left:20px;
-    text-decoration:none;
-    color: rgba(255,255,255,0.7);
-    font-size:14px;
-}
-
-.navbar a{
-    position: relative;
-}
-
-.navbar a::after{
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: -4px;
-
-    width: 0%;
-    height: 1px;
-    background: white;
-
-    transition: 0.3s ease;
-}
-
-.navbar a:hover::after{
-    width: 100%;
-}
-
-.nav-links a:hover{
     color:white;
+
+    min-height:100vh;
 }
 
-.navbar a{
-    position: relative;
-}
+/* =========================
+   🔥 CONTENEDOR
+========================= */
 
-.navbar a::after{
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: -4px;
+.content{
 
-    width: 0%;
-    height: 1px;
-    background: white;
+    max-width:1250px;
 
-    transition: 0.3s ease;
-}
-
-.navbar a:hover::after{
-    width: 100%;
-}
-
-/* CONTENEDOR */
-.container{
-    max-width:1100px;
     margin:auto;
+
+    padding:40px 20px 100px;
 }
 
-/* HEADER */
-.header{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    margin-bottom:80px;
-}
+/* =========================
+   🔥 CARD PRINCIPAL
+========================= */
 
-.logo{
-    font-size:20px;
-    font-weight:600;
-}
+.contact-card{
 
-.brand{
-    font-size:12px;
-    opacity:0.6;
-}
+    margin-top:40px;
 
-/* HERO */
-.hero{
-    max-width:600px;
-    margin-bottom:80px;
-}
+    background:rgba(255,255,255,0.04);
 
-.hero p{
-    font-size:20px;
-    line-height:1.6;
-    margin-bottom:20px;
-}
+    border-radius:30px;
 
-/* EMAIL */
-.email{
-    font-size:22px;
-    font-weight:600;
-    border-bottom:1px solid rgba(255,255,255,0.5);
-    display:inline-block;
-    padding-bottom:5px;
-}
+    padding:45px;
 
-/* GRID */
-.grid{
     display:grid;
-    grid-template-columns: repeat(4,1fr);
+
+    grid-template-columns:1.15fr 1fr;
+
     gap:40px;
+
+    border:1px solid rgba(255,255,255,0.06);
+
+    box-shadow:0 10px 40px rgba(0,0,0,0.25);
 }
 
-/* BLOQUES */
-.block h4{
-    font-size:13px;
+/* =========================
+   🔥 HEADER
+========================= */
+
+.contact-header{
+
+    grid-column:1/-1;
+
+    margin-bottom:10px;
+}
+
+.contact-header h1{
+
+    font-size:54px;
+
+    margin-bottom:22px;
+}
+
+.contact-header p{
+
+    max-width:900px;
+
+    line-height:1.95;
+
+    font-size:18px;
+
+    color:rgba(255,255,255,0.78);
+
+    margin-bottom:18px;
+}
+
+/* =========================
+   🔥 TEXTO IZQUIERDA
+========================= */
+
+.contact-text h2{
+
+    font-size:34px;
+
+    margin-bottom:18px;
+}
+
+.contact-text p{
+
+    line-height:1.9;
+
+    color:rgba(255,255,255,0.75);
+
+    margin-bottom:18px;
+}
+
+/* =========================
+   🔥 EMAIL
+========================= */
+
+.contact-email{
+
+    margin-top:30px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    font-size:16px;
+
+    font-weight:600;
+}
+
+/* ICONO */
+
+.email-icon{
+
+    width:18px;
+
+    height:18px;
+
+    opacity:0.75;
+}
+
+/* =========================
+   🔥 FORMULARIO
+========================= */
+
+.contact-form{
+
+    background:rgba(255,255,255,0.03);
+
+    border:1px solid rgba(255,255,255,0.05);
+
+    padding:30px;
+
+    border-radius:24px;
+}
+
+.contact-form h3{
+
+    font-size:24px;
+
+    margin-bottom:18px;
+}
+
+/* INPUTS */
+
+.contact-form input,
+.contact-form textarea{
+
+    width:100%;
+
+    padding:14px;
+
     margin-bottom:15px;
-    opacity:0.7;
-}
 
-.block p,
-.block a{
-    font-size:14px;
-    line-height:1.6;
+    border-radius:12px;
+
+    border:1px solid rgba(255,255,255,0.08);
+
+    background:rgba(255,255,255,0.04);
+
     color:white;
-    text-decoration:none;
-    opacity:0.8;
+
+    font-size:14px;
 }
 
-.block a:hover{
-    opacity:1;
+/* PLACEHOLDER */
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder{
+
+    color:rgba(255,255,255,0.45);
 }
 
-/* FOOTER */
-.footer{
-    margin-top:80px;
-    font-size:12px;
-    text-align:center;
-    opacity:0.6;
+/* TEXTAREA */
+
+.contact-form textarea{
+
+    min-height:120px;
+
+    resize:none;
 }
 
-/* RESPONSIVE */
-@media(max-width:900px){
-    .grid{
-        grid-template-columns: repeat(2,1fr);
-    }
+/* BOTÓN */
+
+.contact-form button{
+
+    width:100%;
+
+    padding:14px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:white;
+
+    color:#111;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:0.3s ease;
 }
 
-@media(max-width:600px){
-    body{
-        padding:40px 20px;
-    }
+.contact-form button:hover{
 
-    .grid{
+    background:#f1f1f1;
+
+    transform:translateY(-2px);
+}
+
+/* =========================
+   🔥 BLOQUE EXTRA
+========================= */
+
+.extra-section{
+
+    margin-top:70px;
+}
+
+.extra-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:22px;
+}
+
+/* CARD */
+
+.extra-card{
+
+    background:rgba(255,255,255,0.04);
+
+    border:1px solid rgba(255,255,255,0.06);
+
+    border-radius:22px;
+
+    padding:28px;
+
+    transition:0.3s ease;
+}
+
+.extra-card:hover{
+
+    transform:translateY(-4px);
+
+    background:rgba(255,255,255,0.06);
+}
+
+.extra-card h3{
+
+    margin-bottom:14px;
+
+    font-size:20px;
+}
+
+.extra-card p{
+
+    line-height:1.8;
+
+    color:rgba(255,255,255,0.74);
+
+    font-size:15px;
+}
+
+/* =========================
+   🔥 RESPONSIVE
+========================= */
+
+@media(max-width:950px){
+
+    .contact-card{
+
         grid-template-columns:1fr;
     }
 
-    .hero p{
-        font-size:18px;
+    .extra-grid{
+
+        grid-template-columns:1fr;
     }
 }
+
+@media(max-width:768px){
+
+    .contact-header h1{
+
+        font-size:42px;
+    }
+
+    .contact-header p{
+
+        font-size:17px;
+    }
+
+    .contact-text h2{
+
+        font-size:28px;
+    }
+}
+
 </style>
 
 </head>
 
 <body>
 
-<!-- 🔥 NAVBAR (AQUÍ SE AGREGA, NO TOCAR MÁS) -->
+<!-- 🔥 NAVBAR -->
+{% include "components/navbar.html" %}
 
-<div class="navbar">
-    <div class="nav-logo">FacilitoPDF</div>
-    <div class="nav-links">
-        <a href="/">Inicio</a>
-        <a href="/contacto">Contacto</a>
-        <a href="/about">Nosotros</a>
-        <a href="{{ url_for('blog') }}">Blog</a>
-    </div>
-</div>
+<main class="content">
 
-<div class="container">
+    <!-- CARD PRINCIPAL -->
 
+    <section class="contact-card">
 
-<!-- HERO -->
-<div class="hero">
-    <p>
-        Si desea contratarnos, colaborar, trabajar con nosotros
-        o si necesita una herramienta específica que le ayude a agilizar y
-        potenciar su trabajo, nos interesa conocer su opinión, escríbanos.
-    </p>
+        <!-- HEADER -->
 
-    <div class="email">
-        facilitopdf@gmail.com
-    </div>
-</div>
+        <div class="contact-header">
 
-<!-- GRID -->
-<div class="grid">
+            <h1>
+                Contacto
+            </h1>
 
-    <div class="block">
-        <h4>Oficina</h4>
-        <p>Perú<br>Lima<br>Trabajo remoto</p>
-    </div>
+            <p>
+                Nuestro objetivo es crear herramientas que ayuden a las personas a trabajar de forma rápida, organizada y simple. Cada mejora y nueva función nace escuchando problemas reales que miles de personas enfrentan todos los días frente a documentos y archivos digitales.
+            </p>
 
-    <div class="block">
-        <h4>Contacto</h4>
-        <p>facilitopdf@gmail.com</p>
-        <p>Respuesta en 24h</p>
-    </div>
+            <p>
+                Si encontraste un error, tienes una idea, quieres proponer una herramienta o deseas compartir una sugerencia, estaremos encantados de leerte. Muchas de las mejoras que construimos de la experiencia de quienes usan la plataforma diariamente.
+            </p>
 
-    <div class="block">
-        <h4>Servicios</h4>
-        <p>Desarrollo web</p>
-        <p>Automatización</p>
-        <p>Herramientas PDF</p>
-    </div>
+            <p>
+                A veces una pequeña idea puede convertirse en una herramienta que ahorre horas de trabajo.
+            </p>
 
-    <div class="block">
-        <h4>Redes</h4>
-        <a href="#">LinkedIn</a><br>
-        <a href="#">Twitter</a><br>
-        <a href="#">GitHub</a>
-    </div>
+        </div>
 
-</div>
+        <!-- IZQUIERDA -->
 
-<!-- FOOTER -->
-<div class="footer">
-    Última actualización: 2026
-    <span style="margin: 0 30px;">·</span>
-    Facilito Labs   by fjanampa
-</div>
+        <div class="contact-text">
 
-</div>
+            <h2>
+                Hablemos
+            </h2>
+
+            <p>
+                FacilitoPDF continúa evolucionando hacia un ecosistema de herramientas enfocadas en PDFs, automatización, productividad y organización documental inteligente.
+            </p>
+
+            <div class="contact-email">
+
+                <svg class="email-icon" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M2 4h20v16H2V4zm10 7L4 6v12h16V6l-8 5z"/>
+                </svg>
+
+                <span>
+                    facilitopdf@gmail.com
+                </span>
+
+            </div>
+
+        </div>
+
+        <!-- DERECHA -->
+
+        <div class="contact-form">
+
+            <h3>
+                Envíanos un mensaje
+            </h3>
+
+            <form>
+
+                <input type="text" placeholder="Nombre">
+
+                <input type="email" placeholder="Correo electrónico">
+
+                <textarea placeholder="Escribe tu mensaje"></textarea>
+
+                <button type="submit">
+                    Enviar mensaje
+                </button>
+
+            </form>
+
+        </div>
+
+    </section>
+
+    <!-- BLOQUE EXTRA -->
+
+    <section class="extra-section">
+
+        <div class="extra-grid">
+
+            <div class="extra-card">
+
+                <h3>
+                    Productividad digital
+                </h3>
+
+                <p>
+                    Herramientas enfocadas en reducir trabajo repetitivo y simplificar tareas documentales.
+                </p>
+
+            </div>
+
+            <div class="extra-card">
+
+                <h3>
+                    Automatización inteligente
+                </h3>
+
+                <p>
+                    Soluciones enfocadas en expedientes, carpetas, links y extracción documental automática.
+                </p>
+
+            </div>
+
+            <div class="extra-card">
+
+                <h3>
+                    Ideas y colaboraciones
+                </h3>
+
+                <p>
+                    Muchas mejoras nacen escuchando problemas reales y nuevas ideas propuestas por usuarios.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+<!-- 🔥 FOOTER -->
+{% include "components/footer.html" %}
 
 </body>
 </html>

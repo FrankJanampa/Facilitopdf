@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+<meta charset="UTF-8">
+
+<title>Recursos | FacilitoPDF</title>
+
+<meta name="description" content="Explora recursos, videos rápidos, artículos y herramientas para trabajar mejor con PDFs y documentos digitales.">
+
+<link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+
+<style>
+
+/* =========================
+   🔥 BASE
+========================= */
+
+body{
+
+    margin:0;
+
+    font-family:system-ui,-apple-system,sans-serif;
+
+    background:
+    radial-gradient(circle at top left, rgba(255,255,255,0.04), transparent 30%),
+    linear-gradient(to bottom, #101010, #050505);
+
+    color:white;
+}
+
+/* =========================
+   🔥 CONTENEDOR
+========================= */
+
+.recursos-container{
+
+    max-width:1300px;
+
+    margin:auto;
+
+    padding:40px 20px 80px;
+}
+
+/* =========================
+   🔥 HERO
+========================= */
+
+.recursos-hero{
+
+    margin-top:40px;
+    margin-bottom:50px;
+}
+
+.recursos-hero h1{
+
+    font-size:42px;
+
+    margin-bottom:20px;
+}
+
+.recursos-hero p{
+
+    max-width:850px;
+
+    line-height:1.8;
+
+    color:rgba(255,255,255,0.75);
+}
+
+/* =========================
+   🔥 BLOQUE VIDEOS
+========================= */
+
+.video-section{
+
+    margin-top:40px;
+}
+
+/* CARD */
+
+.video-card{
+
+    background:rgba(255,255,255,0.04);
+
+    border:1px solid rgba(255,255,255,0.06);
+
+    border-radius:24px;
+
+    padding:24px;
+}
+
+/* GRID */
+
+.video-grid{
+
+    display:grid;
+
+    grid-template-columns:2fr 1fr;
+
+    gap:24px;
+}
+
+/* VIDEO PRINCIPAL */
+
+.video-main{
+
+    position:relative;
+}
+
+.video-main iframe{
+
+    width:100%;
+
+    height:420px;
+
+    border:none;
+
+    border-radius:18px;
+}
+
+/* TEXTO */
+
+.video-info{
+
+    margin-top:20px;
+}
+
+.video-info h2{
+
+    font-size:26px;
+
+    margin-bottom:10px;
+}
+
+.video-info p{
+
+    color:rgba(255,255,255,0.72);
+
+    line-height:1.7;
+}
+
+/* LISTA DERECHA */
+
+.video-list{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:15px;
+
+    max-height:420px;
+
+    overflow-y:auto;
+
+    padding-right:6px;
+}
+
+/* SCROLL */
+
+.video-list::-webkit-scrollbar{
+
+    width:6px;
+}
+
+.video-list::-webkit-scrollbar-thumb{
+
+    background:rgba(255,255,255,0.15);
+
+    border-radius:20px;
+}
+
+/* ITEM */
+
+.video-item{
+
+    display:flex;
+
+    gap:12px;
+
+    cursor:pointer;
+
+    transition:0.25s ease;
+
+    background:rgba(255,255,255,0.03);
+
+    border-radius:14px;
+
+    padding:10px;
+}
+
+.video-item:hover{
+
+    transform:translateX(4px);
+
+    background:rgba(255,255,255,0.06);
+}
+
+/* THUMB */
+
+.video-item img{
+
+    width:110px;
+
+    height:70px;
+
+    object-fit:cover;
+
+    border-radius:10px;
+}
+
+/* TEXTO ITEM */
+
+.video-item-text h4{
+
+    margin:0 0 6px;
+
+    font-size:14px;
+}
+
+.video-item-text p{
+
+    margin:0;
+
+    font-size:12px;
+
+    color:rgba(255,255,255,0.65);
+
+    line-height:1.5;
+}
+
+/* =========================
+   🔥 MINIARTÍCULOS
+========================= */
+
+.articulos-section{
+
+    margin-top:80px;
+}
+
+.section-title{
+
+    text-align:center;
+
+    max-width:900px;
+
+    margin:0 auto 30px;
+}
+
+.section-title h2{
+
+    font-size:30px;
+
+    margin-bottom:10px;
+}
+
+.section-title p{
+
+    color:rgba(255,255,255,0.7);
+}
+
+/* FILA */
+
+.articulos-row{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:20px;
+
+    overflow-x:auto;
+
+    scroll-behavior:smooth;
+
+    padding:10px 20px 20px;
+
+    scrollbar-width:none;
+}
+
+/* SCROLL OCULTO */
+
+.articulos-row::-webkit-scrollbar{
+    display:none;
+}
+
+/* SCROLL */
+
+.articulos-row::-webkit-scrollbar{
+
+    height:6px;
+}
+
+.articulos-row::-webkit-scrollbar-thumb{
+
+    background:rgba(255,255,255,0.15);
+
+    border-radius:20px;
+}
+
+/* CARD */
+
+.articulo-card{
+
+    min-width:260px;
+
+    max-width:260px;
+
+    flex-shrink:0;
+
+    background:rgba(255,255,255,0.04);
+
+    border:1px solid rgba(255,255,255,0.06);
+
+    border-radius:18px;
+
+    overflow:hidden;
+
+    text-decoration:none;
+
+    transition:0.3s ease;
+
+}
+
+.articulo-card:hover{
+
+    transform:translateY(-4px);
+}
+
+/* IMG */
+
+.articulo-card img{
+
+    width:100%;
+
+    height:150px;
+
+    object-fit:cover;
+}
+
+/* CONTENT */
+
+.articulo-content{
+
+    padding:16px;
+}
+
+.articulo-content h3{
+
+    margin-top:0;
+
+    margin-bottom:10px;
+
+    color:white;
+
+    font-size:18px;
+}
+
+.articulo-content p{
+
+    color:rgba(255,255,255,0.72);
+
+    line-height:1.6;
+
+    font-size:14px;
+}
+
+/* =========================
+   🔥 RESPONSIVE
+========================= */
+
+@media(max-width:900px){
+
+    .video-grid{
+
+        grid-template-columns:1fr;
+    }
+
+    .video-main iframe{
+
+        height:250px;
+    }
+
+    .video-list{
+
+        max-height:none;
+    }
+
+    .recursos-hero h1{
+
+        font-size:34px;
+    }
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- 🔥 NAVBAR -->
+{% include "components/navbar.html" %}
+
+<div class="recursos-container">
+
+    <!-- =========================
+         🔥 HERO
+    ========================= -->
+
+    <section class="recursos-hero">
+
+        <h1>
+            Recursos FacilitoPDF
+        </h1>
+
+        <p>
+            Explora videos rápidos, artículos y recursos prácticos para trabajar mejor con PDFs, documentos digitales y herramientas de productividad.
+        </p>
+
+    </section>
+
+    <!-- =========================
+         🔥 VIDEOS
+    ========================= -->
+
+    <section class="video-section">
+
+        <div class="video-card">
+
+            <div class="video-grid">
+
+                <!-- VIDEO PRINCIPAL -->
+
+                <div class="video-main">
+
+                    <iframe
+                        id="mainVideo"
+                        src="https://www.youtube.com/embed/tgbNymZ7vqY"
+                        allowfullscreen>
+                    </iframe>
+
+                    <div class="video-info">
+
+                        <h2 id="mainTitle">
+                            Cómo comprimir un PDF correctamente
+                        </h2>
+
+                        <p id="mainDescription">
+                            Aprende a reducir el peso de tus archivos PDF sin perder calidad y envíalos fácilmente por correo o WhatsApp.
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <!-- LISTA DERECHA -->
+
+                <div class="video-list">
+
+                    <div class="video-item"
+                         onclick="changeVideo(
+                         'https://www.youtube.com/embed/tgbNymZ7vqY',
+                         'Cómo comprimir un PDF correctamente',
+                         'Aprende a reducir el peso de tus archivos PDF fácilmente.'
+                         )">
+
+                        <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3">
+
+                        <div class="video-item-text">
+
+                            <h4>Cómo comprimir PDFs</h4>
+
+                            <p>Reduce el peso de tus archivos rápidamente.</p>
+
+                        </div>
+
+                    </div>
+
+                    <div class="video-item"
+                         onclick="changeVideo(
+                         'https://www.youtube.com/embed/dQw4w9WgXcQ',
+                         'Cómo unir varios PDFs',
+                         'Une documentos PDF en segundos.'
+                         )">
+
+                        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f">
+
+                        <div class="video-item-text">
+
+                            <h4>Cómo unir PDFs</h4>
+
+                            <p>Combina varios documentos fácilmente.</p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- =========================
+         🔥 MINIARTÍCULOS
+    ========================= -->
+
+    <section class="articulos-section">
+
+        <div class="section-title">
+
+            <h2>
+                Recursos rápidos
+            </h2>
+
+            <p>
+                Explora contenidos útiles sobre productividad, seguridad digital y trabajo inteligente con documentos y herramientas digitales.
+            </p>
+
+        </div>
+
+        <div class="articulos-row">
+
+            <!-- PRODUCTIVIDAD -->
+
+            <a href="/recursos/productividad" class="articulo-card">
+
+                <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3">
+
+                <div class="articulo-content">
+
+                    <h3>
+                        Cómo trabajar más rápido con documentos digitales
+                    </h3>
+
+                    <p>
+                        Descubre estrategias simples para ahorrar tiempo organizando archivos, PDFs y tareas digitales.
+                    </p>
+
+                </div>
+
+            </a>
+
+            <!-- SEGURIDAD -->
+
+            <a href="/recursos/seguridad" class="articulo-card">
+
+                <img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c">
+
+                <div class="articulo-content">
+
+                    <h3>
+                        Errores digitales que ponen en riesgo tus documentos
+                    </h3>
+
+                    <p>
+                        Aprende a proteger tus archivos y evita problemas comunes al compartir documentos importantes.
+                    </p>
+
+                </div>
+
+            </a>
+
+            <!-- GUÍA -->
+
+            <a href="/recursos/guia" class="articulo-card">
+
+                <img src="https://images.unsplash.com/photo-1455390582262-044cdead277a">
+
+                <div class="articulo-content">
+
+                    <h3>
+                        Guía rápida para organizar mejor tus PDFs
+                    </h3>
+
+                    <p>
+                        Consejos prácticos para mantener tus documentos ordenados y trabajar de forma más profesional.
+                    </p>
+
+                </div>
+
+            </a>
+
+        </div>
+
+    </section>
+
+    <!-- =========================
+         🔥 HERRAMIENTAS EN PRODUCCIÓN
+    ========================= -->
+
+    <section class="articulos-section">
+
+        <div class="section-title">
+
+            <h2>
+                Herramientas inteligentes en producción
+            </h2>
+
+            <p>
+                Estamos desarrollando nuevas herramientas enfocadas en automatización, productividad y gestión documental real.
+                Estas soluciones buscan ahorrar horas de trabajo repetitivo y simplificar procesos complejos para proyectos,
+                oficinas, consultorías y organizaciones.
+
+                <br><br>
+
+                🚀 Si alguna de estas herramientas te interesa para tu trabajo o institución,
+                puedes escribirnos desde
+                <a href="/contacto" style="color:white; font-weight:600;">
+                    Contacto
+                </a>
+                para conocer avances o participar en futuras pruebas.
+            </p>
+
+        </div>
+
+        <div class="articulos-row">
+
+            <!-- ========================= -->
+            <!-- HERRAMIENTA 1 -->
+            <!-- ========================= -->
+
+            <div class="articulo-card">
+
+                <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40">
+
+                <div class="articulo-content">
+
+                    <h3>
+                        📂 Generador Automático de Carpetas y Links
+                    </h3>
+
+                    <p>
+                        Organiza cientos de evidencias automáticamente.
+
+                        La herramienta crea carpetas, numera archivos, genera links y completa Excel sin trabajo manual.
+
+                        <br><br>
+
+                        ✅ Ideal para proyectos, auditorías, ONG, rendiciones y oficinas.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <!-- ========================= -->
+            <!-- HERRAMIENTA 2 -->
+            <!-- ========================= -->
+
+            <div class="articulo-card">
+
+                <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3">
+
+                <div class="articulo-content">
+
+                    <h3>
+                        📑 Generador Inteligente de Expedientes PDF
+                    </h3>
+
+                    <p>
+                        Convierte documentos dispersos en expedientes profesionales automáticamente.
+
+                        Ordena PDFs, imágenes y anexos, crea portada, índice y numera páginas.
+
+                        <br><br>
+
+                        ✅ Ideal para informes, tesis, proyectos, expedientes técnicos y consultorías.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <!-- ========================= -->
+            <!-- HERRAMIENTA 3 -->
+            <!-- ========================= -->
+
+            <div class="articulo-card">
+
+                <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c">
+
+                <div class="articulo-content">
+
+                    <h3>
+                        🧾 Extractor Inteligente de Facturas y Boletas
+                    </h3>
+
+                    <p>
+                        Convierte comprobantes en Excel automáticamente.
+
+                        Detecta fechas, RUC, empresa, montos y números de comprobante desde PDFs o imágenes escaneadas.
+
+                        <br><br>
+
+                        ✅ Ideal para contabilidad, tesorería, rendiciones y administración financiera.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+<!-- 🔥 FOOTER -->
+{% include "components/footer.html" %}
+
+<script>
+
+function changeVideo(video,title,description){
+
+    document.getElementById("mainVideo").src = video;
+
+    document.getElementById("mainTitle").innerText = title;
+
+    document.getElementById("mainDescription").innerText = description;
+}
+
+</script>
+
+</body>
+</html>

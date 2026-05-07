@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Plantillas de documentos gratis | FacilitoPDF</title>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+
+<style>
+body {
+    background:
+    radial-gradient(circle at 10% 85%, rgba(0,0,0,0.95), transparent 70%),
+    radial-gradient(circle at 90% 10%, rgba(255,255,255,0.05), transparent 40%),
+    linear-gradient(to bottom, #1a1a1a, #0a0a0a);
+    color: white;
+}
+</style>
+
+</head>
+
+<body>
+
+{% include "components/navbar.html" %}
+
+<section class="bloque-plantillas">
+
+    <h1>Plantillas de documentos gratis</h1>
+
+    <p class="intro-plantillas">
+
+        Descarga formatos profesionales listos para editar, imprimir y usar en minutos.
+        Modifica cada documento fácilmente en Word o Excel y personalízalo según lo que necesites.
+
+        Todos nuestros formatos están diseñados para verse limpios, corporativos y seguros al compartirlos.
+
+        Ahorra tiempo, evita errores y trabaja tus documentos de forma mucho más rápida y profesional.
+
+    </p>
+
+    <div class="plantillas-grid">
+
+        {% for p in plantillas %}
+        <a href="/plantillas/{{ p.slug }}" class="plantilla-card">
+
+            <img src="{{ url_for('static', filename='previews/' + p.preview) }}" alt="{{ p.titulo }}">
+
+            <h3>{{ p.titulo }}</h3>
+
+            <p>{{ p.descripcion }}</p>
+
+            <span>Ver plantilla →</span>
+        </a>
+        {% endfor %}
+
+    </div>
+
+</section>
+
+<div class="legal-plantillas">
+
+    Los formatos y plantillas disponibles en FacilitoPDF
+    tienen únicamente fines referenciales y educativos.
+
+    Cada usuario es responsable de revisar, modificar y validar el contenido antes de utilizarlo oficialmente.
+
+    FacilitoPDF no se responsabiliza por el uso, interpretación o consecuencias derivadas del uso de estos documentos.
+
+</div>
+
+{% include "components/footer.html" %}
+
+</body>
+</html>
