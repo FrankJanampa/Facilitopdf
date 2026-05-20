@@ -24,34 +24,26 @@ body{
     padding:20px 40px;
     background:white;
 }
+/* 🔥 NAVBAR BLOG OVERRIDE */
 
-.nav-logo{
-    font-size:20px;
-    font-weight:600;
-    color:#111;
+.navbar{
+
+    background:white !important;
 }
 
-.nav-links a{
-    margin-left:25px;
-    text-decoration:none;
+.logo{
+
     color:#111 !important;
-    font-size:14px;
-    position:relative;
 }
 
-.nav-links a::after{
-    content:"";
-    position:absolute;
-    left:0;
-    bottom:-4px;
-    width:0%;
-    height:1px;
+.menu a{
+
+    color:#111 !important;
+}
+
+.menu a::after{
+
     background:#111 !important;
-    transition:0.3s;
-}
-
-.nav-links a:hover::after{
-    width:100%;
 }
 
 /* CONTENEDOR */
@@ -165,16 +157,7 @@ body{
 <body>
 
 <!-- NAVBAR -->
-<div class="navbar">
-    <div class="nav-logo">FacilitoPDF</div>
-    <div class="nav-links">
-        <a href="/">Inicio</a>
-        <a href="/plantillas">Plantillas</a>
-        <a href="/contacto">Contacto</a>
-        <a href="/about">Nosotros</a>
-        <a href="/blog">Blog</a>
-    </div>
-</div>
+{% include "components/navbar.html" %}
 
 <!-- ARTÍCULO -->
 <div class="articulo">

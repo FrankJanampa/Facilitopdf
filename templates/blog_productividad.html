@@ -25,50 +25,13 @@ body{
     radial-gradient(circle at 90% 10%, rgba(255,255,255,0.05), transparent 40%),
     linear-gradient(to bottom, #1a1a1a, #0a0a0a);
 
-    padding:40px;
 }
 
-/* NAVBAR */
+/* 🔥 ESPACIO NAVBAR */
+
 .navbar{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
+
     margin-bottom:60px;
-}
-
-.nav-logo{
-    font-size:20px;
-    font-weight:600;
-}
-
-.nav-links a{
-    margin-left:20px;
-    text-decoration:none;
-    color: rgba(255,255,255,0.7);
-    font-size:14px;
-}
-
-.nav-links a:hover{
-    color:white;
-}
-
-.navbar a{
-    position: relative;
-}
-
-.navbar a::after{
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: -4px;
-    width: 0%;
-    height: 1px;
-    background: white;
-    transition: 0.3s ease;
-}
-
-.navbar a:hover::after{
-    width: 100%;
 }
 
 /* CONTENIDO */
@@ -110,15 +73,7 @@ img{
 <body>
 
 <!-- NAVBAR -->
-<div class="navbar">
-    <div class="nav-logo">FacilitoPDF</div>
-    <div class="nav-links">
-        <a href="{{ url_for('index') }}">Inicio</a>
-        <a href="{{ url_for('contacto') }}">Contacto</a>
-        <a href="{{ url_for('about') }}">Nosotros</a>
-        <a href="{{ url_for('blog') }}">Blog</a>
-    </div>
-</div>
+{% include "components/navbar.html" %}
 
 <div class="container">
 
