@@ -22,17 +22,7 @@
 
 <body>
 
-<nav class="navbar">
-    <div class="logo">FacilitoPDF</div>
-
-    <div class="menu">
-        <a href="/">Inicio</a>
-        <a href="/plantillas">Plantillas</a>
-        <a href="/recursos">Recursos</a>
-        <a href="{{ url_for('contacto') }}">Contacto</a>
-        <a href="/about">Nosotros</a>
-    </div>
-</nav>
+{% include "components/navbar.html" %}
 
 <div class="hero">
 
@@ -52,32 +42,32 @@
         <!-- DERECHA -->
         <div class="cards">
 
-            <div class="card" onclick="openTool('split')">
+            <div class="card" onclick="window.location.href='/tools/split-pdf'">
                 <img src="{{ url_for('static', filename='icons/dividir.png') }}">
                 <span>Dividir</span>
             </div>
 
-            <div class="card" onclick="openTool('extract')">
+            <div class="card" onclick="window.location.href='/tools/extract-pdf'">
                 <img src="{{ url_for('static', filename='icons/extraer.png') }}">
                 <span>Extraer</span>
             </div>
 
-            <div class="card" onclick="openTool('order')">
+            <div class="card" onclick="window.location.href='/tools/order-pdf'">
                 <img src="{{ url_for('static', filename='icons/ordenar.png') }}">
                 <span>Ordenar</span>
             </div>
 
-            <div class="card" onclick="openTool('sign')">
+            <div class="card" onclick="window.location.href='/tools/sign-pdf'">
                 <img src="{{ url_for('static', filename='icons/firmar.png') }}">
                 <span>Firmar</span>
             </div>
 
-            <div class="card" onclick="openTool('merge')">
+            <div class="card" onclick="window.location.href='/tools/merge-pdf'">
                 <img src="{{ url_for('static', filename='icons/unir.png') }}">
                 <span>Unir</span>
             </div>
 
-            <div class="card" onclick="openTool('compress')">
+            <div class="card" onclick="window.location.href='/tools/compress-pdf'">
                 <img src="{{ url_for('static', filename='icons/comprimir.png') }}">
                 <span>Comprimir</span>
             </div>

@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Firmar PDF Online Gratis | FacilitoPDF</title>
+
+<meta name="description" content="Firma documentos PDF online gratis. Agrega tu firma fácilmente sobre archivos PDF y descarga documentos firmados en segundos.">
+
+<link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+
+    font-family:system-ui,-apple-system,sans-serif;
+
+    background:
+    radial-gradient(circle at top left, rgba(255,255,255,0.04), transparent 30%),
+    linear-gradient(to bottom, #111, #050505);
+
+    color:white;
+
+    min-height:100vh;
+}
+
+.tool-content{
+
+    max-width:1250px;
+
+    margin:auto;
+
+    padding:40px 20px 100px;
+}
+
+.tool-box{
+
+    margin-top:40px;
+
+    background:rgba(255,255,255,0.04);
+
+    border-radius:30px;
+
+    padding:45px;
+
+    border:1px solid rgba(255,255,255,0.06);
+
+    box-shadow:0 10px 40px rgba(0,0,0,0.25);
+}
+
+.tool-header{
+
+    margin-bottom:35px;
+}
+
+.tool-header h1{
+
+    font-size:54px;
+
+    margin-bottom:22px;
+}
+
+.tool-header p{
+
+    max-width:920px;
+
+    line-height:1.95;
+
+    font-size:18px;
+
+    color:rgba(255,255,255,0.78);
+}
+
+.sign-controls{
+
+    display:flex;
+
+    gap:15px;
+
+    flex-wrap:wrap;
+
+    margin-top:25px;
+
+    margin-bottom:30px;
+}
+
+.sign-controls button{
+
+    border:none;
+
+    padding:14px 24px;
+
+    border-radius:14px;
+
+    cursor:pointer;
+
+    background:white;
+
+    color:black;
+
+    font-weight:600;
+
+    transition:0.25s ease;
+
+    height:52px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+}
+
+.sign-controls button:hover{
+
+    transform:translateY(-2px);
+}
+
+.actions{
+
+    margin-top:30px;
+
+    display:flex;
+
+    gap:15px;
+
+    align-items:center;
+
+    flex-wrap:wrap;
+}
+
+.actions button{
+
+    border:none;
+
+    padding:14px 24px;
+
+    border-radius:14px;
+
+    cursor:pointer;
+
+    background:white;
+
+    color:black;
+
+    font-weight:600;
+
+    transition:0.25s ease;
+
+    height:52px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+}
+
+.actions button:hover{
+
+    transform:translateY(-2px);
+}
+
+.status-msg{
+
+    color:rgba(255,255,255,0.75);
+
+    font-size:14px;
+}
+
+/* 🔥 PDF VIEWER */
+
+.pdf-viewer{
+
+    margin-top:30px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:35px;
+}
+
+.pdf-page{
+
+    position:relative;
+
+    width:fit-content;
+
+    margin:auto;
+}
+
+.pdf-page canvas{
+
+    display:block;
+
+    border-radius:14px;
+
+    box-shadow:0 6px 24px rgba(0,0,0,0.35);
+
+    max-width:100%;
+}
+
+/* 🔥 SIGNATURE */
+
+.signature{
+
+    position:absolute;
+
+    user-select:none;
+}
+
+/* 🔥 DUPLICATE BTN */
+
+.duplicate-btn{
+
+    user-select:none;
+}
+
+@media(max-width:768px){
+
+    .tool-header h1{
+
+        font-size:42px;
+    }
+
+    .tool-header p{
+
+        font-size:17px;
+    }
+
+    .tool-box{
+
+        padding:30px;
+    }
+
+    .pdf-page canvas{
+
+        width:100%;
+        height:auto;
+    }
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- 🔥 NAVBAR -->
+{% include "components/navbar.html" %}
+
+<main class="tool-content">
+
+    <section class="tool-box">
+
+        <div class="tool-header">
+
+            <h1>
+                Firmar PDF
+            </h1>
+
+            <p>
+                Agrega tu firma sobre documentos PDF fácilmente. Coloca, mueve y ajusta firmas directamente sobre las páginas y descarga tu PDF firmado rápidamente.
+            </p>
+
+        </div>
+
+        <div id="sign-tool"></div>
+
+    </section>
+
+</main>
+
+<!-- 🔥 FOOTER -->
+{% include "components/footer.html" %}
+
+<!-- PDF JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+
+<!-- TOOL -->
+<script src="{{ url_for('static', filename='tools/sign.js') }}"></script>
+
+<script>
+
+/* =========================
+   🔥 PDF WORKER
+========================= */
+
+pdfjsLib.GlobalWorkerOptions.workerSrc =
+'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+
+/* =========================
+   🔥 RENDER TOOL
+========================= */
+
+renderSign(document.getElementById("sign-tool"));
+
+</script>
+
+</body>
+</html>

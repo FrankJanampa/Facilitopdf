@@ -477,3 +477,26 @@ def blog_productividad():
     return render_template("blog_productividad.html")
 from flask import send_from_directory
 
+@app.route("/tools/split-pdf")
+def split_page():
+    return render_template("tools/split.html")
+
+@app.route("/tools/merge-pdf")
+def merge_page():
+    return render_template("tools/merge.html")
+
+@app.route("/tools/compress-pdf")
+def compress_page():
+    return render_template("tools/compress.html")
+
+@app.route("/tools/extract-pdf")
+def extract_page():
+    return render_template("tools/extract.html")
+
+@app.route("/tools/order-pdf")
+def order_page():
+    return render_template("tools/order.html")
+
+@app.route("/tools/sign-pdf")
+def sign_page():
+    return render_template("tools/sign.html")

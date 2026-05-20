@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Unir PDF Online Gratis | FacilitoPDF</title>
+
+<meta name="description" content="Une varios archivos PDF online gratis. Combina documentos fácilmente y descarga un solo PDF organizado en segundos.">
+
+<link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+
+<style>
+
+/* =========================
+   🔥 RESET
+========================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+/* =========================
+   🔥 BODY
+========================= */
+
+body{
+
+    font-family:system-ui,-apple-system,sans-serif;
+
+    background:
+    radial-gradient(circle at top left, rgba(255,255,255,0.04), transparent 30%),
+    linear-gradient(to bottom, #111, #050505);
+
+    color:white;
+
+    min-height:100vh;
+}
+
+/* =========================
+   🔥 CONTENEDOR
+========================= */
+
+.tool-content{
+
+    max-width:1250px;
+
+    margin:auto;
+
+    padding:40px 20px 100px;
+}
+
+/* =========================
+   🔥 TOOL BOX
+========================= */
+
+.tool-box{
+
+    margin-top:40px;
+
+    background:rgba(255,255,255,0.04);
+
+    border-radius:30px;
+
+    padding:45px;
+
+    border:1px solid rgba(255,255,255,0.06);
+
+    box-shadow:0 10px 40px rgba(0,0,0,0.25);
+}
+
+/* =========================
+   🔥 HEADER
+========================= */
+
+.tool-header{
+
+    margin-bottom:35px;
+}
+
+.tool-header h1{
+
+    font-size:54px;
+
+    margin-bottom:22px;
+}
+
+.tool-header p{
+
+    max-width:920px;
+
+    line-height:1.95;
+
+    font-size:18px;
+
+    color:rgba(255,255,255,0.78);
+}
+
+/* =========================
+   🔥 DROP ZONE
+========================= */
+
+.drop-zone{
+
+    margin-top:30px;
+
+    border:2px dashed rgba(255,255,255,0.18);
+
+    border-radius:24px;
+
+    padding:60px 30px;
+
+    text-align:center;
+
+    cursor:pointer;
+
+    transition:0.3s ease;
+
+    color:rgba(255,255,255,0.72);
+
+    font-size:17px;
+}
+
+.drop-zone:hover{
+
+    border-color:white;
+
+    background:rgba(255,255,255,0.03);
+}
+
+/* =========================
+   🔥 ACTIONS
+========================= */
+
+.actions{
+
+    margin-top:30px;
+
+    display:flex;
+
+    gap:15px;
+
+    align-items:center;
+
+    flex-wrap:wrap;
+}
+
+.actions button{
+
+    border:none;
+
+    padding:14px 24px;
+
+    border-radius:14px;
+
+    cursor:pointer;
+
+    background:white;
+
+    color:black;
+
+    font-weight:600;
+
+    transition:0.25s ease;
+}
+
+.actions button:hover{
+
+    transform:translateY(-2px);
+}
+
+/* =========================
+   🔥 STATUS
+========================= */
+
+.status-msg{
+
+    color:rgba(255,255,255,0.75);
+
+    font-size:14px;
+}
+
+/* =========================
+   🔥 RESPONSIVE
+========================= */
+
+@media(max-width:768px){
+
+    .tool-header h1{
+
+        font-size:42px;
+    }
+
+    .tool-header p{
+
+        font-size:17px;
+    }
+
+    .tool-box{
+
+        padding:30px;
+    }
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- 🔥 NAVBAR -->
+{% include "components/navbar.html" %}
+
+<main class="tool-content">
+
+    <section class="tool-box">
+
+        <!-- HEADER -->
+
+        <div class="tool-header">
+
+            <h1>
+                Unir PDF
+            </h1>
+
+            <p>
+                Une múltiples documentos PDF en un solo archivo organizado. 
+                Reordena archivos fácilmente y descarga un único PDF listo para compartir.
+            </p>
+
+        </div>
+
+        <!-- TOOL -->
+
+        <div id="merge-tool"></div>
+
+    </section>
+
+</main>
+
+<!-- 🔥 FOOTER -->
+{% include "components/footer.html" %}
+
+<!-- PDF JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+
+<!-- TOOL -->
+<script src="{{ url_for('static', filename='tools/merge.js') }}"></script>
+
+<script>
+
+/* =========================
+   🔥 PDF WORKER
+========================= */
+
+pdfjsLib.GlobalWorkerOptions.workerSrc =
+'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+
+/* =========================
+   🔥 RENDER TOOL
+========================= */
+
+renderMerge(document.getElementById("merge-tool"));
+
+/* =========================
+   🔥 CLICK DROP ZONE
+========================= */
+
+document.addEventListener("click", function(e){
+
+    if(e.target.classList.contains("drop-zone")){
+
+        const input = e.target.querySelector("input");
+
+        if(input){
+            input.click();
+        }
+    }
+});
+
+
+//////////////////////////////////////////////////
+// 🔥 SUBMIT MERGE
+//////////////////////////////////////////////////
+
+async function submitMerge(){
+
+    const status = document.getElementById("merge-status");
+
+    const button = document.getElementById("merge-btn");
+
+    if(mergeFiles.length === 0){
+
+        alert("Selecciona al menos un PDF");
+
+        return;
+    }
+
+    try{
+
+        button.disabled = true;
+
+        button.innerText = "Procesando...";
+
+        status.textContent = "Uniendo PDFs...";
+
+        const formData = new FormData();
+
+        mergeFiles.forEach(file => {
+
+            formData.append("pdfs", file);
+        });
+
+        const response = await fetch("/merge-pdf", {
+
+            method: "POST",
+
+            body: formData
+        });
+
+        if(!response.ok){
+
+            throw new Error("Error al unir PDFs");
+        }
+
+        const blob = await response.blob();
+
+        const url = window.URL.createObjectURL(blob);
+
+        const a = document.createElement("a");
+
+        a.href = url;
+
+        a.download = "pdf_unido.pdf";
+
+        document.body.appendChild(a);
+
+        a.click();
+
+        a.remove();
+
+        window.URL.revokeObjectURL(url);
+
+        status.textContent = "PDF descargado correctamente";
+
+    }catch(error){
+
+        console.error(error);
+
+        status.textContent = "Error al unir PDFs";
+
+        alert("Ocurrió un error al unir los PDFs");
+
+    }finally{
+
+        button.disabled = false;
+
+        button.innerText = "Descargar";
+    }
+}
+
+
+</script>
+
+</body>
+</html>
