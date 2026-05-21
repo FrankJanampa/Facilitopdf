@@ -500,3 +500,8 @@ def order_page():
 @app.route("/tools/sign-pdf")
 def sign_page():
     return render_template("tools/sign.html")
+
+@app.route('/ads.txt')
+def ads_txt():
+    return send_from_directory('static', 'ads.txt')
+
