@@ -76,12 +76,66 @@ img{
     margin:20px 0;
 }
 
-/* FOOTER */
+/* =========================
+   🔥 FOOTER GLOBAL
+========================= */
+
 .footer{
+
     margin-top:80px;
-    font-size:12px;
+
     text-align:center;
-    opacity:0.6;
+
+    color:white;
+
+    font-size:13px;
+
+    opacity:1;
+}
+
+/* LINKS FOOTER */
+
+.footer a{
+
+    color:white;
+
+    text-decoration:none;
+
+    margin:0 10px;
+
+    position:relative;
+}
+
+/* 🔥 EFECTO LÍNEA */
+
+.footer a::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+    bottom:-3px;
+
+    width:0%;
+
+    height:1px;
+
+    background:white;
+
+    transition:0.3s;
+}
+
+.footer a:hover::after{
+
+    width:100%;
+}
+
+/* 🔥 EVITA COLOR AZUL */
+
+.footer a:hover{
+
+    color:white !important;
 }
 </style>
 </head>
@@ -142,11 +196,7 @@ Aprovechar herramientas digitales permite enfocarse en lo realmente importante: 
 </div>
 
 <!-- FOOTER -->
-<div class="footer">
-    Última actualización: 2026
-    <span style="margin: 0 30px;">·</span>
-    Facilito Labs  by fjanampa
-</div>
+{% include "components/footer.html" %}
 
 </body>
 </html>
