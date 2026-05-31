@@ -1,330 +1,219 @@
 <!DOCTYPE html>
-
 <html lang="es">
 <head>
 <meta charset="UTF-8">
 <title>Términos de uso | FacilitoPDF</title>
-
 <!-- ADSENSE -->
 <script async src="https://pagead2.googlesyndication.com/pagead/js?client=ca-pub-4225426395301421"
 crossorigin="anonymous"></script>
-
 <!-- GOOGLE ANALYTICS -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-52Z4MDXY08"></script>
-
 <script>
 window.dataLayer = window.dataLayer || [];
-
 function gtag(){
     dataLayer.push(arguments);
 }
-
 gtag('js', new Date());
-
 gtag('config', 'G-52Z4MDXY08');
 </script>
-
 <style>
-
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
 }
-
 body{
-
     font-family: "Segoe UI", sans-serif;
-
     color: white;
-
     min-height:100vh;
-
     background:
         radial-gradient(circle at 10% 85%, rgba(0,0,0,0.95), transparent 70%),
         radial-gradient(circle at 90% 10%, rgba(255,255,255,0.05), transparent 40%),
         linear-gradient(to bottom, #1a1a1a 0%, #0a0a0a 100%);
 }
-
 /* 🔥 NAVBAR SPACING */
-
 .navbar{
-
     margin-bottom:40px;
 }
-
 /* CONTENEDOR */
-
 .container{
-
     max-width:1100px;
-
     margin:auto;
-
     padding:0 40px 60px;
 }
-
 /* HEADER */
-
 .header{
-
     display:flex;
-
     justify-content:space-between;
-
     align-items:center;
-
     margin-bottom:80px;
 }
-
 .logo{
-
     font-size:20px;
-
     font-weight:600;
 }
-
 .brand{
-
     font-size:12px;
-
     opacity:0.6;
 }
-
 /* HERO */
-
 .hero{
-
     max-width:700px;
-
     margin-bottom:60px;
 }
-
 .hero h1{
-
     font-size:32px;
-
     margin-bottom:15px;
 }
-
 .hero p{
-
     font-size:18px;
-
     line-height:1.6;
-
     opacity:0.9;
 }
-
 /* GRID */
-
 .grid{
-
     display:grid;
-
     grid-template-columns: repeat(2,1fr);
-
     gap:40px;
 }
-
 /* BLOQUES */
-
 .block{
-
     background: rgba(255,255,255,0.03);
-
     padding:25px;
-
     border-radius:12px;
 }
-
 .block h2{
-
     font-size:16px;
-
     margin-bottom:10px;
-
     opacity:0.8;
 }
-
 .block p{
-
     font-size:14px;
-
     line-height:1.7;
-
     opacity:0.9;
 }
-
 .block ul{
-
     margin-left:18px;
-
     margin-top:10px;
 }
-
 .block li{
-
     margin-bottom:6px;
 }
-
 /* 🔥 FOOTER */
-
 .footer{
-
     margin-top:80px;
-
     text-align:center;
-
     font-size:13px;
-
     color:white;
 }
-
 .footer a{
-
     color:white;
-
     text-decoration:none;
-
     margin:0 10px;
-
     position:relative;
 }
-
 .footer a::after{
-
     content:"";
-
     position:absolute;
-
     left:0;
     bottom:-3px;
-
     width:0%;
-
     height:1px;
-
     background:white;
-
     transition:0.3s;
 }
-
 .footer a:hover::after{
-
     width:100%;
 }
-
 /* RESPONSIVE */
-
 @media(max-width:800px){
-
     .grid{
-
         grid-template-columns:1fr;
     }
-
     .container{
-
         padding:0 20px 60px;
     }
 }
-
 </style>
-
 </head>
-
 <body>
-
-<!-- NAVBAR -->
-
 {% include "components/navbar.html" %}
-
 <div class="container">
-
-<!-- HERO -->
-<div class="hero">
-    <h1>Términos de uso</h1>
-    <p>
-        Al utilizar FacilitoPDF aceptas estas condiciones. Nuestro objetivo es ofrecer
-        herramientas simples y seguras, pero es importante que conozcas tus responsabilidades
-        como usuario.
-    </p>
-</div>
-
-<!-- GRID -->
-<div class="grid">
-
-    <div class="block">
-        <h2>Uso del servicio</h2>
+    <!-- HERO -->
+    <div class="hero">
+        <h1>Términos de uso</h1>
         <p>
-            FacilitoPDF proporciona herramientas para procesar archivos PDF. El usuario debe
-            utilizar el servicio únicamente con fines legales y adecuados.
+            Al utilizar FacilitoPDF aceptas estas condiciones. Nuestro objetivo es ofrecer
+            herramientas simples y seguras, pero es importante que conozcas tus responsabilidades
+            como usuario.
         </p>
     </div>
-
-    <div class="block">
-        <h2>Responsabilidad del usuario</h2>
-        <ul>
-            <li>No subir contenido ilegal o protegido sin autorización.</li>
-            <li>No usar el servicio con fines maliciosos.</li>
-            <li>No intentar vulnerar el sistema.</li>
-        </ul>
+    <!-- GRID -->
+    <div class="grid">
+        <div class="block">
+            <h2>Uso del servicio</h2>
+            <p>
+                FacilitoPDF proporciona herramientas para procesar archivos PDF de forma gratuita. 
+                El usuario debe utilizar el servicio únicamente con fines legales y adecuados. 
+                Está prohibido usar la plataforma para actividades ilegales, fraudulentas o que infrinjan derechos de terceros.
+            </p>
+        </div>
+        <div class="block">
+            <h2>Responsabilidad del usuario</h2>
+            <ul>
+                <li>No subir contenido ilegal o protegido sin autorización.</li>
+                <li>No usar el servicio con fines maliciosos o para dañar la plataforma.</li>
+                <li>No intentar vulnerar el sistema o realizar ingeniería inversa.</li>
+                <li>Ser responsable del contenido que sube y de cumplir con las leyes aplicables.</li>
+            </ul>
+        </div>
+        <div class="block">
+            <h2>Archivos y procesamiento</h2>
+            <p>
+                Los archivos son procesados automáticamente. El usuario es responsable del contenido
+                que sube y de cumplir las leyes aplicables. FacilitoPDF no almacena los archivos de forma permanente.
+            </p>
+        </div>
+        <div class="block">
+            <h2>Disponibilidad del servicio</h2>
+            <p>
+                No garantizamos disponibilidad continua ni ausencia de errores. El servicio puede
+                modificarse o interrumpirse sin previo aviso por mantenimiento o mejoras técnicas.
+            </p>
+        </div>
+        <div class="block">
+            <h2>Limitación de responsabilidad</h2>
+            <ul>
+                <li>Pérdida de datos o archivos.</li>
+                <li>Errores en el procesamiento.</li>
+                <li>Uso indebido del servicio.</li>
+                <li>Daños indirectos derivados del uso de la plataforma.</li>
+            </ul>
+        </div>
+        <div class="block">
+            <h2>Propiedad intelectual</h2>
+            <p>
+                El usuario mantiene la propiedad de sus archivos. El sitio, su diseño, código y herramientas pertenecen a
+                FacilitoPDF / Nexia Labs y están protegidos por derechos de autor.
+            </p>
+        </div>
+        <div class="block">
+            <h2>Publicidad</h2>
+            <p>
+                Este sitio puede mostrar anuncios mediante servicios como Google AdSense. 
+                Al utilizar el sitio aceptas la visualización de publicidad según las políticas de los proveedores.
+            </p>
+        </div>
+        <div class="block">
+            <h2>Cambios en los términos</h2>
+            <p>
+                Podemos actualizar estos términos en cualquier momento. Se recomienda revisarlos
+                periódicamente. El uso continuado del sitio después de los cambios implica su aceptación.
+            </p>
+        </div>
     </div>
-
-    <div class="block">
-        <h2>Archivos y procesamiento</h2>
-        <p>
-            Los archivos son procesados automáticamente. El usuario es responsable del contenido
-            que sube y de cumplir las leyes aplicables.
-        </p>
-    </div>
-
-    <div class="block">
-        <h2>Disponibilidad del servicio</h2>
-        <p>
-            No garantizamos disponibilidad continua ni ausencia de errores. El servicio puede
-            modificarse o interrumpirse sin previo aviso.
-        </p>
-    </div>
-
-    <div class="block">
-        <h2>Limitación de responsabilidad</h2>
-        <ul>
-            <li>Pérdida de datos o archivos.</li>
-            <li>Errores en el procesamiento.</li>
-            <li>Uso indebido del servicio.</li>
-        </ul>
-    </div>
-
-    <div class="block">
-        <h2>Propiedad intelectual</h2>
-        <p>
-            El usuario mantiene la propiedad de sus archivos. El sitio y su diseño pertenecen a
-            FacilitoPDF.
-        </p>
-    </div>
-
-    <div class="block">
-        <h2>Publicidad</h2>
-        <p>
-            Este sitio puede mostrar anuncios mediante servicios como Google AdSense.
-        </p>
-    </div>
-
-    <div class="block">
-        <h2>Cambios en los términos</h2>
-        <p>
-            Podemos actualizar estos términos en cualquier momento. Se recomienda revisarlos
-            periódicamente.
-        </p>
-    </div>
-
-</div>
-
+<!-- FOOTER -->
 {% include "components/footer.html" %}
-
 </div>
-
 </body>
 </html>

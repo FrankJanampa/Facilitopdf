@@ -1,445 +1,247 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Firmar PDF Online Gratis | FacilitoPDF</title>
-
-<meta name="description" content="Firma documentos PDF online gratis. Agrega tu firma fácilmente sobre archivos PDF y descarga documentos firmados en segundos.">
-
+<title>Firmar PDF Online Gratis - Agrega Firma Fácil y Rápido | FacilitoPDF</title>
+<meta name="description" content="Firma PDF online gratis. Sube tu PDF, agrega tu firma manuscrita o imagen, colócala donde quieras, duplícala y descarga el documento firmado en segundos. Sin registro.">
 <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
-
 <!-- ADSENSE -->
 <script async src="https://pagead2.googlesyndication.com/pagead/js?client=ca-pub-4225426395301421"
 crossorigin="anonymous"></script>
-
 <!-- GOOGLE ANALYTICS -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-52Z4MDXY08"></script>
-
 <script>
 window.dataLayer = window.dataLayer || [];
-
 function gtag(){
     dataLayer.push(arguments);
 }
-
 gtag('js', new Date());
-
 gtag('config', 'G-52Z4MDXY08');
 </script>
-
-
 <style>
-
+/* =========================
+   🔥 RESET
+========================= */
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
 }
-
+/* =========================
+   🔥 BODY
+========================= */
 body{
-
     font-family:system-ui,-apple-system,sans-serif;
-
     background:
     radial-gradient(circle at top left, rgba(255,255,255,0.04), transparent 30%),
     linear-gradient(to bottom, #111, #050505);
-
     color:white;
-
     min-height:100vh;
 }
-
+/* =========================
+   🔥 CONTENEDOR
+========================= */
 .tool-content{
-
     max-width:1250px;
-
     margin:auto;
-
     padding:40px 20px 100px;
 }
-
+/* =========================
+   🔥 TOOL BOX
+========================= */
 .tool-box{
-
     margin-top:40px;
-
     background:rgba(255,255,255,0.04);
-
     border-radius:30px;
-
     padding:45px;
-
     border:1px solid rgba(255,255,255,0.06);
-
     box-shadow:0 10px 40px rgba(0,0,0,0.25);
 }
-
+/* =========================
+   🔥 HEADER
+========================= */
 .tool-header{
-
-    margin-bottom:35px;
+    margin-bottom:50px;
 }
-
 .tool-header h1{
-
     font-size:54px;
-
     margin-bottom:22px;
 }
-
 .tool-header p{
-
     max-width:920px;
-
     line-height:1.95;
-
     font-size:18px;
-
     color:rgba(255,255,255,0.78);
 }
-
-.sign-controls{
-
-    display:flex;
-
-    gap:15px;
-
-    flex-wrap:wrap;
-
-    margin-top:25px;
-
-    margin-bottom:30px;
-}
-
-.sign-controls button{
-
-    border:none;
-
-    padding:14px 24px;
-
-    border-radius:14px;
-
-    cursor:pointer;
-
-    background:white;
-
-    color:black;
-
-    font-weight:600;
-
-    transition:0.25s ease;
-
-    height:52px;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-}
-
-.sign-controls button:hover{
-
-    transform:translateY(-2px);
-}
-
-.actions{
-
-    margin-top:30px;
-
-    display:flex;
-
-    gap:15px;
-
-    align-items:center;
-
-    flex-wrap:wrap;
-}
-
-.actions button{
-
-    border:none;
-
-    padding:14px 24px;
-
-    border-radius:14px;
-
-    cursor:pointer;
-
-    background:white;
-
-    color:black;
-
-    font-weight:600;
-
-    transition:0.25s ease;
-
-    height:52px;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-}
-
-.actions button:hover{
-
-    transform:translateY(-2px);
-}
-
-.status-msg{
-
-    color:rgba(255,255,255,0.75);
-
-    font-size:14px;
-}
-
-/* 🔥 PDF VIEWER */
-
-.pdf-viewer{
-
-    margin-top:30px;
-
-    display:flex;
-
-    flex-direction:column;
-
-    gap:35px;
-}
-
-.pdf-page{
-
-    position:relative;
-
-    width:fit-content;
-
-    margin:auto;
-}
-
-.pdf-page canvas{
-
-    display:block;
-
-    border-radius:14px;
-
-    box-shadow:0 6px 24px rgba(0,0,0,0.35);
-
-    max-width:100%;
-}
-
-/* 🔥 SIGNATURE */
-
-.signature{
-
-    position:absolute;
-
-    user-select:none;
-}
-
-/* 🔥 DUPLICATE BTN */
-
-.duplicate-btn{
-
-    user-select:none;
-}
-
 /* =========================
    🔥 RELATED CONTENT
 ========================= */
-
 .related-content{
-
     margin-top:10px;
-
     text-align:center;
 }
-
 .related-content h2{
-
     font-size:30px;
-
     margin-bottom:22px;
 }
-
 .related-grid{
-
     display:flex;
-
     justify-content:center;
-
     gap:18px;
-
     flex-wrap:wrap;
 }
-
 .related-card{
-
     width:340px;
-
     display:block;
-
     padding:24px;
-
     border-radius:18px;
-
     background:rgba(255,255,255,0.04);
-
     border:1px solid rgba(255,255,255,0.06);
-
     text-decoration:none;
-
     transition:0.25s ease;
-
     text-align:left;
 }
-
 .related-card:hover{
-
     transform:translateY(-4px);
-
     background:rgba(255,255,255,0.06);
 }
-
 .related-card h3{
-
     color:white;
-
     margin-bottom:12px;
-
     font-size:20px;
 }
-
 .related-card p{
-
     color:rgba(255,255,255,0.72);
-
     line-height:1.7;
-
     font-size:15px;
 }
-
+/* =========================
+   🔥 RESPONSIVE
+========================= */
 @media(max-width:768px){
-
     .tool-header h1{
-
         font-size:42px;
     }
-
     .tool-header p{
-
         font-size:17px;
     }
-
     .tool-box{
-
         padding:30px;
     }
-
-    .pdf-page canvas{
-
-        width:100%;
-        height:auto;
-    }
 }
-
 </style>
-
 </head>
-
 <body>
 
-<!-- 🔥 NAVBAR -->
+<!-- NAVBAR -->
 {% include "components/navbar.html" %}
 
 <main class="tool-content">
 
+    <!-- HEADER + TOOL -->
     <section class="tool-box">
-
         <div class="tool-header">
-
-            <h1>
-                Firmar PDF
-            </h1>
-
+            <h1>Firmar PDF Online Gratis</h1>
             <p>
-                Agrega tu firma sobre documentos PDF fácilmente. Coloca, mueve y ajusta firmas directamente sobre las páginas y descarga tu PDF firmado rápidamente.
+                Agrega tu firma de forma profesional a cualquier documento PDF. Sube tu PDF, carga tu firma manuscrita o imagen, colócala donde desees, redimensiona, duplícala y descarga el documento completamente firmado.
             </p>
-
+            <p style="margin-top:22px;">
+                No requiere registro, todo se procesa directamente en tu navegador y tus archivos se eliminan automáticamente 
+                después de la descarga. Máxima privacidad y seguridad garantizada.
+            </p>
         </div>
 
+        <!-- TOOL -->
         <div id="sign-tool"></div>
+    </section>
 
+    <!-- Cómo funciona -->
+    <section class="tool-box">
+        <h2 style="margin-bottom:25px; font-size:32px;">¿Cómo funciona Firmar PDF?</h2>
+        <p style="font-size:17.5px; line-height:1.95; color:rgba(255,255,255,0.85);">
+            Nuestra herramienta te permite firmar documentos de manera sencilla y precisa. Primero subes el PDF que deseas firmar. 
+            Luego puedes dibujar tu firma directamente con el mouse o dedo, o subir una imagen de tu firma (formato PNG recomendado con fondo transparente). 
+            Una vez colocada, puedes moverla, redimensionarla y <strong>duplicarla</strong> cuantas veces necesites para firmar en diferentes páginas o secciones. 
+            Al finalizar, descargas el PDF con todas las firmas exactamente donde las ubicaste. Todo el proceso se realiza en tu navegador sin subir archivos a servidores.
+        </p>
+    </section>
+
+    <!-- Casos de uso -->
+    <section class="tool-box">
+        <h2 style="margin-bottom:25px; font-size:32px;">Casos de uso más comunes</h2>
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:20px; font-size:17px; line-height:2.0; color:rgba(255,255,255,0.85);">
+            <ul style="padding-left:25px;">
+                <li>Firmar contratos laborales, de alquiler o de servicios</li>
+                <li>Documentos oficiales, solicitudes y autorizaciones</li>
+                <li>Facturas, boletas de venta y documentos contables</li>
+            </ul>
+            <ul style="padding-left:25px;">
+                <li>Acuerdos comerciales y convenios</li>
+                <li>Formularios bancarios y trámites administrativos</li>
+                <li>Enviar documentos firmados a clientes o instituciones</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Preguntas Frecuentes -->
+    <section class="tool-box">
+        <h2 style="margin-bottom:25px; font-size:32px;">Preguntas Frecuentes</h2>
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(300px, 1fr)); gap:18px;">
+            <details style="margin-bottom:15px;"><summary style="font-size:17px; cursor:pointer; padding:12px 0;">¿Es válida esta firma digital?</summary><p style="padding:12px 0; color:rgba(255,255,255,0.8);">Sí. La firma visible es válida para la mayoría de trámites, contratos y documentos internos. Para usos legales muy formales, consulta con un notario.</p></details>
+            
+            <details style="margin-bottom:15px;"><summary style="font-size:17px; cursor:pointer; padding:12px 0;">¿Se guarda mi firma o el PDF en servidores?</summary><p style="padding:12px 0; color:rgba(255,255,255,0.8);">No. Todo el proceso ocurre en tu navegador. Ni la firma ni el documento se almacenan en nuestros servidores.</p></details>
+            
+            <details style="margin-bottom:15px;"><summary style="font-size:17px; cursor:pointer; padding:12px 0;">¿Puedo subir una imagen de mi firma?</summary><p style="padding:12px 0; color:rgba(255,255,255,0.8);">Sí. Recomendamos usar formato PNG con fondo transparente para mejores resultados.</p></details>
+            
+            <details style="margin-bottom:15px;"><summary style="font-size:17px; cursor:pointer; padding:12px 0;">¿Puedo duplicar la firma en varias páginas?</summary><p style="padding:12px 0; color:rgba(255,255,255,0.8);">Sí. Una vez colocada la firma, puedes duplicarla y colocarla en diferentes páginas fácilmente.</p></details>
+            
+            <details style="margin-bottom:15px;"><summary style="font-size:17px; cursor:pointer; padding:12px 0;">¿Funciona en celular o tablet?</summary><p style="padding:12px 0; color:rgba(255,255,255,0.8);">Sí, puedes subir tu firma y moverla con el dedo en dispositivos táctiles.</p></details>
+            
+            <details style="margin-bottom:15px;"><summary style="font-size:17px; cursor:pointer; padding:12px 0;">¿Puedo firmar varios documentos a la vez?</summary><p style="padding:12px 0; color:rgba(255,255,255,0.8);">Sí. Puedes trabajar con varios PDFs en una misma sesión.</p></details>
+        </div>
+    </section>
+
+    <!-- Consejos útiles -->
+    <section class="tool-box">
+        <h2 style="margin-bottom:25px; font-size:32px;">Consejos útiles</h2>
+        <p style="font-size:17.5px; line-height:1.95; color:rgba(255,255,255,0.85);">
+            Para obtener mejores resultados usa una imagen de firma con fondo transparente. Después de firmar tus documentos, te recomendamos 
+            <a href="/tools/compress-pdf" style="color:#60a5fa; text-decoration:underline;">comprimir el PDF</a> para reducir su tamaño 
+            o <a href="/tools/merge-pdf" style="color:#60a5fa; text-decoration:underline;">unir varios documentos</a> firmados. 
+            También puedes explorar nuestras <a href="/plantillas" style="color:#60a5fa; text-decoration:underline;">plantillas gratuitas</a> 
+            para crear nuevos documentos profesionales.
+        </p>
     </section>
 
 </main>
 
-<!-- 🔥 RELATED CONTENT -->
-
+<!-- RELATED CONTENT -->
 <section class="related-content">
-
     <h2>
         Aprende más sobre PDFs
     </h2>
-
     <div class="related-grid">
-
         <a href="/blog/seguridad" class="related-card">
-
-            <h3>
-                Seguridad en archivos PDF
-            </h3>
-
-            <p>
-                Aprende cómo proteger tus documentos PDF y evitar riesgos de privacidad.
-            </p>
-
+            <h3>Seguridad en archivos PDF</h3>
+            <p>Aprende cómo proteger tus documentos PDF y evitar riesgos de privacidad.</p>
         </a>
-
         <a href="/blog/guia" class="related-card">
-
-            <h3>
-                7 cosas que debes saber antes de subir tus PDFs
-            </h3>
-
-            <p>
-                Consejos importantes para optimizar, organizar y compartir PDFs correctamente.
-            </p>
-
+            <h3>7 cosas que debes saber antes de subir tus PDFs</h3>
+            <p>Consejos importantes para optimizar, organizar y compartir PDFs correctamente.</p>
         </a>
-
     </div>
-
 </section>
 
-<!-- 🔥 FOOTER -->
+<!-- FOOTER -->
 {% include "components/footer.html" %}
 
-<!-- PDF JS -->
+<!-- SCRIPTS -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
-
-<!-- TOOL -->
 <script src="{{ url_for('static', filename='tools/sign.js') }}"></script>
-
 <script>
-
-/* =========================
-   🔥 PDF WORKER
-========================= */
-
-pdfjsLib.GlobalWorkerOptions.workerSrc =
-'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
-
-/* =========================
-   🔥 RENDER TOOL
-========================= */
-
+pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
 renderSign(document.getElementById("sign-tool"));
-
 </script>
-
 </body>
 </html>

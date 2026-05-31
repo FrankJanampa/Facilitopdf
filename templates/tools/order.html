@@ -1,458 +1,300 @@
-html
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Ordenar PDF Online Gratis | FacilitoPDF</title>
-
-<meta name="description" content="Organiza y reordena páginas PDF online gratis. Cambia el orden de tus páginas fácilmente y descarga tu PDF reorganizado en segundos.">
-
+<title>Ordenar PDF Online Gratis - Reorganiza Páginas Fácil y Rápido | FacilitoPDF</title>
+<meta name="description" content="Ordena y reorganiza las páginas de tus PDFs online gratis. Arrastra las páginas al orden deseado y descarga tu documento reorganizado en segundos. Sin registro.">
 <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
-
 <!-- ADSENSE -->
 <script async src="https://pagead2.googlesyndication.com/pagead/js?client=ca-pub-4225426395301421"
 crossorigin="anonymous"></script>
-
 <!-- GOOGLE ANALYTICS -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-52Z4MDXY08"></script>
-
 <script>
 window.dataLayer = window.dataLayer || [];
-
 function gtag(){
     dataLayer.push(arguments);
 }
-
 gtag('js', new Date());
-
 gtag('config', 'G-52Z4MDXY08');
 </script>
-
-
 <style>
-
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
 }
-
 body{
-
     font-family:system-ui,-apple-system,sans-serif;
-
     background:
     radial-gradient(circle at top left, rgba(255,255,255,0.04), transparent 30%),
     linear-gradient(to bottom, #111, #050505);
-
     color:white;
-
     min-height:100vh;
 }
-
 .tool-content{
-
     max-width:1250px;
-
     margin:auto;
-
     padding:40px 20px 100px;
 }
-
 .tool-box{
-
     margin-top:40px;
-
     background:rgba(255,255,255,0.04);
-
     border-radius:30px;
-
     padding:45px;
-
     border:1px solid rgba(255,255,255,0.06);
-
     box-shadow:0 10px 40px rgba(0,0,0,0.25);
 }
-
 .tool-header{
-
-    margin-bottom:35px;
+    margin-bottom:50px;
 }
-
 .tool-header h1{
-
     font-size:54px;
-
     margin-bottom:22px;
 }
-
 .tool-header p{
-
     max-width:920px;
-
     line-height:1.95;
-
     font-size:18px;
-
     color:rgba(255,255,255,0.78);
 }
-
 .drop-zone{
-
     margin-top:30px;
-
     border:2px dashed rgba(255,255,255,0.18);
-
     border-radius:24px;
-
     padding:60px 30px;
-
     text-align:center;
-
     cursor:pointer;
-
     transition:0.3s ease;
-
     color:rgba(255,255,255,0.72);
-
     font-size:17px;
 }
-
 .drop-zone:hover{
-
     border-color:white;
-
     background:rgba(255,255,255,0.03);
 }
-
 .actions{
-
     margin-top:30px;
-
     display:flex;
-
     gap:15px;
-
     align-items:center;
-
     flex-wrap:wrap;
 }
-
 .actions button{
-
     border:none;
-
     padding:14px 24px;
-
     border-radius:14px;
-
     cursor:pointer;
-
     background:white;
-
     color:black;
-
     font-weight:600;
-
     transition:0.25s ease;
     height:52px;
     display:flex;
     align-items:center;
     justify-content:center;
 }
-
 .actions button:hover{
-
     transform:translateY(-2px);
 }
-
 .status-msg{
-
     color:rgba(255,255,255,0.75);
-
     font-size:14px;
 }
-
-/* 🔥 PREVIEW */
-
 .preview{
-
     margin-top:35px;
-
     display:grid;
-
     grid-template-columns:repeat(auto-fill, minmax(180px,1fr));
-
     gap:22px;
 }
-
 .page{
-
     position:relative;
-
     cursor:grab;
-
     transition:0.25s ease;
 }
-
 .page:hover{
-
     transform:translateY(-4px);
 }
-
 .page canvas{
-
     width:100%;
-
     border-radius:14px;
-
     box-shadow:0 4px 16px rgba(0,0,0,0.25);
 }
-
-/* 🔥 INFO */
-
 .order-info{
-
     margin-top:25px;
-
     color:rgba(255,255,255,0.7);
-
     line-height:1.7;
-
     font-size:15px;
 }
-
 /* =========================
    🔥 RELATED CONTENT
 ========================= */
-
 .related-content{
-
     margin-top:10px;
-
     text-align:center;
 }
-
 .related-content h2{
-
     font-size:30px;
-
     margin-bottom:22px;
 }
-
 .related-grid{
-
     display:flex;
-
     justify-content:center;
-
     gap:18px;
-
     flex-wrap:wrap;
 }
-
 .related-card{
-
     width:340px;
-
     display:block;
-
     padding:24px;
-
     border-radius:18px;
-
     background:rgba(255,255,255,0.04);
-
     border:1px solid rgba(255,255,255,0.06);
-
     text-decoration:none;
-
     transition:0.25s ease;
-
     text-align:left;
 }
-
 .related-card:hover{
-
     transform:translateY(-4px);
-
     background:rgba(255,255,255,0.06);
 }
-
 .related-card h3{
-
     color:white;
-
     margin-bottom:12px;
-
     font-size:20px;
 }
-
 .related-card p{
-
     color:rgba(255,255,255,0.72);
-
     line-height:1.7;
-
     font-size:15px;
 }
-
 @media(max-width:768px){
-
     .tool-header h1{
-
         font-size:42px;
     }
-
     .tool-header p{
-
         font-size:17px;
     }
-
     .tool-box{
-
         padding:30px;
     }
 }
-
 </style>
-
 </head>
-
 <body>
 
-<!-- 🔥 NAVBAR -->
+<!-- NAVBAR -->
 {% include "components/navbar.html" %}
 
 <main class="tool-content">
 
+    <!-- HEADER + TOOL -->
     <section class="tool-box">
-
         <div class="tool-header">
-
-            <h1>
-                Ordenar PDF
-            </h1>
-
+            <h1>Ordenar PDF Online Gratis</h1>
             <p>
-                Reorganiza las páginas de tus archivos PDF fácilmente. Arrastra las páginas en el orden que necesites y descarga tu PDF reorganizado rápidamente.
+                Reorganiza las páginas de tus documentos PDF de forma rápida y sencilla. Arrastra y suelta las páginas en el orden que necesites y descarga tu PDF reorganizado manteniendo la calidad original.
             </p>
-
+            <p style="margin-top:22px;">
+                No requiere registro, todo se procesa directamente en tu navegador y tus archivos se eliminan automáticamente
+                después de la descarga. Máxima privacidad garantizada.
+            </p>
         </div>
 
+        <!-- TOOL -->
         <div id="order-tool"></div>
+    </section>
 
+    <!-- Cómo funciona -->
+    <section class="tool-box">
+        <h2 style="margin-bottom:25px; font-size:32px;">¿Cómo funciona Ordenar PDF?</h2>
+        <p style="font-size:17.5px; line-height:1.95; color:rgba(255,255,255,0.85);">
+            Sube tu archivo PDF y nuestra herramienta mostrará miniaturas de todas las páginas. Simplemente arrástralas y suéltalas en el orden deseado.
+            Puedes reorganizar cuantas páginas necesites. Una vez que estés satisfecho con el orden, haz clic en descargar y obtendrás tu PDF reorganizado.
+            <strong>Todo el proceso se realiza en tu navegador</strong> y los archivos se eliminan automáticamente después de la descarga. Soporta PDFs de hasta <strong>100 MB</strong>.
+        </p>
+    </section>
+
+    <!-- Casos de uso -->
+    <section class="tool-box">
+        <h2 style="margin-bottom:25px; font-size:32px;">Casos de uso más comunes</h2>
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:20px; font-size:17px; line-height:2.0; color:rgba(255,255,255,0.85);">
+            <ul style="padding-left:25px;">
+                <li>Organizar tesis, libros o manuales por capítulos</li>
+                <li>Reordenar reportes financieros o técnicos</li>
+                <li>Corregir el orden de documentos escaneados</li>
+            </ul>
+            <ul style="padding-left:25px;">
+                <li>Preparar presentaciones o dossiers profesionales</li>
+                <li>Ordenar contratos y expedientes legales</li>
+                <li>Reorganizar facturas y documentos contables</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Preguntas Frecuentes -->
+    <section class="tool-box">
+        <h2 style="margin-bottom:25px; font-size:32px;">Preguntas Frecuentes</h2>
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(300px, 1fr)); gap:18px;">
+            <details style="margin-bottom:15px;"><summary style="font-size:17px; cursor:pointer; padding:12px 0;">¿Los archivos se guardan en servidores?</summary><p style="padding:12px 0; color:rgba(255,255,255,0.8);">No. Todo se procesa localmente en tu navegador y se elimina automáticamente después de descargar.</p></details>
+
+            <details style="margin-bottom:15px;"><summary style="font-size:17px; cursor:pointer; padding:12px 0;">¿Puedo ordenar PDFs con muchas páginas?</summary><p style="padding:12px 0; color:rgba(255,255,255,0.8);">Sí, la herramienta está optimizada para manejar documentos con decenas o cientos de páginas.</p></details>
+
+            <details style="margin-bottom:15px;"><summary style="font-size:17px; cursor:pointer; padding:12px 0;">¿Se mantiene la calidad del PDF original?</summary><p style="padding:12px 0; color:rgba(255,255,255,0.8);">Sí, el orden de las páginas se cambia sin perder calidad ni formato.</p></details>
+
+            <details style="margin-bottom:15px;"><summary style="font-size:17px; cursor:pointer; padding:12px 0;">¿Puedo combinar con otras herramientas?</summary><p style="padding:12px 0; color:rgba(255,255,255,0.8);">Sí, después de ordenar puedes <a href="/tools/split-pdf" style="color:#60a5fa; text-decoration:underline;">dividir</a>, <a href="/tools/compress-pdf" style="color:#60a5fa; text-decoration:underline;">comprimir</a> o <a href="/tools/merge-pdf" style="color:#60a5fa; text-decoration:underline;">unir</a> PDFs.</p></details>
+
+            <details style="margin-bottom:15px;"><summary style="font-size:17px; cursor:pointer; padding:12px 0;">¿Funciona en móvil?</summary><p style="padding:12px 0; color:rgba(255,255,255,0.8);">Sí, aunque la experiencia es mejor en computadora para arrastrar páginas.</p></details>
+        </div>
+    </section>
+
+    <!-- Consejos útiles -->
+    <section class="tool-box">
+        <h2 style="margin-bottom:25px; font-size:32px;">Consejos útiles</h2>
+        <p style="font-size:17.5px; line-height:1.95; color:rgba(255,255,255,0.85);">
+            Te recomendamos revisar el orden varias veces antes de descargar. Después de reorganizar tus documentos, puedes usar
+            <a href="/tools/compress-pdf" style="color:#60a5fa; text-decoration:underline;">comprimir PDF</a> para reducir el tamaño
+            o <a href="/tools/split-pdf" style="color:#60a5fa; text-decoration:underline;">dividir</a> el documento si necesitas separar secciones.
+            También explora nuestras <a href="/plantillas" style="color:#60a5fa; text-decoration:underline;">plantillas gratuitas</a>.
+        </p>
     </section>
 
 </main>
 
-<!-- 🔥 RELATED CONTENT -->
-
+<!-- RELATED CONTENT -->
 <section class="related-content">
-
     <h2>
         Aprende más sobre PDFs
     </h2>
-
     <div class="related-grid">
-
         <a href="/blog/seguridad" class="related-card">
-
-            <h3>
-                Seguridad en archivos PDF
-            </h3>
-
-            <p>
-                Aprende cómo proteger tus documentos PDF y evitar riesgos de privacidad.
-            </p>
-
+            <h3>Seguridad en archivos PDF</h3>
+            <p>Aprende cómo proteger tus documentos PDF y evitar riesgos de privacidad.</p>
         </a>
-
         <a href="/blog/guia" class="related-card">
-
-            <h3>
-                7 cosas que debes saber antes de subir tus PDFs
-            </h3>
-
-            <p>
-                Consejos importantes para optimizar, organizar y compartir PDFs correctamente.
-            </p>
-
+            <h3>7 cosas que debes saber antes de subir tus PDFs</h3>
+            <p>Consejos importantes para optimizar, organizar y compartir PDFs correctamente.</p>
         </a>
-
     </div>
-
 </section>
-<!-- 🔥 FOOTER -->
+
+<!-- FOOTER -->
 {% include "components/footer.html" %}
 
-<!-- PDF JS -->
+<!-- SCRIPTS -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
-
-<!-- TOOL -->
 <script src="{{ url_for('static', filename='tools/order.js') }}"></script>
-
 <script>
-
-/* =========================
-   🔥 PDF WORKER
-========================= */
-
-pdfjsLib.GlobalWorkerOptions.workerSrc =
-'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
-
-/* =========================
-   🔥 RENDER TOOL
-========================= */
-
+pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
 renderOrder(document.getElementById("order-tool"));
 
-/* =========================
-   🔥 CLICK DROP ZONE
-========================= */
-
 document.addEventListener("click", function(e){
-
     if(e.target.classList.contains("drop-zone")){
-
         const input = e.target.querySelector("input");
-
-        if(input){
-            input.click();
-        }
+        if(input) input.click();
     }
 });
-
-/* =========================
-   🔥 FIX VISUAL ORDER
-========================= */
-
-document.addEventListener("change", function(e){
-
-    if(e.target.id === "order-file"){
-
-        setTimeout(() => {
-
-            const preview = document.getElementById("order-preview");
-
-            const dropZone = document.querySelector(".drop-zone");
-
-            if(preview && preview.children.length > 0){
-
-                dropZone.style.display = "none";
-            }
-
-        }, 500);
-    }
-});
-
 </script>
-
 </body>
 </html>
-

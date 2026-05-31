@@ -1,420 +1,282 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Dividir PDF Online Gratis | FacilitoPDF</title>
-
-<meta name="description" content="Divide archivos PDF online gratis. Extrae automáticamente todas las páginas de uno o varios PDFs y descarga un ZIP organizado en segundos.">
-
+<title>Dividir PDF Online Gratis - Separa Páginas en Segundos, Fácil y Rápido | FacilitoPDF</title>
+<meta name="description" content="Divide PDF online gratis. Separa páginas de uno o varios documentos y descarga un ZIP organizado. Rápido, seguro y sin registro.">
 <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
-
 <!-- ADSENSE -->
 <script async src="https://pagead2.googlesyndication.com/pagead/js?client=ca-pub-4225426395301421"
 crossorigin="anonymous"></script>
-
 <!-- GOOGLE ANALYTICS -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-52Z4MDXY08"></script>
-
 <script>
 window.dataLayer = window.dataLayer || [];
-
 function gtag(){
     dataLayer.push(arguments);
 }
-
 gtag('js', new Date());
-
 gtag('config', 'G-52Z4MDXY08');
 </script>
-
-
 <style>
-
 /* =========================
    🔥 RESET
 ========================= */
-
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
 }
-
 /* =========================
    🔥 BODY
 ========================= */
-
 body{
-
     font-family:system-ui,-apple-system,sans-serif;
-
     background:
     radial-gradient(circle at top left, rgba(255,255,255,0.04), transparent 30%),
     linear-gradient(to bottom, #111, #050505);
-
     color:white;
-
     min-height:100vh;
 }
-
 /* =========================
    🔥 CONTENEDOR
 ========================= */
-
 .tool-content{
-
     max-width:1250px;
-
     margin:auto;
-
     padding:40px 20px 100px;
 }
-
 /* =========================
    🔥 TOOL BOX
 ========================= */
-
 .tool-box{
-
     margin-top:40px;
-
     background:rgba(255,255,255,0.04);
-
     border-radius:30px;
-
     padding:45px;
-
     border:1px solid rgba(255,255,255,0.06);
-
     box-shadow:0 10px 40px rgba(0,0,0,0.25);
 }
-
 /* =========================
    🔥 HEADER
 ========================= */
-
 .tool-header{
-
-    margin-bottom:35px;
+    margin-bottom:50px;   /* Más espacio antes del tool */
 }
-
 .tool-header h1{
-
     font-size:54px;
-
     margin-bottom:22px;
 }
-
 .tool-header p{
-
     max-width:920px;
-
     line-height:1.95;
-
     font-size:18px;
-
     color:rgba(255,255,255,0.78);
 }
 
 /* =========================
-   🔥 DROP ZONE
+   🔥 RELATED CONTENT (ESTILOS ORIGINALES)
 ========================= */
-
-.drop-zone{
-
-    margin-top:30px;
-
-    border:2px dashed rgba(255,255,255,0.18);
-
-    border-radius:24px;
-
-    padding:60px 30px;
-
-    text-align:center;
-
-    cursor:pointer;
-
-    transition:0.3s ease;
-
-    color:rgba(255,255,255,0.72);
-
-    font-size:17px;
-}
-
-.drop-zone:hover{
-
-    border-color:white;
-
-    background:rgba(255,255,255,0.03);
-}
-
-/* =========================
-   🔥 ACTIONS
-========================= */
-
-.actions{
-
-    margin-top:30px;
-
-    display:flex;
-
-    gap:15px;
-
-    align-items:center;
-
-    flex-wrap:wrap;
-}
-
-.actions button{
-
-    border:none;
-
-    padding:14px 24px;
-
-    border-radius:14px;
-
-    cursor:pointer;
-
-    background:white;
-
-    color:black;
-
-    font-weight:600;
-
-    transition:0.25s ease;
-}
-
-.actions button:hover{
-
-    transform:translateY(-2px);
-}
-
-/* =========================
-   🔥 STATUS
-========================= */
-
-.status-msg{
-
-    color:rgba(255,255,255,0.75);
-
-    font-size:14px;
-}
-
-/* =========================
-   🔥 RELATED CONTENT
-========================= */
-
 .related-content{
-
     margin-top:10px;
-
     text-align:center;
 }
-
 .related-content h2{
-
     font-size:30px;
-
     margin-bottom:22px;
 }
-
 .related-grid{
-
     display:flex;
-
     justify-content:center;
-
     gap:18px;
-
     flex-wrap:wrap;
 }
-
 .related-card{
-
     width:340px;
-
     display:block;
-
     padding:24px;
-
     border-radius:18px;
-
     background:rgba(255,255,255,0.04);
-
     border:1px solid rgba(255,255,255,0.06);
-
     text-decoration:none;
-
     transition:0.25s ease;
-
     text-align:left;
 }
-
 .related-card:hover{
-
     transform:translateY(-4px);
-
     background:rgba(255,255,255,0.06);
 }
-
 .related-card h3{
-
     color:white;
-
     margin-bottom:12px;
-
     font-size:20px;
 }
-
 .related-card p{
-
     color:rgba(255,255,255,0.72);
-
     line-height:1.7;
-
     font-size:15px;
 }
+
 /* =========================
    🔥 RESPONSIVE
 ========================= */
-
 @media(max-width:768px){
-
     .tool-header h1{
-
         font-size:42px;
     }
-
     .tool-header p{
-
         font-size:17px;
     }
-
     .tool-box{
-
         padding:30px;
     }
 }
-
 </style>
-
 </head>
-
 <body>
 
-<!-- 🔥 NAVBAR -->
+<!-- NAVBAR -->
 {% include "components/navbar.html" %}
 
 <main class="tool-content">
 
+    <!-- HEADER + TOOL -->
     <section class="tool-box">
-
-        <!-- HEADER -->
-
         <div class="tool-header">
-
-            <h1>
-                Dividir PDF
-            </h1>
-
+            <h1>Dividir PDF Online Gratis</h1>
             <p>
-                Divide automáticamente uno o varios archivos PDF y descarga todas sus páginas organizadas en un ZIP.
-                Facilita la separación de documentos extensos, expedientes y archivos pesados de forma rápida y segura.
+                Divide tus archivos PDF de manera rápida y profesional. Con FacilitoPDF puedes dividir todas las páginas 
+                de uno o varios documentos PDF y descargarlas automáticamente organizadas en un archivo ZIP organizado con todas las paginas sueltas y manteniendo la numeración original de tu archivo.
             </p>
-
+            <p style="margin-top:20px;">
+                No requiere registro, todo se procesa directamente en tu navegador y tus archivos se eliminan automáticamente 
+                después de la descarga. Máxima privacidad garantizada.
+            </p>
         </div>
 
         <!-- TOOL -->
-
         <div id="split-tool"></div>
+    </section>
 
+    <!-- CÓMO FUNCIONA -->
+    <section class="tool-box">
+        <h2 style="margin-bottom:25px; font-size:32px;">¿Cómo funciona Dividir PDF?</h2>
+        <p style="font-size:17.5px; line-height:1.95; color:rgba(255,255,255,0.85);">
+            Nuestra herramienta divide automáticamente cada página del PDF en archivos individuales. 
+            Si subes un solo PDF, obtendrás un archivo con cada página de tu PDF separados. Si subes varios PDFs, recibirás un archivo ZIP que contendrá una carpeta por archivo, para mayor rapidez, te recomendamos subir máximo 3 archivos PDFs. 
+            <strong>Los archivos no se almacenan en servidores</strong> y se eliminan automáticamente tras la descarga. 
+            Soporta PDFs de hasta <strong>100 MB</strong>.
+        </p>
+    </section>
+
+    <!-- CASOS DE USO -->
+    <section class="tool-box">
+        <h2 style="margin-bottom:25px; font-size:32px;">Casos de uso más comunes</h2>
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:20px; font-size:17px; line-height:2.0; color:rgba(255,255,255,0.85);">
+            <ul style="padding-left:25px;">
+                <li>Separar capítulos de tesis, libros o manuales</li>
+                <li>Extraer facturas o contratos individuales de expedientes grandes</li>
+                <li>Dividir reportes financieros mensuales o anuales</li>
+            </ul>
+            <ul style="padding-left:25px;">
+                <li>Organizar documentos escaneados de múltiples páginas</li>
+                <li>Preparar material didáctico para clases</li>
+                <li>Enviar solo páginas específicas a clientes usando <a href="/tools/merge-pdf" style="color:#60a5fa; text-decoration:underline;">unir PDF</a></li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- PREGUNTAS FRECUENTES -->
+    <section class="tool-box">
+        <h2 style="margin-bottom:25px; font-size:32px;">Preguntas Frecuentes</h2>
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(300px, 1fr)); gap:18px;">
+            
+            <details style="margin-bottom:15px;">
+                <summary style="font-size:17px; cursor:pointer; padding:12px 0;">¿Los archivos se guardan en algún servidor?</summary>
+                <p style="padding:12px 0; color:rgba(255,255,255,0.8);">No. Todo se procesa en tu navegador y se elimina automáticamente después de descargar.</p>
+            </details>
+
+            <details style="margin-bottom:15px;">
+                <summary style="font-size:17px; cursor:pointer; padding:12px 0;">¿Puedo subir varios PDFs al mismo tiempo?</summary>
+                <p style="padding:12px 0; color:rgba(255,255,255,0.8);">Sí. Recibirás un ZIP con todas las páginas separadas de cada documento.</p>
+            </details>
+
+            <details style="margin-bottom:15px;">
+                <summary style="font-size:17px; cursor:pointer; padding:12px 0;">¿Cuál es el tamaño máximo de archivo?</summary>
+                <p style="padding:12px 0; color:rgba(255,255,255,0.8);">Hasta 100 MB por archivo, sin embargo no es recomendable gestionar archivos tan pesados y el tiempo dependerá de tu velocidad de internet.</p>
+            </details>
+
+            <details style="margin-bottom:15px;">
+                <summary style="font-size:17px; cursor:pointer; padding:12px 0;">¿Funciona con PDFs escaneados?</summary>
+                <p style="padding:12px 0; color:rgba(255,255,255,0.8);">Sí sin ningún problema, siempre que no tengan contraseña y revisa que no estén dañados, nuestra herramienta también los identifica y te indicará de ser el caso.</p>
+            </details>
+
+            <details style="margin-bottom:15px;">
+                <summary style="font-size:17px; cursor:pointer; padding:12px 0;">¿Puedo comprimir los PDFs después?</summary>
+                <p style="padding:12px 0; color:rgba(255,255,255,0.8);">Sí, puedes comprimir PDFs que tienen imágenes y gráficos pesados. Usa nuestra herramienta de <a href="/tools/compress-pdf" style="color:#60a5fa; text-decoration:underline;">comprimir PDF</a>.</p>
+            </details>
+
+            <details style="margin-bottom:15px;">
+                <summary style="font-size:17px; cursor:pointer; padding:12px 0;">¿Puedo dividir solo ciertas páginas?</summary>
+                <p style="padding:12px 0; color:rgba(255,255,255,0.8);">Para dividir páginas específicas usa nuestra herramienta de <a href="/tools/extract-pdf" style="color:#60a5fa; text-decoration:underline;">extraer PDF</a>.</p>
+            </details>
+        </div>
+    </section>
+
+    <!-- CONSEJOS ÚTILES -->
+    <section class="tool-box">
+        <h2 style="margin-bottom:25px; font-size:32px;">Consejos útiles</h2>
+        <p style="font-size:17.5px; line-height:1.95; color:rgba(255,255,255,0.85);">
+            Después de dividir, puedes <a href="/tools/order-pdf" style="color:#60a5fa; text-decoration:underline;">ordenar las páginas</a>, 
+            <a href="/tools/compress-pdf" style="color:#60a5fa; text-decoration:underline;">comprimir</a> los archivos resultantes 
+            o explorar nuestras <a href="/plantillas" style="color:#60a5fa; text-decoration:underline;">plantillas gratuitas</a> en las que podrás encontrar formatos de distintos tipos de modelos de documentos como urriculum, modelo de cartas, modelo de solicitudes o modelos de contratos de alquiler, entre otros listos para que puedas modificar y adecuar a tu necesidad.
+        </p>
     </section>
 
 </main>
-<!-- 🔥 RELATED CONTENT -->
 
+<!-- 🔥 RELATED CONTENT - VERSIÓN ORIGINAL EXACTA -->
 <section class="related-content">
-
     <h2>
         Aprende más sobre PDFs
     </h2>
-
     <div class="related-grid">
-
         <a href="/blog/seguridad" class="related-card">
-
             <h3>
                 Seguridad en archivos PDF
             </h3>
-
             <p>
                 Aprende cómo proteger tus documentos PDF y evitar riesgos de privacidad.
             </p>
-
         </a>
-
         <a href="/blog/guia" class="related-card">
-
             <h3>
                 7 cosas que debes saber antes de subir tus PDFs
             </h3>
-
             <p>
                 Consejos importantes para optimizar, organizar y compartir PDFs correctamente.
             </p>
-
         </a>
-
     </div>
-
 </section>
 
-<!-- 🔥 FOOTER -->
+<!-- FOOTER -->
 {% include "components/footer.html" %}
 
-<!-- PDF JS -->
+<!-- SCRIPTS -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
-
-<!-- TOOL -->
 <script src="{{ url_for('static', filename='tools/split.js') }}"></script>
-
 <script>
-
-/* =========================
-   🔥 PDF WORKER
-========================= */
-
-pdfjsLib.GlobalWorkerOptions.workerSrc =
-'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
-
-/* =========================
-   🔥 RENDER TOOL
-========================= */
-
+pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
 renderSplit(document.getElementById("split-tool"));
 
-/* =========================
-   🔥 CLICK DROP ZONE
-========================= */
-
 document.addEventListener("click", function(e){
-
     if(e.target.classList.contains("drop-zone")){
-
         const input = e.target.querySelector("input");
-
-        if(input){
-            input.click();
-        }
+        if(input) input.click();
     }
 });
-
 </script>
-
 </body>
 </html>

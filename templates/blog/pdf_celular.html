@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>📱 Por qué tus PDFs se ven horribles en el celular (y cómo arreglarlo para siempre)</title>
+<meta name="description" content="Guía completa y práctica para que tus PDFs se vean profesionales en celulares. Evita textos cortados, imágenes deformadas y documentos ilegibles en móviles.">
+<link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+<!-- ADSENSE -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js?client=ca-pub-4225426395301421"
+crossorigin="anonymous"></script>
+<!-- GOOGLE ANALYTICS -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-52Z4MDXY08"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){
+    dataLayer.push(arguments);
+}
+gtag('js', new Date());
+gtag('config', 'G-52Z4MDXY08');
+</script>
+<style>
+/* 🔥 FONDO */
+body{
+    background:white !important;
+}
+/* NAVBAR */
+.navbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 40px;
+    background:white;
+}
+/* NAVBAR BLOG OVERRIDE */
+.navbar{
+    background:white !important;
+}
+.logo{
+    color:#111 !important;
+}
+.menu a{
+    color:#111 !important;
+}
+.menu a::after{
+    background:#111 !important;
+}
+/* CONTENEDOR */
+.articulo{
+    max-width:1200px;
+    margin:auto;
+    padding:100px 10px 60px;
+    color: #111;
+}
+/* IMAGEN */
+.articulo img{
+    width:100%;
+    height:420px;
+    object-fit:cover;
+    border-radius:10px;
+    margin-bottom:30px;
+}
+/* TITULOS */
+.articulo h1{
+    font-size:42px;
+    margin-bottom:20px;
+    color:#111;
+}
+.articulo h2{
+    margin-top:40px;
+    font-size:26px;
+    color:#111;
+}
+.articulo h3{
+    margin-top:20px;
+    font-size:20px;
+    color:#222;
+}
+/* TEXTO */
+.articulo p{
+    line-height:1.8;
+    color:#444;
+    margin:15px 0;
+}
+/* LISTAS */
+.articulo ul{
+    padding-left:20px;
+    color: #111;
+}
+/* LINKS */
+.articulo a{
+    color:#111;
+    text-decoration:underline;
+}
+/* EJEMPLOS */
+.ejemplo{
+    text-align:center;
+    font-style:italic;
+    font-size:18px;
+    margin:25px 0;
+    color:#333;
+}
+/* FOOTER */
+.footer{
+    margin-top:80px;
+    text-align:center;
+    color:#111;
+    font-size:13px;
+}
+/* LINKS FOOTER */
+.footer a{
+    color:#111;
+    text-decoration:none;
+    margin:0 10px;
+    position:relative;
+}
+/* 🔥 EFECTO LÍNEA */
+.footer a::after{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:-3px;
+    width:0%;
+    height:1px;
+    background:#111;
+    transition:0.3s;
+}
+.footer a:hover::after{
+    width:100%;
+}
+.footer a:hover{
+    color:#111 !important;
+}
+</style>
+</head>
+<body>
+{% include "components/navbar.html" %}
+
+<div class="articulo">
+<img src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?auto=format&fit=crop&w=1600&q=80" alt="Persona revisando PDF en celular">
+
+<h1>📱 Por qué tus PDFs se ven horribles en el celular (y cómo arreglarlo para siempre)</h1>
+
+<p>Sara estaba nerviosa pero ilusionada. Acababa de terminar su propuesta comercial más importante del año. Había invertido dos semanas completas en el documento: gráficos, datos, diseño moderno y una estructura impecable. Cuando finalmente lo convirtió a PDF, respiró aliviada y lo envió por WhatsApp a su cliente potencial. “Esto va a cerrar el trato”, pensó.</p>
+
+<p>Minutos después recibió un mensaje que le bajó el ánimo de golpe: “Sara, el PDF se ve cortado y borroso en mi celular. ¿Me lo puedes enviar de otra forma?”.</p>
+
+<p>En ese momento Sara entendió algo que miles de profesionales están descubriendo tarde: **la mayoría de PDFs se ven horribles en el celular**, y eso está costando ventas, trabajos y oportunidades importantes.</p>
+
+<p>En este artículo te cuento por qué ocurre esto y te doy una guía completa y práctica para que tus PDFs se vean profesionales en cualquier dispositivo.</p>
+
+<h2>El problema silencioso que afecta tu imagen profesional</h2>
+
+<p>Hoy en día, más del 60% de las personas revisan documentos desde su teléfono móvil. Sin embargo, la mayoría de los PDFs siguen siendo creados pensando solo en la computadora de escritorio. El resultado es frustrante: textos que se cortan, imágenes que se deforman, páginas que requieren zoom constante y documentos que simplemente no cargan bien en móviles.</p>
+
+<p>Esto no solo genera mala experiencia para quien recibe el archivo, sino que también transmite una imagen poco profesional. Un reclutador que abre tu currículum en el celular y lo ve desordenado puede descartarte en menos de 10 segundos. Un cliente que recibe una propuesta comercial mal formateada puede perder interés inmediatamente.</p>
+
+<h2>Las causas más comunes por las que tus PDFs fallan en el celular</h2>
+
+<p>1. **Tamaño de página no adaptado** – Muchos PDFs usan formato A4 pensado para impresión, que no se ve bien en pantallas verticales.<br>
+2. **Fuentes demasiado pequeñas** – Lo que se ve bien en computadora se vuelve ilegible en móvil.<br>
+3. **Imágenes pesadas y mal optimizadas** – Hacen que el archivo pese mucho y se cargue lento.<br>
+4. **Márgenes excesivos** – Cortan el contenido en pantallas pequeñas.<br>
+5. **Falta de optimización para lectura vertical** – El documento obliga al usuario a hacer zoom y scroll constante.</p>
+
+<h2>Cómo hacer que tus PDFs se vean perfectos en cualquier celular</h2>
+
+<p>La solución no es complicada, pero requiere atención a detalles específicos:</p>
+
+<p><strong>1. Optimiza el tamaño y formato del documento</strong><br>
+Elige tamaños de página que se adapten mejor a móviles (por ejemplo, Letter o un ancho máximo recomendado).</p>
+
+<p><strong>2. Usa fuentes legibles y tamaño adecuado</strong><br>
+Prefiere Arial, Helvetica o Georgia en tamaño mínimo 11-12 pt para cuerpo de texto.</p>
+
+<p><strong>3. Comprime imágenes inteligentemente</strong><br>
+Reduce la resolución de las imágenes antes de insertarlas en el PDF.</p>
+
+<p><strong>4. Prueba siempre en celular antes de enviar</strong><br>
+Este es el paso más importante y el que menos gente hace. Abre el PDF en tu teléfono y verifica que se vea bien sin necesidad de zoom constante.</p>
+
+<p><strong>5. Usa herramientas especializadas</strong><br>
+Plataformas como <a href="https://facilitopdf.com">FacilitoPDF</a> te permiten optimizar PDFs específicamente para que se vean bien en móviles.</p>
+
+<h2>Conclusión</h2>
+
+<p>En un mundo donde la mayoría de las personas revisan documentos desde el celular, asegurarte de que tus PDFs se vean bien en móviles ya no es opcional, es obligatorio si quieres proyectar profesionalismo y ser tomado en serio.</p>
+
+<p>No dejes que un detalle técnico tan simple arruine la primera impresión de tu trabajo. Optimiza tus PDFs para celular y trabaja con mayor confianza y profesionalismo.</p>
+
+<p>Prueba ahora las herramientas gratuitas de <a href="https://facilitopdf.com">FacilitoPDF</a> y asegúrate de que tus documentos se vean perfectos en cualquier dispositivo.</p>
+</div>
+
+{% include "components/footer.html" %}
+</body>
+</html>

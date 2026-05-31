@@ -1,247 +1,151 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-
 <meta charset="UTF-8">
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Nosotros | FacilitoPDF</title>
-
-<meta name="description" content="Conoce más sobre FacilitoPDF, nuestra visión y cómo desarrollamos herramientas enfocadas en productividad, automatización y documentos digitales.">
-
+<meta name="description" content="Conoce la historia detrás de FacilitoPDF, nuestra misión y cómo queremos cambiar la forma en que trabajamos con documentos digitales.">
 <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
-
 <!-- ADSENSE -->
 <script async src="https://pagead2.googlesyndication.com/pagead/js?client=ca-pub-4225426395301421"
 crossorigin="anonymous"></script>
-
 <!-- GOOGLE ANALYTICS -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-52Z4MDXY08"></script>
-
 <script>
 window.dataLayer = window.dataLayer || [];
-
 function gtag(){
     dataLayer.push(arguments);
 }
-
 gtag('js', new Date());
-
 gtag('config', 'G-52Z4MDXY08');
 </script>
-
-
 <style>
-
 /* =========================
    🔥 RESET
 ========================= */
-
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
 }
-
 /* =========================
    🔥 BODY
 ========================= */
-
 body{
-
     font-family:system-ui,-apple-system,sans-serif;
-
     background:
     radial-gradient(circle at top left, rgba(255,255,255,0.04), transparent 30%),
     linear-gradient(to bottom, #111, #050505);
-
     color:white;
-
     min-height:100vh;
 }
-
 /* =========================
    🔥 CONTENEDOR
 ========================= */
-
 .content{
-
     max-width:1250px;
-
     margin:auto;
-
     padding:40px 20px 100px;
 }
-
 /* =========================
    🔥 CARD PRINCIPAL
 ========================= */
-
 .about-card{
-
     margin-top:40px;
-
     background:rgba(255,255,255,0.04);
-
     border-radius:30px;
-
     padding:45px;
-
     border:1px solid rgba(255,255,255,0.06);
-
     box-shadow:0 10px 40px rgba(0,0,0,0.25);
 }
-
 /* =========================
    🔥 HEADER
 ========================= */
-
 .about-header{
-
     margin-bottom:35px;
 }
-
 .about-header h1{
-
     font-size:54px;
-
     margin-bottom:22px;
 }
-
 .about-header p{
-
     max-width:920px;
-
     line-height:1.95;
-
     font-size:18px;
-
     color:rgba(255,255,255,0.78);
-
     margin-bottom:18px;
 }
-
 /* =========================
    🔥 GRID
 ========================= */
-
 .about-grid{
-
     display:grid;
-
     grid-template-columns:repeat(3,1fr);
-
     gap:22px;
-
     margin-top:40px;
 }
-
 /* CARD */
-
 .about-box{
-
     background:rgba(255,255,255,0.03);
-
     border:1px solid rgba(255,255,255,0.05);
-
     border-radius:22px;
-
     padding:28px;
-
     transition:0.3s ease;
 }
-
 .about-box:hover{
-
     transform:translateY(-4px);
-
     background:rgba(255,255,255,0.06);
 }
-
 .about-box h3{
-
     font-size:22px;
-
     margin-bottom:14px;
 }
-
 .about-box p{
-
     line-height:1.85;
-
     color:rgba(255,255,255,0.74);
-
     font-size:15px;
 }
-
 /* =========================
    🔥 BLOQUE FINAL
 ========================= */
-
 .final-section{
-
     margin-top:70px;
-
     background:rgba(255,255,255,0.03);
-
     border:1px solid rgba(255,255,255,0.06);
-
     border-radius:28px;
-
     padding:40px;
 }
-
 .final-section h2{
-
     font-size:34px;
-
     margin-bottom:18px;
 }
-
 .final-section p{
-
     max-width:900px;
-
     line-height:1.9;
-
     color:rgba(255,255,255,0.75);
-
     font-size:16px;
 }
-
 /* =========================
    🔥 RESPONSIVE
 ========================= */
-
 @media(max-width:950px){
-
     .about-grid{
-
         grid-template-columns:1fr;
     }
 }
-
 @media(max-width:768px){
-
     .about-header h1{
-
         font-size:42px;
     }
-
     .about-header p{
-
         font-size:17px;
     }
-
     .final-section h2{
-
         font-size:28px;
     }
 }
-
 </style>
-
 </head>
-
 <body>
 
 <!-- 🔥 NAVBAR -->
@@ -250,91 +154,72 @@ body{
 <main class="content">
 
     <!-- CARD PRINCIPAL -->
-
     <section class="about-card">
 
-        <!-- HEADER -->
-
         <div class="about-header">
-
-            <h1>
-                Nosotros
-            </h1>
-
+            <h1>Nosotros</h1>
             <p>
-                FacilitoPDF nació de algo muy simple: demasiadas personas pierden horas resolviendo problemas digitales que deberían tomar minutos. PDFs pesados que no se envían, documentos desordenados, formatos difíciles de editar, archivos imposibles de encontrar y procesos repetitivos que consumen tiempo todos los días.
+                Todo comenzó con una frustración que ya se había vuelto insoportable. Era finales de 2025 y yo pasaba horas enteras luchando contra archivos PDF que no cooperaban. Documentos demasiado pesados que no se enviaban por correo, contratos de ochenta páginas que tenía que separar manualmente una por una, y propuestas importantes que se veían mal en el celular del cliente. Esa sensación constante de perder tiempo valioso en tareas técnicas absurdas era agotadora.
             </p>
-
             <p>
-                Por eso creamos una plataforma enfocada en simplificar el trabajo documental de forma rápida, práctica y accesible. No buscamos llenar la web de herramientas complicadas, sino construir soluciones útiles que realmente ayuden a personas, estudiantes, oficinas, organizaciones y proyectos a trabajar mejor.
+                Pronto me di cuenta de que no era el único que enfrentaba estos problemas. Estudiantes que se desvelaban reorganizando tesis, abogados que enviaban contratos difíciles de leer, emprendedores que perdían clientes por propuestas que no se veían profesionales, y contadores que batallaban diariamente con facturas y reportes pesados. Todos estábamos perdiendo tiempo, energía y oportunidades por culpa de herramientas complicadas o simplemente inexistentes. Fue esa frustración compartida la que me motivó a actuar.
             </p>
-
             <p>
-                Hoy FacilitoPDF reúne herramientas para editar y organizar PDFs, formatos profesionales listos para usar, recursos de productividad y nuevas soluciones de automatización documental pensadas para reducir trabajo repetitivo y ahorrar tiempo real.
+                Decidí que ya era suficiente. No quería seguir peleando contra los documentos digitales. Quería una solución real, sencilla y efectiva. Así nació <strong>FacilitoPDF</strong>, una plataforma creada con el propósito claro de hacer que trabajar con PDFs sea verdaderamente fácil, rápido y sin complicaciones. No buscábamos crear una herramienta llena de funciones innecesarias, sino una experiencia limpia, intuitiva y pensada para resolver problemas reales de las personas.
             </p>
-
             <p>
-                Creemos que la tecnología debe sentirse simple, útil y humana. A veces un pequeño cambio en la forma de trabajar puede reducir horas de estrés y hacer todo mucho más fácil.
+                Hoy, miles de estudiantes, profesionales, emprendedores y empresas en Perú y toda Latinoamérica utilizan FacilitoPDF diariamente para unir, dividir, comprimir, firmar y organizar sus documentos de forma sencilla. Cada día recibimos mensajes de usuarios que nos cuentan cómo han recuperado horas de su tiempo, cómo han cerrado contratos importantes o cómo han entregado trabajos a tiempo gracias a nuestras herramientas. Ese es el motor que nos impulsa a seguir mejorando.
             </p>
-
+            <p>
+                Para nosotros, FacilitoPDF no es solo una colección de herramientas. Es el resultado de una frustración real convertida en solución. Creemos firmemente que la tecnología debe simplificar la vida de las personas, no complicarla. Por eso seguimos trabajando con el mismo objetivo con el que empezamos: crear soluciones accesibles, seguras y realmente útiles para que tú puedas enfocarte en lo que realmente importa, en lugar de perder tiempo peleando con tus documentos.
+            </p>
         </div>
 
         <!-- GRID -->
-
         <div class="about-grid">
-
             <div class="about-box">
-
-                <h3>
-                    PDFs y documentos
-                </h3>
-
+                <h3>PDFs y Documentos</h3>
                 <p>
-                    Herramientas enfocadas en comprimir, organizar, unir y trabajar mejor con documentos digitales desde cualquier dispositivo.
+                    Creamos herramientas intuitivas para <a href="/tools/merge-pdf" style="color:#60a5fa;">unir</a>,
+                    <a href="/tools/split-pdf" style="color:#60a5fa;">dividir</a>,
+                    <a href="/tools/compress-pdf" style="color:#60a5fa;">comprimir</a>,
+                    <a href="/tools/order-pdf" style="color:#60a5fa;">ordenar</a> y
+                    <a href="/tools/sign-pdf" style="color:#60a5fa;">firmar</a> PDFs.
+                    Todo pensado para que puedas trabajar desde cualquier dispositivo sin instalar programas.
                 </p>
-
             </div>
-
             <div class="about-box">
-
-                <h3>
-                    Productividad digital
-                </h3>
-
+                <h3>Productividad Digital</h3>
                 <p>
-                    Recursos y soluciones pensadas para ahorrar tiempo y reducir tareas repetitivas relacionadas con archivos y gestión documental.
+                    Ofrecemos una biblioteca creciente de <a href="/plantillas" style="color:#60a5fa;">plantillas profesionales</a>
+                    listas para usar y recursos que te ayudan a ahorrar tiempo en tareas repetitivas.
+                    Porque creemos que la verdadera productividad nace de simplificar lo cotidiano.
                 </p>
-
             </div>
-
             <div class="about-box">
-
-                <h3>
-                    Automatización inteligente
-                </h3>
-
+                <h3>Automatización Inteligente</h3>
                 <p>
-                    Nuevas herramientas enfocadas en expedientes inteligentes, extracción documental y automatización de procesos digitales.
+                    Estamos desarrollando nuevas herramientas de automatización documental, extracción inteligente de información
+                    y procesos que reduzcan el trabajo manual. El objetivo es que puedas enfocarte en lo importante mientras la tecnología se encarga del resto.
                 </p>
-
             </div>
-
         </div>
 
     </section>
 
     <!-- BLOQUE FINAL -->
-
     <section class="final-section">
-
-        <h2>
-            Nexia Labs
-        </h2>
-
+        <h2>Nexia Labs</h2>
         <p>
-            FacilitoPDF forma parte de Nexia Labs, un espacio orientado al desarrollo de herramientas digitales, automatización y soluciones tecnológicas con impacto práctico y accesible.
+            FacilitoPDF es un proyecto de <strong>Nexia Labs</strong>, un espacio independiente dedicado a crear herramientas digitales útiles, accesibles y con enfoque humano.
+            No buscamos ser la plataforma más grande, sino la más útil.
         </p>
-
+        <p>
+            Nuestra promesa es seguir escuchando a los usuarios y mejorando constantemente. Cada sugerencia, cada comentario y cada crítica nos ayuda a construir algo mejor.
+        </p>
+        <p>
+            Gracias por formar parte de esta historia. Seguiremos trabajando para que trabajar con documentos deje de ser un dolor de cabeza y se convierta en algo simple y rápido.
+        </p>
     </section>
 
 </main>

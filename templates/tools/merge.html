@@ -1,504 +1,303 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Unir PDF Online Gratis | FacilitoPDF</title>
-
-<meta name="description" content="Une varios archivos PDF online gratis. Combina documentos fácilmente y descarga un solo PDF organizado en segundos.">
-
+<title>Unir PDF Online Gratis - Combina Múltiples Documentos Fácil | FacilitoPDF</title>
+<meta name="description" content="Une varios PDFs online gratis. Combina múltiples documentos en un solo archivo, reordénalos y descárgalo organizado en segundos. Sin registro y con total privacidad.">
 <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
-
 <!-- ADSENSE -->
 <script async src="https://pagead2.googlesyndication.com/pagead/js?client=ca-pub-4225426395301421"
 crossorigin="anonymous"></script>
-
 <!-- GOOGLE ANALYTICS -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-52Z4MDXY08"></script>
-
 <script>
 window.dataLayer = window.dataLayer || [];
-
 function gtag(){
     dataLayer.push(arguments);
 }
-
 gtag('js', new Date());
-
 gtag('config', 'G-52Z4MDXY08');
 </script>
-
-
 <style>
-
 /* =========================
    🔥 RESET
 ========================= */
-
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
 }
-
 /* =========================
    🔥 BODY
 ========================= */
-
 body{
-
     font-family:system-ui,-apple-system,sans-serif;
-
     background:
     radial-gradient(circle at top left, rgba(255,255,255,0.04), transparent 30%),
     linear-gradient(to bottom, #111, #050505);
-
     color:white;
-
     min-height:100vh;
 }
-
 /* =========================
    🔥 CONTENEDOR
 ========================= */
-
 .tool-content{
-
     max-width:1250px;
-
     margin:auto;
-
     padding:40px 20px 100px;
 }
-
 /* =========================
    🔥 TOOL BOX
 ========================= */
-
 .tool-box{
-
     margin-top:40px;
-
     background:rgba(255,255,255,0.04);
-
     border-radius:30px;
-
     padding:45px;
-
     border:1px solid rgba(255,255,255,0.06);
-
     box-shadow:0 10px 40px rgba(0,0,0,0.25);
 }
-
 /* =========================
    🔥 HEADER
 ========================= */
-
 .tool-header{
-
-    margin-bottom:35px;
+    margin-bottom:50px;
 }
-
 .tool-header h1{
-
     font-size:54px;
-
     margin-bottom:22px;
 }
-
 .tool-header p{
-
     max-width:920px;
-
     line-height:1.95;
-
     font-size:18px;
-
     color:rgba(255,255,255,0.78);
 }
-
 /* =========================
    🔥 DROP ZONE
 ========================= */
-
 .drop-zone{
-
     margin-top:30px;
-
     border:2px dashed rgba(255,255,255,0.18);
-
     border-radius:24px;
-
     padding:60px 30px;
-
     text-align:center;
-
     cursor:pointer;
-
     transition:0.3s ease;
-
     color:rgba(255,255,255,0.72);
-
     font-size:17px;
 }
-
 .drop-zone:hover{
-
     border-color:white;
-
     background:rgba(255,255,255,0.03);
 }
-
 /* =========================
    🔥 ACTIONS
 ========================= */
-
 .actions{
-
     margin-top:30px;
-
     display:flex;
-
     gap:15px;
-
     align-items:center;
-
     flex-wrap:wrap;
 }
-
 .actions button{
-
     border:none;
-
     padding:14px 24px;
-
     border-radius:14px;
-
     cursor:pointer;
-
     background:white;
-
     color:black;
-
     font-weight:600;
-
     transition:0.25s ease;
 }
-
 .actions button:hover{
-
     transform:translateY(-2px);
 }
-
 /* =========================
    🔥 STATUS
 ========================= */
-
 .status-msg{
-
     color:rgba(255,255,255,0.75);
-
     font-size:14px;
 }
-
 /* =========================
    🔥 RELATED CONTENT
 ========================= */
-
 .related-content{
-
     margin-top:10px;
-
     text-align:center;
 }
-
 .related-content h2{
-
     font-size:30px;
-
     margin-bottom:22px;
 }
-
 .related-grid{
-
     display:flex;
-
     justify-content:center;
-
     gap:18px;
-
     flex-wrap:wrap;
 }
-
 .related-card{
-
     width:340px;
-
     display:block;
-
     padding:24px;
-
     border-radius:18px;
-
     background:rgba(255,255,255,0.04);
-
     border:1px solid rgba(255,255,255,0.06);
-
     text-decoration:none;
-
     transition:0.25s ease;
-
     text-align:left;
 }
-
 .related-card:hover{
-
     transform:translateY(-4px);
-
     background:rgba(255,255,255,0.06);
 }
-
 .related-card h3{
-
     color:white;
-
     margin-bottom:12px;
-
     font-size:20px;
 }
-
 .related-card p{
-
     color:rgba(255,255,255,0.72);
-
     line-height:1.7;
-
     font-size:15px;
 }
-
 /* =========================
    🔥 RESPONSIVE
 ========================= */
-
 @media(max-width:768px){
-
     .tool-header h1{
-
         font-size:42px;
     }
-
     .tool-header p{
-
         font-size:17px;
     }
-
     .tool-box{
-
         padding:30px;
     }
 }
-
 </style>
-
 </head>
-
 <body>
 
-<!-- 🔥 NAVBAR -->
+<!-- NAVBAR -->
 {% include "components/navbar.html" %}
 
 <main class="tool-content">
 
+    <!-- HEADER + TOOL -->
     <section class="tool-box">
-
-        <!-- HEADER -->
-
         <div class="tool-header">
-
-            <h1>
-                Unir PDF
-            </h1>
-
+            <h1>Unir PDF Online Gratis</h1>
             <p>
-                Une múltiples documentos PDF en un solo archivo organizado.
-                Reordena archivos fácilmente y descarga un único PDF listo para compartir.
+                Combina múltiples archivos PDF en un solo documento de forma rápida y organizada. 
+                Sube todos los PDFs que necesites, reordénalos y descarga un único archivo listo para usar.
             </p>
-
+            <p style="margin-top:22px;">
+                No requiere registro, todo se procesa directamente en tu navegador y tus archivos se eliminan automáticamente 
+                después de la descarga. Máxima privacidad garantizada.
+            </p>
         </div>
 
         <!-- TOOL -->
-
         <div id="merge-tool"></div>
+    </section>
 
+    <!-- Cómo funciona -->
+    <section class="tool-box">
+        <h2 style="margin-bottom:25px; font-size:32px;">¿Cómo funciona Unir PDF?</h2>
+        <p style="font-size:17.5px; line-height:1.95; color:rgba(255,255,255,0.85);">
+            Nuestra herramienta te permite unir varios PDFs en un solo archivo de manera sencilla. 
+            Solo debes subir los documentos que deseas combinar, reordenarlos arrastrando las miniaturas según el orden deseado 
+            y hacer clic en unir. El resultado será un único PDF con todas las páginas en el orden que elegiste. 
+            <strong>Todo el proceso ocurre en tu navegador</strong>, sin subir archivos a servidores externos y sin límites estrictos de cantidad.
+        </p>
+    </section>
+
+    <!-- Casos de uso -->
+    <section class="tool-box">
+        <h2 style="margin-bottom:25px; font-size:32px;">Casos de uso más comunes</h2>
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:20px; font-size:17px; line-height:2.0; color:rgba(255,255,255,0.85);">
+            <ul style="padding-left:25px;">
+                <li>Combinar capítulos de tesis, libros o manuales</li>
+                <li>Unir contratos, anexos y documentos legales</li>
+                <li>Crear dossiers o reportes completos</li>
+            </ul>
+            <ul style="padding-left:25px;">
+                <li>Reunir facturas y comprobantes mensuales</li>
+                <li>Preparar presentaciones o portafolios profesionales</li>
+                <li>Organizar expedientes médicos o administrativos</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Preguntas Frecuentes -->
+    <section class="tool-box">
+        <h2 style="margin-bottom:25px; font-size:32px;">Preguntas Frecuentes</h2>
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(300px, 1fr)); gap:18px;">
+            <details style="margin-bottom:15px;"><summary style="font-size:17px; cursor:pointer; padding:12px 0;">¿Hay límite de archivos para unir?</summary><p style="padding:12px 0; color:rgba(255,255,255,0.8);">No hay un límite estricto. Puedes unir muchos PDFs, aunque te recomendamos no exceder 20-30 archivos para mejor rendimiento.</p></details>
+            
+            <details style="margin-bottom:15px;"><summary style="font-size:17px; cursor:pointer; padding:12px 0;">¿Se guardan mis PDFs en servidores?</summary><p style="padding:12px 0; color:rgba(255,255,255,0.8);">No. Todo el procesamiento se realiza en tu navegador y los archivos se eliminan automáticamente.</p></details>
+            
+            <details style="margin-bottom:15px;"><summary style="font-size:17px; cursor:pointer; padding:12px 0;">¿Puedo reordenar los PDFs antes de unirlos?</summary><p style="padding:12px 0; color:rgba(255,255,255,0.8);">Sí, puedes arrastrar y reorganizar los archivos antes de combinarlos.</p></details>
+            
+            <details style="margin-bottom:15px;"><summary style="font-size:17px; cursor:pointer; padding:12px 0;">¿Se mantiene la calidad y el formato original?</summary><p style="padding:12px 0; color:rgba(255,255,255,0.8);">Sí, se conserva la calidad, fuentes y formato de todos los documentos originales.</p></details>
+            
+            <details style="margin-bottom:15px;"><summary style="font-size:17px; cursor:pointer; padding:12px 0;">¿Puedo unir PDFs con diferentes tamaños de página?</summary><p style="padding:12px 0; color:rgba(255,255,255,0.8);">Sí, la herramienta maneja PDFs con diferentes tamaños y orientaciones.</p></details>
+            
+            <details style="margin-bottom:15px;"><summary style="font-size:17px; cursor:pointer; padding:12px 0;">¿Qué hago después de unir los PDFs?</summary><p style="padding:12px 0; color:rgba(255,255,255,0.8);">Puedes <a href="/tools/compress-pdf" style="color:#60a5fa; text-decoration:underline;">comprimir</a> el resultado o <a href="/tools/split-pdf" style="color:#60a5fa; text-decoration:underline;">dividir</a> si necesitas separar páginas.</p></details>
+        </div>
+    </section>
+
+    <!-- Consejos útiles -->
+    <section class="tool-box">
+        <h2 style="margin-bottom:25px; font-size:32px;">Consejos útiles</h2>
+        <p style="font-size:17.5px; line-height:1.95; color:rgba(255,255,255,0.85);">
+            Ordena los archivos antes de unirlos para ahorrar tiempo. Después de combinar tus documentos, te recomendamos usar nuestra herramienta de 
+            <a href="/tools/compress-pdf" style="color:#60a5fa; text-decoration:underline;">comprimir PDF</a> para reducir el tamaño del archivo final. 
+            También puedes explorar nuestras <a href="/plantillas" style="color:#60a5fa; text-decoration:underline;">plantillas gratuitas</a>.
+        </p>
     </section>
 
 </main>
-<!-- 🔥 RELATED CONTENT -->
 
+<!-- RELATED CONTENT -->
 <section class="related-content">
-
     <h2>
         Aprende más sobre PDFs
     </h2>
-
     <div class="related-grid">
-
         <a href="/blog/seguridad" class="related-card">
-
-            <h3>
-                Seguridad en archivos PDF
-            </h3>
-
-            <p>
-                Aprende cómo proteger tus documentos PDF y evitar riesgos de privacidad.
-            </p>
-
+            <h3>Seguridad en archivos PDF</h3>
+            <p>Aprende cómo proteger tus documentos PDF y evitar riesgos de privacidad.</p>
         </a>
-
         <a href="/blog/guia" class="related-card">
-
-            <h3>
-                7 cosas que debes saber antes de subir tus PDFs
-            </h3>
-
-            <p>
-                Consejos importantes para optimizar, organizar y compartir PDFs correctamente.
-            </p>
-
+            <h3>7 cosas que debes saber antes de subir tus PDFs</h3>
+            <p>Consejos importantes para optimizar, organizar y compartir PDFs correctamente.</p>
         </a>
-
     </div>
-
 </section>
 
-
-<!-- 🔥 FOOTER -->
+<!-- FOOTER -->
 {% include "components/footer.html" %}
 
-<!-- PDF JS -->
+<!-- SCRIPTS -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
-
-<!-- TOOL -->
 <script src="{{ url_for('static', filename='tools/merge.js') }}"></script>
-
 <script>
-
-/* =========================
-   🔥 PDF WORKER
-========================= */
-
-pdfjsLib.GlobalWorkerOptions.workerSrc =
-'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
-
-/* =========================
-   🔥 RENDER TOOL
-========================= */
-
+pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
 renderMerge(document.getElementById("merge-tool"));
 
-/* =========================
-   🔥 CLICK DROP ZONE
-========================= */
-
 document.addEventListener("click", function(e){
-
     if(e.target.classList.contains("drop-zone")){
-
         const input = e.target.querySelector("input");
-
         if(input){
             input.click();
         }
     }
 });
-
-
-//////////////////////////////////////////////////
-// 🔥 SUBMIT MERGE
-//////////////////////////////////////////////////
-
-async function submitMerge(){
-
-    const status = document.getElementById("merge-status");
-
-    const button = document.getElementById("merge-btn");
-
-    if(mergeFiles.length === 0){
-
-        alert("Selecciona al menos un PDF");
-
-        return;
-    }
-
-    try{
-
-        button.disabled = true;
-
-        button.innerText = "Procesando...";
-
-        status.textContent = "Uniendo PDFs...";
-
-        const formData = new FormData();
-
-        mergeFiles.forEach(file => {
-
-            formData.append("pdfs", file);
-        });
-
-        const response = await fetch("/merge-pdf", {
-
-            method: "POST",
-
-            body: formData
-        });
-
-        if(!response.ok){
-
-            throw new Error("Error al unir PDFs");
-        }
-
-        const blob = await response.blob();
-
-        const url = window.URL.createObjectURL(blob);
-
-        const a = document.createElement("a");
-
-        a.href = url;
-
-        a.download = "pdf_unido.pdf";
-
-        document.body.appendChild(a);
-
-        a.click();
-
-        a.remove();
-
-        window.URL.revokeObjectURL(url);
-
-        status.textContent = "PDF descargado correctamente";
-
-    }catch(error){
-
-        console.error(error);
-
-        status.textContent = "Error al unir PDFs";
-
-        alert("Ocurrió un error al unir los PDFs");
-
-    }finally{
-
-        button.disabled = false;
-
-        button.innerText = "Descargar";
-    }
-}
-
-
 </script>
-
 </body>
 </html>

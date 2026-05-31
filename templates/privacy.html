@@ -3,242 +3,142 @@
 <head>
 <meta charset="UTF-8">
 <title>Política de privacidad | FacilitoPDF</title>
-
 <!-- ADSENSE -->
 <script async src="https://pagead2.googlesyndication.com/pagead/js?client=ca-pub-4225426395301421"
 crossorigin="anonymous"></script>
-
 <!-- GOOGLE ANALYTICS -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-52Z4MDXY08"></script>
-
 <script>
 window.dataLayer = window.dataLayer || [];
-
 function gtag(){
     dataLayer.push(arguments);
 }
-
 gtag('js', new Date());
-
 gtag('config', 'G-52Z4MDXY08');
 </script>
-
 <style>
-
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
 }
-
 body{
-
     font-family: "Segoe UI", sans-serif;
-
     color: white;
-
     min-height:100vh;
-
     background:
         radial-gradient(circle at 10% 85%, rgba(0,0,0,0.95), transparent 70%),
         radial-gradient(circle at 90% 10%, rgba(255,255,255,0.05), transparent 40%),
         linear-gradient(to bottom, #1a1a1a 0%, #0a0a0a 100%);
 }
-
 /* 🔥 NAVBAR SPACING */
-
 .navbar{
-
     margin-bottom:40px;
 }
-
 /* CONTENEDOR */
-
 .container{
-
     max-width:1100px;
-
     margin:auto;
-
     padding:0 40px 60px;
 }
-
 /* HEADER */
-
 .header{
-
     display:flex;
-
     justify-content:space-between;
-
     align-items:center;
-
     margin-bottom:80px;
 }
-
 .logo{
-
     font-size:20px;
-
     font-weight:600;
 }
-
 .brand{
-
     font-size:12px;
-
     opacity:0.6;
 }
-
 /* HERO */
-
 .hero{
-
     max-width:700px;
-
     margin-bottom:60px;
 }
-
 .hero h1{
-
     font-size:32px;
-
     margin-bottom:15px;
 }
-
 .hero p{
-
     font-size:18px;
-
     line-height:1.6;
-
     opacity:0.9;
 }
-
 /* GRID */
-
 .grid{
-
     display:grid;
-
     grid-template-columns: repeat(2,1fr);
-
     gap:40px;
 }
-
 /* BLOQUES */
-
 .block{
-
     background: rgba(255,255,255,0.03);
-
     padding:25px;
-
     border-radius:12px;
 }
-
 .block h2{
-
     font-size:16px;
-
     margin-bottom:10px;
-
     opacity:0.8;
 }
-
 .block p{
-
     font-size:14px;
-
     line-height:1.7;
-
     opacity:0.9;
 }
-
 .block ul{
-
     margin-left:18px;
-
     margin-top:10px;
 }
-
 .block li{
-
     margin-bottom:6px;
 }
-
 /* 🔥 FOOTER */
-
 .footer{
-
     margin-top:80px;
-
     text-align:center;
-
     font-size:13px;
-
     color:white;
 }
-
 .footer a{
-
     color:white;
-
     text-decoration:none;
-
     margin:0 10px;
-
     position:relative;
 }
-
 .footer a::after{
-
     content:"";
-
     position:absolute;
-
     left:0;
     bottom:-3px;
-
     width:0%;
-
     height:1px;
-
     background:white;
-
     transition:0.3s;
 }
-
 .footer a:hover::after{
-
     width:100%;
 }
-
 /* RESPONSIVE */
-
 @media(max-width:800px){
-
     .grid{
-
         grid-template-columns:1fr;
     }
-
     .container{
-
         padding:0 20px 60px;
     }
 }
-
 </style>
-
 </head>
-
 <body>
-
 {% include "components/navbar.html" %}
-
 <div class="container">
-
     <!-- HERO -->
     <div class="hero">
         <h1>Política de privacidad</h1>
@@ -246,18 +146,18 @@ body{
             En FacilitoPDF valoramos tu privacidad. Esta política explica cómo manejamos la información cuando utilizas nuestro sitio.
         </p>
     </div>
-
     <!-- GRID -->
     <div class="grid">
-
         <div class="block">
             <h2>Información que recopilamos</h2>
             <p>
-                No recopilamos datos personales identificables como nombres, correos o información sensible.
-                Solo procesamos los archivos que el usuario decide subir.
+                No recopilamos datos personales identificables como nombres, correos o información sensible. 
+                Solo procesamos los archivos que el usuario decide subir. La mayoría de las herramientas funcionan directamente en tu navegador, por lo que tus documentos nunca son enviados a nuestros servidores.
+            </p>
+            <p>
+                Recopilamos información técnica anónima (como dirección IP, tipo de navegador y páginas visitadas) únicamente con el fin de mejorar el funcionamiento del sitio y la experiencia del usuario.
             </p>
         </div>
-
         <div class="block">
             <h2>Uso de archivos</h2>
             <ul>
@@ -266,31 +166,27 @@ body{
                 <li>Eliminación automática tras el uso.</li>
                 <li>No acceso humano a los documentos.</li>
             </ul>
+            <p>
+                Tus archivos son procesados de forma temporal y se eliminan automáticamente una vez completada la operación y la descarga. 
+                No guardamos ni revisamos el contenido de tus documentos para ningún otro propósito.
+            </p>
         </div>
-
         <div class="block">
             <h2>Cookies y analítica</h2>
             <p>
-                Utilizamos cookies y tecnologías similares para mejorar la experiencia del usuario,
-                analizar el uso del sitio y optimizar su funcionamiento.
+                Utilizamos cookies y tecnologías similares para mejorar la experiencia del usuario, analizar el uso del sitio y optimizar su funcionamiento.
+                Estas cookies pueden recopilar información anónima sobre la navegación, como páginas visitadas, tiempo de uso y tipo de dispositivo.
             </p>
             <p>
-                Estas cookies pueden recopilar información anónima sobre la navegación, como páginas visitadas,
-                tiempo de uso y tipo de dispositivo.
-            </p>
-            <p>
-                También podemos utilizar cookies de terceros, como Google AdSense, para mostrar anuncios relevantes
-                basados en tus intereses.
-            </p>
-            <p>
+                También podemos utilizar cookies de terceros, como Google AdSense, para mostrar anuncios relevantes basados en tus intereses.
                 Puedes gestionar o desactivar el uso de cookies desde la configuración de tu navegador.
             </p>
         </div>
-
         <div class="block">
             <h2>Publicidad (Google AdSense)</h2>
             <p>
-                Este sitio utiliza Google AdSense. Google puede usar cookies para mostrar anuncios relevantes.
+                Este sitio utiliza Google AdSense. Google puede usar cookies para mostrar anuncios relevantes según tu comportamiento de navegación.
+                Esto nos permite mantener la plataforma gratuita y continuar mejorando las herramientas.
             </p>
             <p>
                 Puedes gestionar tus preferencias aquí:
@@ -299,42 +195,35 @@ body{
                 </a>
             </p>
         </div>
-
         <div class="block">
             <h2>Seguridad</h2>
             <p>
                 Implementamos medidas técnicas para proteger la información durante el procesamiento.
-                Sin embargo, ningún sistema es completamente seguro.
+                Sin embargo, ningún sistema es completamente seguro. Recomendamos no subir documentos con información altamente confidencial.
             </p>
         </div>
-
         <div class="block">
             <h2>Enlaces externos</h2>
             <p>
                 No somos responsables del contenido ni políticas de privacidad de sitios externos.
+                Te recomendamos leer las políticas de privacidad de cualquier sitio al que accedas a través de enlaces en nuestra plataforma.
             </p>
         </div>
-
         <div class="block">
             <h2>Cambios en esta política</h2>
             <p>
-                Podemos actualizar esta política en cualquier momento. Recomendamos revisarla periódicamente.
+                Podemos actualizar esta política en cualquier momento. Recomendamos revisarla periódicamente para estar informado de cualquier cambio.
             </p>
         </div>
-
         <div class="block">
             <h2>Contacto</h2>
             <p>
                 Si tienes dudas sobre privacidad o uso del servicio, puedes escribirnos desde la página de contacto.
             </p>
         </div>
-
     </div>
-
 <!-- FOOTER -->
 {% include "components/footer.html" %}
-
 </div>
-
 </body>
 </html>

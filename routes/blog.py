@@ -33,6 +33,38 @@ def usa_mal_celular():
 def crei_haber_enviado():
     return render_template("blog/crei_haber_enviado.html")
 
+@blog_bp.route("/blog/proteger-pdfs")
+def proteger_pdfs():
+    return render_template("blog/proteger_pdfs.html")
+
+@blog_bp.route("/blog/comprimir-pdfs")
+def comprimir_pdfs():
+    return render_template("blog/comprimir_pdfs.html")
+
+@blog_bp.route("/blog/clientes-dinero")
+def clientes_dinero():
+    return render_template("blog/clientes_dinero.html")
+
+@blog_bp.route("/blog/perder-trabajo")
+def perder_trabajo():
+    return render_template("blog/perder_trabajo.html")
+
+@blog_bp.route("/blog/diez-trucos")
+def diez_trucos():
+    return render_template("blog/diez_trucos.html")
+
+@blog_bp.route("/blog/pdf-celular")
+def pdf_celular():
+    return render_template("blog/pdf_celular.html")
+
+@blog_bp.route("/blog/firmar-celular")
+def firmar_celular():
+    return render_template("blog/firmar_celular.html")
+
+@blog_bp.route("/blog/perder-cliente")
+def perder_cliente():
+    return render_template("blog/clientes_pdf.html")
+
 # =========================
 # 🔥 RARTÍCULOS ANTIGUOS
 # =========================

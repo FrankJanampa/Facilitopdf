@@ -1,494 +1,323 @@
-html
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Extraer páginas PDF Online Gratis | FacilitoPDF</title>
-
-<meta name="description" content="Extrae páginas específicas de archivos PDF online gratis. Selecciona páginas y descarga únicamente las páginas que necesitas rápidamente.">
-
+<title>Extraer Páginas PDF Online Gratis - Selecciona y Descarga | FacilitoPDF</title>
+<meta name="description" content="Extrae páginas específicas de PDF online gratis. Selecciona las páginas que necesitas, descárgalas individualmente o en un ZIP. Rápido, seguro y sin registro.">
 <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
-
 <!-- ADSENSE -->
 <script async src="https://pagead2.googlesyndication.com/pagead/js?client=ca-pub-4225426395301421"
 crossorigin="anonymous"></script>
-
 <!-- GOOGLE ANALYTICS -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-52Z4MDXY08"></script>
-
 <script>
 window.dataLayer = window.dataLayer || [];
-
 function gtag(){
     dataLayer.push(arguments);
 }
-
 gtag('js', new Date());
-
 gtag('config', 'G-52Z4MDXY08');
 </script>
-
-
 <style>
-
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
 }
-
 body{
-
     font-family:system-ui,-apple-system,sans-serif;
-
     background:
     radial-gradient(circle at top left, rgba(255,255,255,0.04), transparent 30%),
     linear-gradient(to bottom, #111, #050505);
-
     color:white;
-
     min-height:100vh;
 }
-
 .tool-content{
-
     max-width:1250px;
-
     margin:auto;
-
     padding:40px 20px 100px;
 }
-
 .tool-box{
-
     margin-top:40px;
-
     background:rgba(255,255,255,0.04);
-
     border-radius:30px;
-
     padding:45px;
-
     border:1px solid rgba(255,255,255,0.06);
-
     box-shadow:0 10px 40px rgba(0,0,0,0.25);
 }
-
 .tool-header{
-
-    margin-bottom:35px;
+    margin-bottom:50px;
 }
-
 .tool-header h1{
-
     font-size:54px;
-
     margin-bottom:22px;
 }
-
 .tool-header p{
-
     max-width:920px;
-
     line-height:1.95;
-
     font-size:18px;
-
     color:rgba(255,255,255,0.78);
 }
-
 .drop-zone{
-
     margin-top:30px;
-
     border:2px dashed rgba(255,255,255,0.18);
-
     border-radius:24px;
-
     padding:60px 30px;
-
     text-align:center;
-
     cursor:pointer;
-
     transition:0.3s ease;
-
     color:rgba(255,255,255,0.72);
-
     font-size:17px;
 }
-
 .drop-zone:hover{
-
     border-color:white;
-
     background:rgba(255,255,255,0.03);
 }
-
 .actions{
-
     margin-top:30px;
-
     display:flex;
-
     gap:15px;
-
     align-items:center;
-
     flex-wrap:wrap;
 }
-
 .actions button{
-
     border:none;
-
     padding:14px 24px;
-
     border-radius:14px;
-
     cursor:pointer;
-
     background:white;
-
     color:black;
-
     font-weight:600;
-
     transition:0.25s ease;
     height:52px;
     display:flex;
     align-items:center;
     justify-content:center;
 }
-
 .actions button:hover{
-
     transform:translateY(-2px);
 }
-
 .status-msg{
-
     color:rgba(255,255,255,0.75);
-
     font-size:14px;
 }
-
-/* 🔥 PREVIEW */
-
 .preview{
-
     margin-top:35px;
-
     display:grid;
-
     grid-template-columns:repeat(auto-fill, minmax(180px,1fr));
-
     gap:22px;
 }
-
 .page{
-
     position:relative;
-
     cursor:pointer;
-
     transition:0.25s ease;
 }
-
 .page:hover{
-
     transform:translateY(-4px);
 }
-
 .page canvas{
-
     width:100%;
-
     border-radius:14px;
-
     box-shadow:0 4px 16px rgba(0,0,0,0.25);
 }
-
-/* 🔥 SELECTOR */
-
 .selector{
-
     position:absolute;
-
     top:10px;
-
     right:10px;
-
     width:34px;
-
     height:34px;
-
     border-radius:50%;
-
     background:rgba(0,0,0,0.7);
-
     border:2px solid rgba(255,255,255,0.5);
-
     display:flex;
-
     align-items:center;
-
     justify-content:center;
-
     font-weight:bold;
-
     font-size:18px;
-
     z-index:2;
-
     transition:0.2s ease;
 }
-
 .page.selected .selector{
-
     background:white;
-
     color:black;
-
     border-color:white;
 }
-
 .page.selected{
-
     transform:scale(0.98);
-
     opacity:0.95;
 }
-
 /* =========================
    🔥 RELATED CONTENT
 ========================= */
-
 .related-content{
-
     margin-top:10px;
-
     text-align:center;
 }
-
 .related-content h2{
-
     font-size:30px;
-
     margin-bottom:22px;
 }
-
 .related-grid{
-
     display:flex;
-
     justify-content:center;
-
     gap:18px;
-
     flex-wrap:wrap;
 }
-
 .related-card{
-
     width:340px;
-
     display:block;
-
     padding:24px;
-
     border-radius:18px;
-
     background:rgba(255,255,255,0.04);
-
     border:1px solid rgba(255,255,255,0.06);
-
     text-decoration:none;
-
     transition:0.25s ease;
-
     text-align:left;
 }
-
 .related-card:hover{
-
     transform:translateY(-4px);
-
     background:rgba(255,255,255,0.06);
 }
-
 .related-card h3{
-
     color:white;
-
     margin-bottom:12px;
-
     font-size:20px;
 }
-
 .related-card p{
-
     color:rgba(255,255,255,0.72);
-
     line-height:1.7;
-
     font-size:15px;
 }
 @media(max-width:768px){
-
     .tool-header h1{
-
         font-size:42px;
     }
-
     .tool-header p{
-
         font-size:17px;
     }
-
     .tool-box{
-
         padding:30px;
     }
 }
-
 </style>
-
 </head>
-
 <body>
 
-<!-- 🔥 NAVBAR -->
+<!-- NAVBAR -->
 {% include "components/navbar.html" %}
 
 <main class="tool-content">
 
+    <!-- HEADER + TOOL -->
     <section class="tool-box">
-
         <div class="tool-header">
-
-            <h1>
-                Extraer páginas PDF
-            </h1>
-
+            <h1>Extraer Páginas PDF Online Gratis</h1>
             <p>
-                Selecciona páginas específicas de tus archivos PDF y descarga únicamente las páginas que necesitas rápidamente y sin complicaciones.
+                Extrae solo las páginas que necesitas de tus archivos PDF. Selecciona las páginas específicas, descárgalas individualmente o en un ZIP organizado.
             </p>
-
+            <p style="margin-top:22px;">
+                No requiere registro, todo se procesa directamente en tu navegador y tus archivos se eliminan automáticamente
+                después de la descarga. Máxima privacidad garantizada.
+            </p>
         </div>
 
+        <!-- TOOL -->
         <div id="extract-tool"></div>
+    </section>
 
+    <!-- Cómo funciona -->
+    <section class="tool-box">
+        <h2 style="margin-bottom:25px; font-size:32px;">¿Cómo funciona Extraer Páginas PDF?</h2>
+        <p style="font-size:17.5px; line-height:1.95; color:rgba(255,255,255,0.85);">
+            Sube tu archivo PDF y nuestra herramienta mostrará miniaturas de todas las páginas. Solo haz clic en las páginas que deseas extraer.
+            Puedes seleccionar páginas individuales o rangos completos. Una vez seleccionadas, descárgalas como archivos PDF separados o en un único ZIP.
+            <strong>Todo el procesamiento se realiza en tu navegador</strong> sin subir archivos a servidores externos y sin límites estrictos.
+        </p>
+    </section>
+
+    <!-- Casos de uso -->
+    <section class="tool-box">
+        <h2 style="margin-bottom:25px; font-size:32px;">Casos de uso más comunes</h2>
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:20px; font-size:17px; line-height:2.0; color:rgba(255,255,255,0.85);">
+            <ul style="padding-left:25px;">
+                <li>Extraer capítulos específicos de tesis o libros</li>
+                <li>Separar facturas o contratos de un lote grande</li>
+                <li>Obtener solo las páginas importantes de un expediente</li>
+            </ul>
+            <ul style="padding-left:25px;">
+                <li>Preparar material didáctico o presentaciones</li>
+                <li>Enviar páginas específicas a clientes o profesores</li>
+                <li>Organizar documentos escaneados largos</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Preguntas Frecuentes -->
+    <section class="tool-box">
+        <h2 style="margin-bottom:25px; font-size:32px;">Preguntas Frecuentes</h2>
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(300px, 1fr)); gap:18px;">
+            <details style="margin-bottom:15px;"><summary style="font-size:17px; cursor:pointer; padding:12px 0;">¿Los archivos se guardan en servidores?</summary><p style="padding:12px 0; color:rgba(255,255,255,0.8);">No. Todo se procesa en tu navegador y se elimina automáticamente después de descargar.</p></details>
+
+            <details style="margin-bottom:15px;"><summary style="font-size:17px; cursor:pointer; padding:12px 0;">¿Puedo extraer páginas de varios PDFs?</summary><p style="padding:12px 0; color:rgba(255,255,255,0.8);">Sí, puedes subir varios documentos y extraer páginas de cada uno.</p></details>
+
+            <details style="margin-bottom:15px;"><summary style="font-size:17px; cursor:pointer; padding:12px 0;">¿Puedo descargar las páginas como PDF individual o ZIP?</summary><p style="padding:12px 0; color:rgba(255,255,255,0.8);">Sí, puedes elegir descargar páginas seleccionadas como archivos separados o en un solo ZIP.</p></details>
+
+            <details style="margin-bottom:15px;"><summary style="font-size:17px; cursor:pointer; padding:12px 0;">¿Funciona con PDFs escaneados?</summary><p style="padding:12px 0; color:rgba(255,255,255,0.8);">Sí, siempre que no estén protegidos con contraseña.</p></details>
+
+            <details style="margin-bottom:15px;"><summary style="font-size:17px; cursor:pointer; padding:12px 0;">¿Puedo extraer solo ciertas páginas?</summary><p style="padding:12px 0; color:rgba(255,255,255,0.8);">Exactamente esa es la función principal de esta herramienta.</p></details>
+
+            <details style="margin-bottom:15px;"><summary style="font-size:17px; cursor:pointer; padding:12px 0;">¿Qué hago después de extraer las páginas?</summary><p style="padding:12px 0; color:rgba(255,255,255,0.8);">Puedes <a href="/tools/merge-pdf" style="color:#60a5fa; text-decoration:underline;">unir</a> las páginas extraídas o <a href="/tools/compress-pdf" style="color:#60a5fa; text-decoration:underline;">comprimir</a> para reducir tamaño.</p></details>
+        </div>
+    </section>
+
+    <!-- Consejos útiles -->
+    <section class="tool-box">
+        <h2 style="margin-bottom:25px; font-size:32px;">Consejos útiles</h2>
+        <p style="font-size:17.5px; line-height:1.95; color:rgba(255,255,255,0.85);">
+            Usa esta herramienta cuando solo necesites parte de un documento grande. Después de extraer las páginas, puedes
+            <a href="/tools/order-pdf" style="color:#60a5fa; text-decoration:underline;">ordenarlas</a>,
+            <a href="/tools/merge-pdf" style="color:#60a5fa; text-decoration:underline;">unirlas</a> con otros documentos
+            o <a href="/tools/compress-pdf" style="color:#60a5fa; text-decoration:underline;">comprimir</a> el resultado.
+            También explora nuestras <a href="/plantillas" style="color:#60a5fa; text-decoration:underline;">plantillas gratuitas</a>.
+        </p>
     </section>
 
 </main>
 
-<!-- 🔥 RELATED CONTENT -->
-
+<!-- RELATED CONTENT -->
 <section class="related-content">
-
     <h2>
         Aprende más sobre PDFs
     </h2>
-
     <div class="related-grid">
-
         <a href="/blog/seguridad" class="related-card">
-
-            <h3>
-                Seguridad en archivos PDF
-            </h3>
-
-            <p>
-                Aprende cómo proteger tus documentos PDF y evitar riesgos de privacidad.
-            </p>
-
+            <h3>Seguridad en archivos PDF</h3>
+            <p>Aprende cómo proteger tus documentos PDF y evitar riesgos de privacidad.</p>
         </a>
-
         <a href="/blog/guia" class="related-card">
-
-            <h3>
-                7 cosas que debes saber antes de subir tus PDFs
-            </h3>
-
-            <p>
-                Consejos importantes para optimizar, organizar y compartir PDFs correctamente.
-            </p>
-
+            <h3>7 cosas que debes saber antes de subir tus PDFs</h3>
+            <p>Consejos importantes para optimizar, organizar y compartir PDFs correctamente.</p>
         </a>
-
     </div>
-
 </section>
-<!-- 🔥 FOOTER -->
+
+<!-- FOOTER -->
 {% include "components/footer.html" %}
 
-<!-- PDF JS -->
+<!-- SCRIPTS -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
-
-<!-- TOOL -->
 <script src="{{ url_for('static', filename='tools/extract.js') }}"></script>
-
 <script>
-
-/* =========================
-   🔥 PDF WORKER
-========================= */
-
-pdfjsLib.GlobalWorkerOptions.workerSrc =
-'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
-
-/* =========================
-   🔥 RENDER TOOL
-========================= */
-
+pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
 renderExtract(document.getElementById("extract-tool"));
 
-/* =========================
-   🔥 CLICK DROP ZONE
-========================= */
-
 document.addEventListener("click", function(e){
-
     if(e.target.classList.contains("drop-zone")){
-
         const input = e.target.querySelector("input");
-
-        if(input){
-            input.click();
-        }
+        if(input) input.click();
     }
 });
-
-/* =========================
-   🔥 FIX VISUAL EXTRACT
-========================= */
-
-document.addEventListener("change", function(e){
-
-    if(e.target.id === "extract-file"){
-
-        setTimeout(() => {
-
-            const preview = document.getElementById("preview");
-
-            const dropZone = document.querySelector(".drop-zone");
-
-            if(preview && preview.children.length > 0){
-
-                dropZone.style.display = "none";
-            }
-
-        }, 500);
-    }
-});
-
 </script>
-
 </body>
 </html>

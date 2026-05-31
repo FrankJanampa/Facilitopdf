@@ -2,30 +2,23 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>Plantillas de documentos gratis | FacilitoPDF</title>
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Plantillas de Documentos Gratis - Word y Excel | FacilitoPDF</title>
+<meta name="description" content="Descarga gratis plantillas profesionales de documentos en Word y Excel. Currículum, cartas, contratos, solicitudes y más.">
 <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
-
 <!-- ADSENSE -->
 <script async src="https://pagead2.googlesyndication.com/pagead/js?client=ca-pub-4225426395301421"
 crossorigin="anonymous"></script>
-
 <!-- GOOGLE ANALYTICS -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-52Z4MDXY08"></script>
-
 <script>
 window.dataLayer = window.dataLayer || [];
-
 function gtag(){
     dataLayer.push(arguments);
 }
-
 gtag('js', new Date());
-
 gtag('config', 'G-52Z4MDXY08');
 </script>
-
-
 <style>
 body {
     background:
@@ -34,59 +27,171 @@ body {
     linear-gradient(to bottom, #1a1a1a, #0a0a0a);
     color: white;
 }
+/* ==================== PLANTILLAS ==================== */
+.bloque-plantillas {
+    padding: 80px 20px 60px;
+    text-align: center;
+}
+.bloque-plantillas h1 {
+    font-size: 42px;
+    margin-bottom: 20px;
+}
+.intro-plantillas {
+    max-width: 850px;
+    margin: 0 auto 60px;
+    font-size: 18px;
+    line-height: 1.75;
+    opacity: 0.9;
+}
+/* Grid de plantillas */
+.plantillas-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1250px;
+    margin: 0 auto;
+}
+.plantilla-card {
+    background: rgba(255,255,255,0.04);
+    border-radius: 18px;
+    overflow: hidden;
+    transition: 0.3s ease;
+    text-decoration: none;
+    color: white;
+    border: 1px solid rgba(255,255,255,0.08);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.plantilla-card:hover {
+    transform: translateY(-10px);
+    background: rgba(255,255,255,0.07);
+}
+.plantilla-card img {
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+    padding: 12px;
+    box-sizing: border-box;
+}
+.plantilla-card h3 {
+    padding: 18px 20px 8px;
+    font-size: 20px;
+    margin: 0;
+}
+.plantilla-card p {
+    padding: 0 20px 20px;
+    opacity: 0.85;
+    font-size: 15.5px;
+    line-height: 1.6;
+    flex-grow: 1;
+}
+.plantilla-card span {
+    display: block;
+    padding: 0 20px 25px;
+    color: #60a5fa;
+    font-weight: 500;
+}
+/* Secciones adicionales */
+.contenido-extra {
+    max-width: 1100px;
+    margin: 80px auto;
+    padding: 0 20px;
+}
+.contenido-extra h2 {
+    text-align: center;
+    margin-bottom: 35px;
+    font-size: 32px;
+}
+.contenido-extra .bloque {
+    background: rgba(255,255,255,0.04);
+    border-radius: 16px;
+    padding: 35px;
+    margin-bottom: 40px;
+}
+.legal-plantillas {
+    max-width: 900px;
+    margin: 60px auto;
+    padding: 30px;
+    background: rgba(255,255,255,0.03);
+    border-radius: 12px;
+    font-size: 14.5px;
+    line-height: 1.65;
+    text-align: center;
+}
 </style>
-
 </head>
-
 <body>
 
+<!-- NAVBAR -->
 {% include "components/navbar.html" %}
 
 <section class="bloque-plantillas">
-
-    <h1>Plantillas de documentos gratis</h1>
-
+    <h1>Plantillas de Documentos Gratis</h1>
     <p class="intro-plantillas">
-
-        Descarga formatos profesionales listos para editar, imprimir y usar en minutos.
-        Modifica cada documento fácilmente en Word o Excel y personalízalo según lo que necesites.
-
-        Todos nuestros formatos están diseñados para verse limpios, corporativos y seguros al compartirlos.
-
-        Ahorra tiempo, evita errores y trabaja tus documentos de forma mucho más rápida y profesional.
-
+        Descarga más de 30 plantillas profesionales completamente gratis. 
+        Currículums, cartas formales, contratos, solicitudes, facturas, constancias y muchos formatos más. 
+        Todas están diseñadas con un aspecto moderno y profesional para que solo tengas que personalizarlas según tu necesidad.
     </p>
 
     <div class="plantillas-grid">
-
         {% for p in plantillas %}
         <a href="/plantillas/{{ p.slug }}" class="plantilla-card">
-
             <img src="{{ url_for('static', filename='previews/' + p.preview) }}" alt="{{ p.titulo }}">
-
             <h3>{{ p.titulo }}</h3>
-
             <p>{{ p.descripcion }}</p>
-
-            <span>Ver plantilla →</span>
+            <span>Descargar plantilla →</span>
         </a>
         {% endfor %}
+    </div>
+</section>
 
+<!-- ==================== CONTENIDO ADICIONAL ==================== -->
+<section class="contenido-extra">
+
+    <div class="bloque">
+        <h2>¿Cómo usar nuestras plantillas?</h2>
+        <ol style="text-align:left; font-size:17px; line-height:2.0; max-width:800px; margin:0 auto;">
+            <li>Elige la plantilla que necesitas y haz clic en "Descargar plantilla".</li>
+            <li>Abre el archivo en Microsoft Word, Google Docs o cualquier editor compatible.</li>
+            <li>Reemplaza los textos en gris o entre corchetes con tu información personal.</li>
+            <li>Personaliza colores, fuentes, agrega tu foto o logo si lo deseas.</li>
+            <li>Revisa el documento y guárdalo listo para usar.</li>
+        </ol>
+    </div>
+
+    <div class="bloque">
+        <h2>¿Por qué usar nuestras plantillas?</h2>
+        <ul style="text-align:left; font-size:17px; line-height:1.9; max-width:800px; margin:0 auto;">
+            <li>Ahorras horas de diseño y maquetación desde cero</li>
+            <li>Tienen un diseño actual y profesional</li>
+            <li>Están optimizadas para diferentes situaciones laborales y académicas</li>
+            <li>Son 100% editables y gratuitas</li>
+            <li>Puedes combinarlas fácilmente con nuestras herramientas PDF</li>
+        </ul>
+    </div>
+
+    <div class="bloque">
+        <h2>¿Qué puedes hacer después de descargar?</h2>
+        <p style="font-size:17.5px; line-height:1.8; text-align:center;">
+            Una vez que hayas completado tu documento, regresa a FacilitoPDF y utiliza nuestras herramientas gratuitas para:
+            <strong><a href="/tools/compress-pdf" style="color:#60a5fa;">Comprimir</a></strong>,
+            <strong><a href="/tools/merge-pdf" style="color:#60a5fa;">Unir</a></strong>,
+            <strong><a href="/tools/sign-pdf" style="color:#60a5fa;">Firmar</a></strong>,
+            <strong><a href="/tools/split-pdf" style="color:#60a5fa;">Dividir</a></strong> o
+            <strong><a href="/tools/order-pdf" style="color:#60a5fa;">Ordenar</a></strong> tus documentos.
+        </p>
     </div>
 
 </section>
 
 <div class="legal-plantillas">
-
-    Los formatos y plantillas disponibles en FacilitoPDF
-    tienen únicamente fines referenciales y educativos.
-
-    Cada usuario es responsable de revisar, modificar y validar el contenido antes de utilizarlo oficialmente.
-
+    Los formatos y plantillas disponibles en FacilitoPDF tienen únicamente fines referenciales y educativos. 
+    Cada usuario es responsable de revisar, modificar y validar el contenido antes de utilizarlo oficialmente. 
     FacilitoPDF no se responsabiliza por el uso, interpretación o consecuencias derivadas del uso de estos documentos.
-
 </div>
 
+<!-- FOOTER -->
 {% include "components/footer.html" %}
 
 </body>
